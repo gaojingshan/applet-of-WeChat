@@ -1,0 +1,9 @@
+<view>
+	<view class="row">
+		<input class="kuang" value="{{content}}" bindinput="changeContent"></input>
+		<button class="btn" bindtap="insert">插入</button>
+	</view>
+	<view class="t" wx:for="{{arr}}" wx:key="index">
+		{{item}}
+	</view>
+</view>
