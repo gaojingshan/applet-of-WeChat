@@ -1,0 +1,15 @@
+.box{
+    width: 200px;
+    height: 200px;
+    margin: 10px auto;
+}
+.row{
+    display: flex;
+}
+.row .tiao{
+    flex: 4;
+}
+.row input{
+    flex: 1;
+    border: 1px solid #eee;
+}

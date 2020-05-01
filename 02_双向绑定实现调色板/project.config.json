@@ -18,7 +18,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.11.0",
 	"appid": "wx4f35b7c886a891eb",
-	"projectname": "applet-of-WeChat",
+	"projectname": "wechat",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
