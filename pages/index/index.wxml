@@ -1,0 +1,7 @@
+<view class="box">
+	{{a}}
+</view>
+<button bindtap="add" disabled="{{a>=20}}">按我加1</button>
+<button bindtap="minus" disabled="{{a<=10}}">按我减1</button>
+
+<view class="box2" style="width:{{a*5}}px"></view>

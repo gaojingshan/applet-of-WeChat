@@ -1,0 +1,13 @@
+.box {
+    font-size: 24px;
+    text-align: center;
+}
+
+button{
+    margin: 10px 0;
+}
+
+.box2{
+    height: 100px;
+    background-color: red;
+}
