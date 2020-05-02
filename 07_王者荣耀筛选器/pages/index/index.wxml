@@ -6,6 +6,6 @@
 	<view class="yx" wx:for="{{arr}}" wx:key="index">
 		<image src="http://www.aiqianduan.com:56506/images/wzry/{{item.pic}}.jpg"></image>
 		<view>{{item.cname}}</view>
-		<view class="mask" wx-if="{{nowType != item.hero_type}}"></view>
+		<view class="mask" wx:if="{{nowType != item.hero_type}}"></view>
 	</view>
 </view>
