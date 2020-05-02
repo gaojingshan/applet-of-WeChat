@@ -1,0 +1,12 @@
+function mianji(r) {
+    return (3.14 * r * r).toFixed(2)
+}
+
+function zhouchang(r) {
+    return 2 * r * 3.14
+}
+// 暴露
+module.exports = {
+    mianji: mianji,
+    zhouchang: zhouchang
+}

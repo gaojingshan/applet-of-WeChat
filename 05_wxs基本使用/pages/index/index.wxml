@@ -1,0 +1,7 @@
+<view>
+	<wxs src="./tool.wxs" module="tool"></wxs>
+	<view>
+		半径是{{a}}，面积是{{tool.mianji(a)}}
+		<button bindtap="add">按我加1</button>
+	</view>
+</view>
