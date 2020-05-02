@@ -1,0 +1,15 @@
+<view>
+	<wxs src="./tool.wxs" module="tool"></wxs>
+	<view class="redbox">
+		<view class="ball {{tool.checkArr(nowred,index+1)?'cur':''}}" wx:for="{{33}}" wx:key="index" bindtap="handleClickRed" data-n="{{index+1}}">
+			{{index+1}}
+		</view>
+		<button bindtap="sjRed">随机红球</button>
+	</view>
+	<view class="bluebox">
+		<view class="ball {{tool.checkBlue(nowblue,index+1)?'cur':''}}" wx:for="{{16}}" wx:key="index" bindtap="handleClickBlue" data-n="{{index+1}}">
+			{{index+1}}
+		</view>
+		<button bindtap="sjBlue">随机蓝球</button>
+	</view>
+</view>

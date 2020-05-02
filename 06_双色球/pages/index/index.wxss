@@ -1,0 +1,24 @@
+.redbox .ball,
+.bluebox .ball {
+    float: left;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 30px;
+    margin: 10px;
+    margin-bottom: 0px;
+    background: -webkit-radial-gradient(top, rgb(153, 153, 153), rgb(204, 204, 204));
+}
+.bluebox .ball{
+    color: white;
+}
+
+.redbox .ball.cur {
+    background: -webkit-radial-gradient(top, rgb(255, 0, 0), rgb(255, 115, 0));
+}
+
+.bluebox .ball.cur {
+    background: -webkit-radial-gradient(top, rgb(55, 0, 255), rgb(0, 195, 255));
+}

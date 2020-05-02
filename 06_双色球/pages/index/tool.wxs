@@ -1,0 +1,13 @@
+function checkArr(arr, n) {
+    // 注意，wxs是阉割版的JS，它不能调用includes方法。
+    // 能调用indexOf方法
+    return arr.indexOf(n) != -1
+}
+
+function checkBlue(blue, n) {
+    return blue == n
+}
+module.exports = {
+    checkArr: checkArr,
+    checkBlue: checkBlue
+}
