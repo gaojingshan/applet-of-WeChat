@@ -1,0 +1,37 @@
+.t{
+    border: 1px solid #ccc;
+    margin: 10px;
+    font-size: 20px;
+    line-height: 30px;
+    position: relative;
+}
+.t .btn{
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    background: -webkit-linear-gradient(top, red, rgb(233, 7, 7));
+    width: 80px;
+    height: 30px;
+    text-align: center;
+    font-size: 18px;
+    line-height: 30px;
+    color: white;
+    border-radius: 10px;
+}
+.row{
+    display: flex;
+    position: relative;
+}
+
+.row .kuang{
+    flex: 5;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin: 8px;
+    padding-left: 10px;
+    font-size: 18px;
+    line-height: 30px;
+}
+.row .btn{
+    flex: 1;
+}
