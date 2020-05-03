@@ -1,0 +1,8 @@
+function arr_color(arr) {
+    // console.log(arr.item.color);
+    
+
+}
+module.exports = {
+    arr_color: arr_color
+}
