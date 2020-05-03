@@ -1,0 +1,110 @@
+<view>
+	<wxs src="./tool.wxs" module="tool"></wxs>
+	<!-- 头部 -->
+	<view class="top">
+		<view class="top_l">
+			<!-- 体质指数（BMI）=体重（kg）÷身高^2（m） -->
+			<view class="bmi">身体质量指数
+				<text bindtap="bindText">i</text>
+				<!-- <icon type="info" size="20" color="#1AAC19" /> -->
+			</view>
+			<view class="txt">
+				{{tool.bmi(valueWeight, valueHeight)}}
+				<text wx:if="{{tool.bmi(valueWeight, valueHeight) != 0}}">{{tool.bmiJige(tool.bmi(valueWeight, valueHeight), indexSex)}}</text>
+			</view>
+		</view>
+		<view class="top_r">
+			<view>体测成绩</view>
+			<view class="txt">
+				{{tool.score(valueFhl, valueZlqq, valueLdty, valueRun50, valueRun, valueYtxs)}}
+				<text wx:if="{{tool.score(valueFhl, valueZlqq, valueLdty, valueRun50, valueRun, valueYtxs) != 0}}">{{tool.scrollJige(tool.score(valueFhl, valueZlqq, valueLdty, valueRun50, valueRun, valueYtxs))}}</text>
+			</view>
+		</view>
+	</view>
+	<!-- 测量信息 -->
+	<view class="cl">
+		<!-- 性别 -->
+		<view class="sex pick cl_all">
+			<view class="view1">性别</view>
+			<view class="view2">
+				<picker bindchange="bindPickerChangeSex" value="{{indexSex}}" range="{{arraySex}}">
+					{{arraySex[indexSex]}}<text>></text>
+				</picker>
+			</view>
+		</view>
+		<!-- 年级 -->
+		<view class="nj pick cl_all">
+			<view class="view1">年级</view>
+			<view class="view2">
+				<picker bindchange="bindPickerChangeNj" value="{{indexNj}}" range="{{arrayNj}}">
+					{{arrayNj[indexNj]}}<text>></text>
+				</picker>
+			</view>
+		</view>
+		<!-- 体重 -->
+		<view class="weight input cl_all">
+			<view class="view1">体重</view>
+			<view class="view2">
+				<input value="{{valueWeight}}" bindinput="bindInputWeight" placeholder="如：60"></input>
+				<text>千克</text>
+			</view>
+		</view>
+		<!-- 身高 -->
+		<view class="height input cl_all">
+			<view class="view1">身高</view>
+			<view class="view2">
+				<input value="{{valueHeight}}" bindinput="bindInputHeight" placeholder="如：175"></input>
+				<text>厘米</text>
+			</view>
+		</view>
+		<!-- 肺活量 -->
+		<view class="fhl input cl_all">
+			<view class="view1">肺活量</view>
+			<view class="view2">
+				<input value="{{valueFhl}}" bindinput="bindInputFhl" placeholder="如：3000"></input>
+				<text>毫升</text>
+			</view>
+		</view>
+		<!-- 坐立前屈 -->
+		<view class="zlqq input cl_all">
+			<view class="view1">坐立前屈</view>
+			<view class="view2">
+				<input value="{{valueZlqq}}" bindinput="bindInputZlqq" placeholder="如：15"></input>
+				<text>厘米</text>
+			</view>
+		</view>
+		<!-- 立定跳远 -->
+		<view class="ldty input cl_all">
+			<view class="view1">立定跳远</view>
+			<view class="view2">
+				<input value="{{valueLdty}}" bindinput="bindInputLdty" placeholder="如：2.2"></input>
+				<text>米</text>
+			</view>
+		</view>
+		<!-- 50米跑 -->
+		<view class="run50 input cl_all">
+			<view class="view1">50米跑</view>
+			<view class="view2">
+				<input value="{{valueRun50}}" bindinput="bindInputRun50" placeholder="如：8.2"></input>
+				<text>秒</text>
+			</view>
+		</view>
+		<!-- 1000米跑或800米跑 -->
+		<view class="run input cl_all">
+			<view class="view1">{{indexSex==0 ? '1000米跑':'800米跑'}}</view>
+			<view class="view2">
+				<input value="{{valueRun}}" bindinput="bindInputRun" placeholder="如：250"></input>
+				<text>秒</text>
+			</view>
+		</view>
+		<!-- 引体向上或仰卧起坐 -->
+		<view class="ytxs input cl_all">
+			<view class="view1">{{indexSex==0 ? '引体向上':'仰卧起坐'}}</view>
+			<view class="view2">
+				<input value="{{valueYtxs}}" bindinput="bindInputYtxs" placeholder="如：6"></input>
+				<text>个</text>
+			</view>
+		</view>
+	</view>
+
+</view>
