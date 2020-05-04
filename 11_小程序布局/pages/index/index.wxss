@@ -1,0 +1,9 @@
+.topbar{
+    width: 100%;
+    height: 120px;
+    background: -webkit-linear-gradient(top,rgb(252, 46, 122),rgb(255, 83, 147));
+}
+.carousel .bottomcircle{
+    width: 750rpx;
+   height: 261.2rpx;
+}

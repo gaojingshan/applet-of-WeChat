@@ -1,0 +1,45 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/che/che",
+    "pages/wo/wo",
+    "pages/fenlei/fenlei"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "white",
+    "navigationStyle": "custom"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath":"/images/heibai/icon1.png",
+        "selectedIconPath":"/images/icon1.png"
+      },
+      {
+        "pagePath": "pages/che/che",
+        "text": "车",
+        "iconPath":"/images/heibai/icon2.png",
+        "selectedIconPath":"/images/icon2.png"
+      },
+      {
+        "pagePath": "pages/wo/wo",
+        "text": "我",
+        "iconPath":"/images/heibai/icon3.png",
+        "selectedIconPath":"/images/icon3.png"
+      },
+      {
+        "pagePath": "pages/fenlei/fenlei",
+        "text": "分类",
+        "iconPath":"/images/heibai/icon4.png",
+        "selectedIconPath":"/images/icon4.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

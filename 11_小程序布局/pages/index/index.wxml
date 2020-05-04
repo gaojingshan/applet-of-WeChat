@@ -1,0 +1,11 @@
+<view>
+	<view class="topbar"></view>
+	<!-- 纵向的视图滚动 -->
+	<scroll-view scroll-y="true" style="height: {{windowHeight-120}}px;">
+		<view class="carousel">
+			<image class="bottomcircle" src="/images/ring.png"></image>
+			<view>1123</view>
+			<view>123</view>
+		</view>
+	</scroll-view>
+</view>
