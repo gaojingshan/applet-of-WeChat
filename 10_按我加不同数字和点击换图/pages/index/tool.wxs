@@ -1,0 +1,11 @@
+function tupian(m) {
+    if (m >= 5) {
+        return 0
+    }else{
+        return m
+    }
+    
+}
+module.exports = {
+    tupian: tupian
+}

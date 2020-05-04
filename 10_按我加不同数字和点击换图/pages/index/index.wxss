@@ -1,0 +1,14 @@
+.text {
+    font-size: 30px;
+}
+
+button {
+    margin: 10px auto;
+}
+.xiaotu{
+    width: 60px;
+    height: 60px;
+}
+.xiaotu.cur{
+    border: 2px solid red;
+}

@@ -1,0 +1,19 @@
+<view>
+	<wxs src="./tool.wxs" module="tool"></wxs>
+	<view>
+		<view class="text">{{a}}</view>
+		<button bindtap="add" data-n="1">按我加1</button>
+		<button bindtap="add" data-n="2">按我加2</button>
+		<button bindtap="add" data-n="3">按我加3</button>
+	</view>
+
+	<view>
+		<image mode="aspectFit" src="/images/ym{{m}}.jpg"></image>
+		<button bindtap="prev" disabled="{{m==1}}">上一张</button>
+		<button bindtap="next" disabled="{{m==5}}">下一张</button>
+		<!-- <button bindtap="btn" data-n="{{tool.tupian(m)}}"></button>  -->
+	</view>
+	<view>
+		<image class="xiaotu {{item == m ? 'cur' : ''}}" wx:for="{{[1,2,3,4,5]}}" wx:key="index" src="/images/ym{{item}}.jpg" bindtouchstart="changem" data-index="{{item}}"></image>
+	</view>
+</view>
