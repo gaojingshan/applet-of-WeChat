@@ -1,0 +1,8 @@
+<view>
+	<!-- 引用外置模板 -->
+	<import src="temp.wxml" />
+
+	<!-- 使用模板 -->
+	<template is="mytemp1" data="{{...mydata, c : 55}}"></template>
+	<template is="mytemp1" data="{{...mydata, c : 67}}"></template>
+</view>
