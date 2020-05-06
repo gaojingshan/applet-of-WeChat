@@ -1,0 +1,6 @@
+<view>
+	<!-- 父组件 -->
+	<my-test info="hello" m="{{m}}" bind:addM="addM"></my-test>
+	<my-test info="嗨" m="{{m}}" bind:addM="addM"></my-test>
+	<my-test info="你好" m="{{m}}" bind:addM="addM"></my-test>
+</view>

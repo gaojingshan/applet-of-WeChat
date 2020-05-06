@@ -1,6 +1,92 @@
-<view>
-	<!-- 父组件 -->
-	<my-test info="hello"></my-test>
-	<my-test info="嗨"></my-test>
-	<my-test info="你好"></my-test>
+<view class="page">
+	<view class="sidebar" style="height:{{windowHeight}}px"></view>
+	<view class="maincontent" style="height:{{windowHeight}}px">
+		<scroll-view scroll-y="true" style="height:{{windowHeight}}px">
+        <view>hello</view>
+        <view>hellohellohellohellohellohello</view>
+        <view>hello</view>
+        <view>hellohellohellohellohellohello</view>
+        <view>hello</view>
+        <view>hellohellohellohellohellohello</view>
+        <view>hello</view>
+        <view>hellohellohellohellohellohello</view>
+        <view>hello</view>
+        <view>hellohellohellohellohellohello</view>
+        <view>hello</view>
+        <view>hellohellohellohellohellohello</view>
+        <view>hello</view>
+        <view>hellohellohellohellohellohello</view>
+        <view>hello</view>
+        <view>hellohellohellohellohellohello</view>
+        <view>hello</view>
+        <view>hellohellohellohellohellohello</view>
+        <view>hello</view>
+        <view>hellohellohellohellohellohello</view>
+        <view>hello</view>
+        <view>hellohellohellohellohellohello</view><view>hello</view>
+        <view>hellohellohellohellohellohello</view>
+        <view>hello</view>
+        <view>hellohellohellohellohellohello</view>
+        <view>hello</view>
+        <view>hellohellohellohellohellohello</view>
+        <view>hello</view>
+        <view>hellohellohellohellohellohello</view>
+        <view>hello</view>
+        <view>hellohellohellohellohellohello</view>
+        <view>hello</view>
+        <view>hellohellohellohellohellohello</view>
+        <view>hello</view>
+        <view>hellohellohellohellohellohello</view>
+        <view>hello</view>
+        <view>hellohellohellohellohellohello</view>
+        <view>hello</view>
+        <view>hellohellohellohellohellohello</view>
+        <view>hello</view>
+        <view>hellohellohellohellohellohello</view>
+        <view>hello</view>
+        <view>hellohellohellohellohellohello</view><view>hello</view>
+        <view>hellohellohellohellohellohello</view>
+        <view>hello</view>
+        <view>hellohellohellohellohellohello</view>
+        <view>hello</view>
+        <view>hellohellohellohellohellohello</view>
+        <view>hello</view>
+        <view>hellohellohellohellohellohello</view>
+        <view>hello</view>
+        <view>hellohellohellohellohellohello</view>
+        <view>hello</view>
+        <view>hellohellohellohellohellohello</view>
+        <view>hello</view>
+        <view>hellohellohellohellohellohello</view>
+        <view>hello</view>
+        <view>hellohellohellohellohellohello</view>
+        <view>hello</view>
+        <view>hellohellohellohellohellohello</view>
+        <view>hello</view>
+        <view>hellohellohellohellohellohello</view>
+        <view>hello</view>
+        <view>hellohellohellohellohellohello</view><view>hello</view>
+        <view>hellohellohellohellohellohello</view>
+        <view>hello</view>
+        <view>hellohellohellohellohellohello</view>
+        <view>hello</view>
+        <view>hellohellohellohellohellohello</view>
+        <view>hello</view>
+        <view>hellohellohellohellohellohello</view>
+        <view>hello</view>
+        <view>hellohellohellohellohellohello</view>
+        <view>hello</view>
+        <view>hellohellohellohellohellohello</view>
+        <view>hello</view>
+        <view>hellohellohellohellohellohello</view>
+        <view>hello</view>
+        <view>hellohellohellohellohellohello</view>
+        <view>hello</view>
+        <view>hellohellohellohellohellohello</view>
+        <view>hello</view>
+        <view>hellohellohellohellohellohello</view>
+        <view>hello</view>
+        <view>hellohellohellohellohellohello</view>
+        </scroll-view>
+	</view>
 </view>
