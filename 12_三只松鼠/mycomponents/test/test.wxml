@@ -1,0 +1,9 @@
+<view>
+	我是test组件
+	<view>{{a}}</view>
+	<view>{{b}}</view>
+	<view>{{c}}</view>
+    <!-- 父组件向子组件通信 -->
+	<view>我收到的info是{{info}}</view>
+	<button bindtap="addA">按我a加1</button>
+</view>
