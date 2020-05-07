@@ -2,3 +2,31 @@
     height: 60px;
     border-bottom: 1px solid #333;
 }
+
+.sx_btn {
+    float: right;
+    margin: 4px;
+}
+
+.carpic {
+    width: 160px;
+    height: 100px;
+}
+
+.car_grid {
+    width: 96%;
+    padding: 10px;
+    display: flex;
+}
+
+.car_grid .pic_box {
+    width: 160px;
+    height: 100px;
+}
+
+.car_grid .word_box {
+    flex: 1;
+    padding-left: 10px;
+    font-size: 14px;
+    color: #333;
+}

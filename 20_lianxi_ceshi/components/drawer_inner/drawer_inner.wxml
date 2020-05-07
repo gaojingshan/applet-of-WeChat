@@ -1,0 +1,22 @@
+<view>
+	<scroll-view scroll-y="true" style="height:{{windowHeight-51}}px">
+        <view class="sx_grid">
+            <view class="title">品牌</view>
+            <view class="content">
+                <view class="btn">宝马</view>
+                <view class="btn">奥迪</view>
+                <view class="btn">本田</view>
+                <view class="btn">丰田</view>
+                <view class="btn">奔驰</view>
+                <view class="btn">标志</view>
+                <view class="btn">大众</view>
+                <view class="btn">路虎</view>
+                <view class="btn all">查看全部</view>
+            </view>
+        </view>
+	</scroll-view>
+	<view class="bottom_box">
+		<view class="btn1">取消</view>
+		<view class="btn2">确定</view>
+	</view>
+</view>

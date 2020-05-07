@@ -1,111 +1,29 @@
 <view>
-	<view class="topbox"></view>
-	<scroll-view scroll-y="true" style="height:{{windowHeight-61}}px">
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view><view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view><view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view><view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view><view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
-        <view>xiuxi</view>
+	<view class="topbox">
+		<van-button class="sx_btn" size="small" bind:click="ShowDrawer">筛选</van-button>
+		<van-popup show="{{ isShowDrawer }}" bind:close="onClose" position="right">
+			<view style="height: {{windowHeight}}px;width:290px">
+                <drawer_inner></drawer_inner>
+            </view>
+		</van-popup>
+	</view>
+	<!-- 定义汽车小格的模板 -->
+	<template name="car_grid">
+		<view class="car_grid">
+			<view class="pic_box">
+				<image class="carpic" src="http://aiqianduan.com:7897/images/carimages_small/{{item.id}}/view/{{item.img}}"></image>
+			</view>
+			<view class="word_box">
+				<view>【id】{{item.id}}</view>
+				<view>【品牌】{{item.brand}}</view>
+				<view>【颜色】{{item.color}}</view>
+				<view>【价格】{{item.price}}</view>
+				<view>【排放】{{item.exhaust}}</view>
+			</view>
+		</view>
+	</template>
+	<scroll-view scroll-y="true" style="height:{{windowHeight-61}}px" bindscrolltolower="lowerHandler" lower-threshold="{{140}}">
+		<template is="car_grid" wx:for="{{results}}" wx:key="id" data="{{item:item}}"></template>
+		<view style="text-align:center">到底了，没有更多了</view>
 	</scroll-view>
 </view>
