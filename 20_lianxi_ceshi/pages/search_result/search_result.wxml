@@ -3,7 +3,7 @@
 		<van-button class="sx_btn" size="small" bind:click="ShowDrawer">筛选</van-button>
 		<van-popup show="{{ isShowDrawer }}" bind:close="onClose" position="right">
 			<view style="height: {{windowHeight}}px;width:290px">
-                <drawer_inner></drawer_inner>
+                <drawer_inner bind:ok="draw_inner_han"></drawer_inner>
             </view>
 		</van-popup>
 	</view>

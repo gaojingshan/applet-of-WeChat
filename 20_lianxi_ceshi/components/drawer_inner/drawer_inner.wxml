@@ -1,22 +1,30 @@
 <view>
-	<scroll-view scroll-y="true" style="height:{{windowHeight-51}}px">
-        <view class="sx_grid">
-            <view class="title">品牌</view>
-            <view class="content">
-                <view class="btn">宝马</view>
-                <view class="btn">奥迪</view>
-                <view class="btn">本田</view>
-                <view class="btn">丰田</view>
-                <view class="btn">奔驰</view>
-                <view class="btn">标志</view>
-                <view class="btn">大众</view>
-                <view class="btn">路虎</view>
-                <view class="btn all">查看全部</view>
-            </view>
-        </view>
-	</scroll-view>
-	<view class="bottom_box">
-		<view class="btn1">取消</view>
-		<view class="btn2">确定</view>
+	<view wx:if="{{nowshow == 'main'}}">
+		<scroll-view scroll-y="true" style="height:{{windowHeight-51}}px">
+			<view class="sx_grid">
+				<view class="title" style="overflow:hidden">
+					<view style="float:left">品牌</view>
+					<view style="float:right;font-size:13px">当前：{{brand}}</view>
+				</view>
+				<view class="content">
+					<view bindtap="pphan" data-brand="宝马" class="btn {{'宝马' == brand ? 'cur' : ''}}">宝马</view>
+					<view bindtap="pphan" data-brand="奥迪" class="btn {{'奥迪' == brand ? 'cur' : ''}}">奥迪</view>
+					<view bindtap="pphan" data-brand="本田" class="btn {{'本田' == brand ? 'cur' : ''}}">本田</view>
+					<view bindtap="pphan" data-brand="丰田" class="btn {{'丰田' == brand ? 'cur' : ''}}">丰田</view>
+					<view bindtap="pphan" data-brand="奔驰" class="btn {{'奔驰' == brand ? 'cur' : ''}}">奔驰</view>
+					<view bindtap="pphan" data-brand="标志" class="btn {{'标志' == brand ? 'cur' : ''}}">标志</view>
+					<view bindtap="pphan" data-brand="大众" class="btn {{'大众' == brand ? 'cur' : ''}}">大众</view>
+					<view bindtap="pphan" data-brand="路虎" class="btn {{'路虎' == brand ? 'cur' : ''}}">路虎</view>
+					<view class="btn all" bindtap="showallbrand">查看全部</view>
+				</view>
+			</view>
+		</scroll-view>
+		<view class="bottom_box">
+			<view class="btn1">取消</view>
+			<view class="btn2" bindtap="okHan">确定</view>
+		</view>
 	</view>
+
+	<!-- 全部品牌组件 -->
+	<all_brand wx:if="{{nowshow == 'allbrand'}}" bind:ok="all_brand_okHan"></all_brand>
 </view>

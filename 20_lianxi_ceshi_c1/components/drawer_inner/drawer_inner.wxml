@@ -1,3 +1,22 @@
-<view>
-    <view class="pinpai">品牌</view>
+<view class="page">
+	<scroll-view scroll-y="true" style="height:{{windowHeight-51}}px">
+		<view class="pinpai">品牌</view>
+		<view class="box">
+			<view class="brand">宝马</view>
+			<view class="brand">奥迪</view>
+			<view class="brand">本田</view>
+			<view class="brand">丰田</view>
+			<view class="brand">奔驰</view>
+			<view class="brand">标志</view>
+			<view class="brand">大众</view>
+			<view class="brand">路虎</view>
+			<view class="brand allbrand">查看全部</view>
+		</view>
+	</scroll-view>
+
+	<view class="bottom">
+		<view class="bottom_left">取消</view>
+		<view class="bottom_right">确定</view>
+	</view>
+
 </view>

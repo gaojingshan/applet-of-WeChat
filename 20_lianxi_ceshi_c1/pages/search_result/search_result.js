@@ -5,7 +5,7 @@ Page({
     data: {
         windowHeight: 0,
         results: [],
-        show: false
+        show: true
     },
     onReady() {
         wx.getSystemInfo({
@@ -29,13 +29,14 @@ Page({
     },
     scrolltolower() {
         page++;
+        wx.showLoading({
+            title: '加载中'
+        })
         // Ajax
         wx.request({
             'url': 'http://www.aiqianduan.com:7897/cars?page=' + page,
             success: (data) => {
-                wx.showLoading({
-                    title: '加载中'
-                })
+
                 this.setData({
                     results: [...this.data.results, ...data.data.results]
                 })

@@ -1,2 +1,19 @@
-<!--components/all_brand/all_brand.wxml-->
-<text>components/all_brand/all_brand.wxml</text>
+<view>
+	<scroll-view scroll-y="true" style="height:{{windowHeight-51}}px">
+		<van-index-bar index-list="{{all_zimu}}">
+			<view wx:for="{{all_zimu}}" wx:key="index" wx:for-item="zimu">
+				<van-index-anchor index="{{zimu}}" />
+				<van-cell title-class="{{nowChoose == pinpai ? 'cur' : ''}}" wx:for="{{allbs_array[zimu]}}" wx:key="index" wx:for-item="pinpai" title="{{pinpai}}" bind:click="clickcell" data-pinpai="{{pinpai}}" />
+
+			</view>
+
+
+
+
+		</van-index-bar>
+	</scroll-view>
+	<view class="bottom_box">
+		<view class="btn1">取消</view>
+		<view class="btn2" bindtap="okHan">确定</view>
+	</view>
+</view>

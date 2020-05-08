@@ -34,6 +34,9 @@
     border: 1px solid #eee;
     background: white;
 }
+.sx_grid .content .btn.cur{
+    background-color: yellow;
+}
 
 .bottom_box {
     width: 100%;
