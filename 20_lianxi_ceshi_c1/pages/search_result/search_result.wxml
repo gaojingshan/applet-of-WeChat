@@ -1,0 +1,33 @@
+<view>
+	<view class="top">
+		<view class="sx">
+			<van-button size="small" bind:click="showPopup">筛选</van-button>
+		</view>
+		<van-popup show="{{ show }}" bind:close="onClose" position="right">
+			<view class="nr" style="height:{{windowHeight}}px">
+                <drawer_inner></drawer_inner>
+            </view>
+		</van-popup>
+
+
+
+	</view>
+	<scroll-view scroll-y="true" style="height:{{windowHeight-71}}px" bindscrolltolower="scrolltolower" lower-threshold="140">
+		<template name="the_temp">
+			<view class="the_temp">
+				<view class="pic_box">
+					<image src="http://aiqianduan.com:7897/images/carimages_small/{{item.id}}/view/{{item.img}}"></image>
+				</view>
+				<view class="content_box">
+					<view class="wz">【id】{{item.id}}</view>
+					<view class="wz">【品牌】{{item.brand}}</view>
+					<view class="wz">【颜色】{{item.color}}</view>
+					<view class="wz">【价格】{{item.price}}</view>
+					<view class="wz">【排放】{{item.exhaust}}</view>
+				</view>
+			</view>
+		</template>
+		<template is="the_temp" data="{{item:item}}" wx:for="{{results}}" wx:key="id"></template>
+		<view class="page_bottom">页面到底了，没有更多加载项，嘤嘤嘤</view>
+	</scroll-view>
+</view>
