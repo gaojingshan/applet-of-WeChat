@@ -5,7 +5,7 @@ Page({
     data: {
         windowHeight: 0,
         results: [],
-        show: true
+        show: false
     },
     onReady() {
         wx.getSystemInfo({

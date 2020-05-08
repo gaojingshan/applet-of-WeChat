@@ -6,14 +6,14 @@
 				<view style="float:right;font-size:13px">当前:{{brand}}</view>
 			</view>
 			<view class="box">
-				<view class="brand {{brand=='宝马' ? 'cur' : ''}}">宝马</view>
-				<view class="brand {{brand=='奥迪' ? 'cur' : ''}}">奥迪</view>
-				<view class="brand {{brand=='本田' ? 'cur' : ''}}">本田</view>
-				<view class="brand {{brand=='丰田' ? 'cur' : ''}}">丰田</view>
-				<view class="brand {{brand=='奔驰' ? 'cur' : ''}}">奔驰</view>
-				<view class="brand {{brand=='标志' ? 'cur' : ''}}">标志</view>
-				<view class="brand {{brand=='大众' ? 'cur' : ''}}">大众</view>
-				<view class="brand {{brand=='路虎' ? 'cur' : ''}}">路虎</view>
+				<view bindtap="ok_han" data-brand="宝马" class="brand {{brand=='宝马' ? 'cur' : ''}}">宝马</view>
+				<view bindtap="ok_han" data-brand="奥迪" class="brand {{brand=='奥迪' ? 'cur' : ''}}">奥迪</view>
+				<view bindtap="ok_han" data-brand="本田" class="brand {{brand=='本田' ? 'cur' : ''}}">本田</view>
+				<view bindtap="ok_han" data-brand="丰田" class="brand {{brand=='丰田' ? 'cur' : ''}}">丰田</view>
+				<view bindtap="ok_han" data-brand="奔驰" class="brand {{brand=='奔驰' ? 'cur' : ''}}">奔驰</view>
+				<view bindtap="ok_han" data-brand="标志" class="brand {{brand=='标志' ? 'cur' : ''}}">标志</view>
+				<view bindtap="ok_han" data-brand="大众" class="brand {{brand=='大众' ? 'cur' : ''}}">大众</view>
+				<view bindtap="ok_han" data-brand="路虎" class="brand {{brand=='路虎' ? 'cur' : ''}}">路虎</view>
 				<view class="brand allbrand" bindtap="allPinpai">查看全部</view>
 			</view>
 		</scroll-view>

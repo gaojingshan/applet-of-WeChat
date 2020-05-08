@@ -13,7 +13,7 @@ Component({
     data: {
         windowHeight: 0,
         // main  all_brand
-        showPage: 'all_brand',
+        showPage: 'main',
         brand: ''
     },
 
@@ -38,6 +38,13 @@ Component({
         ok_han_yes() {
             this.triggerEvent('ok', {
                 'brand': this.data.brand
+            })
+        },
+        ok_han(e){
+            console.log(e);
+            
+            this.setData({
+                brand: e.target.dataset.brand
             })
         }
 
