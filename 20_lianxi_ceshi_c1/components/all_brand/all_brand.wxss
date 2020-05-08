@@ -1,0 +1,27 @@
+.bottom {
+    display: flex;
+    height: 50px;
+    border-top: 1px solid #ccc;
+}
+
+.bottom_left {
+    flex: 1;
+    font-size: 14px;
+    line-height: 50px;
+    height: 50px;
+    text-align: center;
+}
+
+.bottom_right {
+    flex: 1;
+    font-size: 14px;
+    line-height: 50px;
+    height: 50px;
+    text-align: center;
+    background-color: red;
+    color: white;
+}
+.cur{
+    color: red;
+    font-weight: bold;
+}

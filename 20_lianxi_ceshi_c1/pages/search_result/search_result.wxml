@@ -5,7 +5,7 @@
 		</view>
 		<van-popup show="{{ show }}" bind:close="onClose" position="right">
 			<view class="nr" style="height:{{windowHeight}}px">
-                <drawer_inner></drawer_inner>
+                <drawer_inner bind:ok="shaixuan_ok"></drawer_inner>
             </view>
 		</van-popup>
 

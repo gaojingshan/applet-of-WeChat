@@ -29,6 +29,9 @@
     background-color: white;
     border: 1px solid #eee;
 }
+.page .box .brand.cur{
+    background-color: yellow;
+}
 
 .bottom {
     display: flex;

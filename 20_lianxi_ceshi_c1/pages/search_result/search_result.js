@@ -1,6 +1,6 @@
 // 全局的分页
 var page = 1;
-
+var brand = '';
 Page({
     data: {
         windowHeight: 0,
@@ -15,17 +15,17 @@ Page({
                     })
                 }
             }),
-            // Ajax
-            wx.request({
-                'url': 'http://www.aiqianduan.com:7897/cars?page=' + page,
-                success: (data) => {
-                    this.setData({
-                        results: data.data.results
-                    })
-
-                    console.log(data.data.results);
-                }
-            })
+            page = 1;
+        // Ajax
+        wx.request({
+            'url': 'http://www.aiqianduan.com:7897/cars?page=' + page + '&brand=' + brand,
+            success: (data) => {
+                this.setData({
+                    results: data.data.results
+                })
+                console.log(data.data.results);
+            }
+        })
     },
     scrolltolower() {
         page++;
@@ -34,9 +34,8 @@ Page({
         })
         // Ajax
         wx.request({
-            'url': 'http://www.aiqianduan.com:7897/cars?page=' + page,
+            'url': 'http://www.aiqianduan.com:7897/cars?page=' + page + '&brand=' + brand,
             success: (data) => {
-
                 this.setData({
                     results: [...this.data.results, ...data.data.results]
                 })
@@ -55,5 +54,25 @@ Page({
         this.setData({
             show: false
         });
+    },
+    // 筛选
+    shaixuan_ok(e) {
+        brand = e.detail.brand;
+        wx.showLoading({
+            title: '加载中'
+        })
+        // Ajax
+        wx.request({
+            'url': 'http://www.aiqianduan.com:7897/cars?page=1&brand=' + brand,
+            success: (data) => {
+                this.setData({
+                    results: data.data.results
+                })
+                wx.hideLoading();
+            }
+        })
+        this.setData({
+            show: false
+        })
     }
 })
