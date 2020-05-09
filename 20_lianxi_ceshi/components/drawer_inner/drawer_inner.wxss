@@ -10,6 +10,7 @@
 
 .sx_grid .content {
     padding-top: 10px;
+    overflow: hidden;
 }
 
 .sx_grid .content .btn {
@@ -34,7 +35,8 @@
     border: 1px solid #eee;
     background: white;
 }
-.sx_grid .content .btn.cur{
+
+.sx_grid .content .btn.cur {
     background-color: yellow;
 }
 
@@ -45,16 +47,24 @@
     display: flex;
 }
 
-.bottom_box .btn1 {
+.bottom_box .btn0 {
     height: 50px;
     flex: 1;
+    text-align: center;
+    line-height: 50px;
+    border-right: 1px solid #ccc;
+}
+
+.bottom_box .btn1 {
+    height: 50px;
+    flex: 3;
     text-align: center;
     line-height: 50px;
 }
 
 .bottom_box .btn2 {
     height: 50px;
-    flex: 1;
+    flex: 3;
     text-align: center;
     line-height: 50px;
     background: orange;

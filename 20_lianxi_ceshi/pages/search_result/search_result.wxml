@@ -1,11 +1,11 @@
 <view>
 	<view class="topbox">
-		<van-button class="sx_btn" size="small" bind:click="ShowDrawer">筛选</van-button>
-		<van-popup show="{{ isShowDrawer }}" bind:close="onClose" position="right">
-			<view style="height: {{windowHeight}}px;width:290px">
-                <drawer_inner bind:ok="draw_inner_han"></drawer_inner>
-            </view>
-		</van-popup>
+		<i-button class="sx_btn" size="small" bind:click="ShowDrawer">筛选</i-button>
+		<i-drawer visible="{{ isShowDrawer }}" bind:close="onClose" mode="right">
+			<view style="height: {{windowHeight}}px;width:290px;background:white">
+				<drawer_inner wx:if="{{isShowDrawer}}" bind:ok="draw_inner_han" brand="{{brand}}" bind:close="closeHan" filters = "{{filters}}"></drawer_inner>
+			</view>
+		</i-drawer>
 	</view>
 	<!-- 定义汽车小格的模板 -->
 	<template name="car_grid">
@@ -19,6 +19,8 @@
 				<view>【颜色】{{item.color}}</view>
 				<view>【价格】{{item.price}}</view>
 				<view>【排放】{{item.exhaust}}</view>
+				<view>【燃油】{{item.fuel}}</view>
+				<view>【动力】{{item.engine}}</view>
 			</view>
 		</view>
 	</template>

@@ -1,0 +1,15 @@
+<view>
+	<scroll-view scroll-y="true" style="height:{{windowHeight - 51}}px">
+    
+		<van-index-bar index-list="{{ allbs_zimu }}">
+			<view wx:for="{{allbs_zimu}}" wx:key="index" wx:for-item="zimu">
+				<van-index-anchor index="{{zimu}}" />
+				<van-cell wx:for="{{allbs_array[zimu]}}" wx:key="index" wx:for-item="pinpai" title="{{pinpai}}" title-class="{{nowbrand == pinpai ? 'cur' : ''}}" bind:click="handle_click" data-pinpai="{{pinpai}}" />
+			</view>			
+		</van-index-bar>
+	</scroll-view>
+	<view class="bottom">
+		<view class="btn1">取消</view>
+		<view class="btn2" bindtap="handle_ok_que">确定</view>
+	</view>
+</view>

@@ -1,0 +1,11 @@
+function slice(arr, a, b) {
+    return arr.slice(a, b)
+}
+
+function checkInArr(arr, item) {
+    return arr.indexOf(item) != -1
+}
+module.exports = {
+    slice: slice,
+    checkInArr: checkInArr
+}

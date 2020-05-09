@@ -1,7 +1,7 @@
 {
   "usingComponents": {
-    "van-button": "@vant/weapp/button/index",
-    "van-popup": "@vant/weapp/popup/index",
+    "i-button": "../../iviewui-dist/button/index",
+    "i-drawer": "../../iviewui-dist/drawer/index",
     "drawer_inner":"/components/drawer_inner/drawer_inner"
   }
 }

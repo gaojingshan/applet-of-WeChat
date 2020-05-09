@@ -1,0 +1,26 @@
+.bottom {
+    height: 50px;
+    border-top: 1px solid #ccc;
+    display: flex;
+}
+
+.bottom .btn1 {
+    flex: 1;
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+    font-size: 16px;
+}
+
+.bottom .btn2 {
+    flex: 1;
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+    font-size: 16px;
+    background-color: red;
+    color: white;
+}
+.cur{
+    color: red;
+}

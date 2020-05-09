@@ -34,7 +34,10 @@ Component({
             this.triggerEvent('ok', {
                 'pinpai': this.data.nowChoose
             })
-        }
+        },
+        onChange(event) {
+            // console.log(event.detail, 'click right menu callback data')
+        },
     },
     // 组件的生命周期
     lifetimes: {
@@ -53,23 +56,26 @@ Component({
                     console.log(data.data);
                     // console.log(Object.keys(data.data));
                     // 写形式转换程序，因为wxs文件中不能使用for var k in这样的语法
-                    var o = {};
+                    var arr = [];
                     for (let zimu in data.data) {
                         // 给每个字母设置一个数字
-                        o[zimu] = [];
+                        var thenewitem = {
+                            key: zimu,
+                            list: []
+                        }
+                        arr.push(thenewitem)
                         // 再次遍历
                         for (let pinpai in data.data[zimu]) {
                             // console.log(pinpai);
-                            o[zimu].push(pinpai)
+                            thenewitem.list.push(pinpai)
                         }
                     }
-                    console.log(o);
-
+                    console.log(arr);
                     this.setData({
                         allbs: data.data,
                         all_zimu: Object.keys(data.data),
-                        // 全部车辆数据的数组版本，当然外层还是对象
-                        allbs_array: o
+                        // 全部车辆数据的数组版本
+                        allbs_array: arr
                     })
                 }
             })

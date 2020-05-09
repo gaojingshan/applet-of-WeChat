@@ -1,17 +1,13 @@
-<view>
-	<scroll-view scroll-y="true" style="height:{{windowHeight-51}}px">
-		<van-index-bar index-list="{{all_zimu}}">
-			<view wx:for="{{all_zimu}}" wx:key="index" wx:for-item="zimu">
-				<van-index-anchor index="{{zimu}}" />
-				<van-cell title-class="{{nowChoose == pinpai ? 'cur' : ''}}" wx:for="{{allbs_array[zimu]}}" wx:key="index" wx:for-item="pinpai" title="{{pinpai}}" bind:click="clickcell" data-pinpai="{{pinpai}}" />
-
-			</view>
-
-
-
-
-		</van-index-bar>
-	</scroll-view>
+<view style="height:{{windowHeight}}px">
+	<view style="height:{{windowHeight-51}}px">
+		<i-index height="100%" bind:change="onChange" item-height="40">
+			<i-index-item wx:for="{{ allbs_array }}" wx:for-index="index" wx:key="index" wx:for-item="item" name="{{item.key}}">
+				<view class="i-index-demo-item {{nowChoose == it ? 'cur' : ''}}" wx:for="{{item.list}}" wx:for-index="in" wx:key="in" wx:for-item="it" bindtap="clickcell" data-pinpai="{{it}}" >
+					{{it}}
+				</view>
+			</i-index-item>
+		</i-index>
+	</view>
 	<view class="bottom_box">
 		<view class="btn1">取消</view>
 		<view class="btn2" bindtap="okHan">确定</view>
