@@ -1,0 +1,34 @@
+.topbox {
+  height: 60px;
+  border-bottom: 1px solid #ccc;
+}
+
+.topbox .sx_btn {
+  float: right;
+  margin: 4px;
+}
+
+
+.the_temp {
+  display: flex;
+  padding: 10px;
+}
+
+.picbox {
+  width: 160px;
+  height: 100px;
+}
+
+.picbox image {
+  width: 160px;
+  height: 100px;
+}
+
+.contentbox {
+  flex: 1;
+}
+
+.contentbox .text {
+  font-size: 14px;
+  color: #333;
+}

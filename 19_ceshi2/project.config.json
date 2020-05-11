@@ -21,13 +21,12 @@
 			"ignore": [],
 			"disablePlugins": [],
 			"outputPath": ""
-		},
-		"nodeModules": true
+		}
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.11.0",
 	"appid": "wx4f35b7c886a891eb",
-	"projectname": "19_ceshi",
+	"projectname": "19_ceshi2",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},

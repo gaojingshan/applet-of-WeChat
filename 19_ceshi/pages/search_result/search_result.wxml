@@ -1,0 +1,31 @@
+<view>
+	<view class="topbox">
+		<i-button class="sx_btn" bind:click="showDrawer" size="small">
+				筛选
+		</i-button>
+		<i-drawer mode="right" visible="{{isShowDrawer}}" bind:close="onClose">
+			<view style="height:{{windowHeight}}px;background:white;width:290px">
+				<drawer-inner></drawer-inner>
+			</view>
+		</i-drawer>
+	</view>
+	<!-- 定义汽车小格的模板 -->
+	<template name="the_temp">
+		<view class="the_temp">
+			<view class="picbox">
+				<image src="http://aiqianduan.com:56506/images/carimages_small/{{item.id}}/view/{{item.img}}"></image>
+			</view>
+			<view class="contentbox">
+				<view class="text">【id】{{item.id}}</view>
+				<view class="text">【品牌】{{item.brand}}</view>
+				<view class="text">【价格】{{item.price}}</view>
+				<view class="text">【颜色】{{item.color}}</view>
+				<view class="text">【排放】{{item.exhaust}}</view>
+			</view>
+		</view>
+	</template>
+	<scroll-view scroll-y="true" style="height:{{windowHeight-61}}px" bindscrolltolower="lowerHandler" lower-threshold="140">
+		<template wx:for="{{results}}" wx:key="id" is="the_temp" data="{{item:item}}"></template>
+		<view style="font-size:12px;text-align:center">我是有底线滴</view>
+	</scroll-view>
+</view>
