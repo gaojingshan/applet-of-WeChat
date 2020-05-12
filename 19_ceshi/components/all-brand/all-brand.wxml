@@ -1,0 +1,15 @@
+<view style="height:{{windowHeight}}px">
+	<view style="height:{{windowHeight-51}}px">
+		<i-index height="100%" bind:change="onChange" item-height="40">
+			<i-index-item wx:for="{{ allbs_array }}" wx:key="index" wx:for-item="item" name="{{item.key}}">
+				<view class="i-index-demo-item {{nowChoose == it ? 'cur' : ''}}" wx:for="{{item.list}}" wx:key="in" wx:for-item="it" bindtap="clickcell" data-pinpai="{{it}}">
+					{{it}}
+				</view>
+			</i-index-item>
+		</i-index>
+	</view>
+	<view class="bottom_box">
+		<view class="btn1">取消</view>
+		<view class="btn2" bindtap="okHan">确定</view>
+	</view>
+</view>

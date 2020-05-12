@@ -1,11 +1,12 @@
 <view>
 	<view class="topbox">
 		<i-button class="sx_btn" bind:click="showDrawer" size="small">
-				筛选
+			筛选
 		</i-button>
 		<i-drawer mode="right" visible="{{isShowDrawer}}" bind:close="onClose">
 			<view style="height:{{windowHeight}}px;background:white;width:290px">
-				<drawer-inner></drawer-inner>
+				<!-- 加wx:if的目的是为了让组件能够消亡，这样组件data会被重置 -->
+				<drawer-inner wx:if="{{isShowDrawer}}" bind:ok="drawer_inner_okHan" brand="{{brand}}" bind:close="drawer_inner_close_han" filters="{{filters}}"></drawer-inner>
 			</view>
 		</i-drawer>
 	</view>
@@ -21,6 +22,8 @@
 				<view class="text">【价格】{{item.price}}</view>
 				<view class="text">【颜色】{{item.color}}</view>
 				<view class="text">【排放】{{item.exhaust}}</view>
+				<view class="text">【燃油】{{item.fuel}}</view>
+				<view class="text">【动力】{{item.engine}}</view>
 			</view>
 		</view>
 	</template>
