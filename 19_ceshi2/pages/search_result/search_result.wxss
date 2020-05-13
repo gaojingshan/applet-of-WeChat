@@ -3,6 +3,10 @@
   border-bottom: 1px solid #ccc;
 }
 
+.topbox .sx {
+  float: right;
+}
+
 .the_temp {
   display: flex;
   padding: 10px;

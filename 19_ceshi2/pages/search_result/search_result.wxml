@@ -1,5 +1,13 @@
 <view>
-	<view class="topbox"></view>
+	<view class="topbox">
+		<view class="sx">
+			<i-button bind:click="handleClick" size="small">筛选</i-button>
+			<i-drawer mode="right" visible="{{isShowDrawer}}" bind:close="closeClick">
+				<drawer-inner  wx:if="{{isShowDrawer}}" bind:ok="drawer_inner_ok_han" bind:delete="deleteHan" brand="{{brand}}" filters="{{filters}}"  ></drawer-inner>
+			</i-drawer>
+		</view>
+
+	</view>
 	<!-- 定义汽车小格的模板 -->
 	<template name="the_temp">
 		<view class="the_temp">
@@ -12,6 +20,8 @@
 				<view class="text">【价格】{{item.price}}</view>
 				<view class="text">【颜色】{{item.color}}</view>
 				<view class="text">【排放】{{item.exhaust}}</view>
+				<view class="text">【燃油】{{item.fuel}}</view>
+				<view class="text">【排量】{{item.engine}}</view>
 			</view>
 		</view>
 	</template>

@@ -20,17 +20,17 @@ Component({
     data: {
         windowHeight: 0,
         // 当前是什么界面,main表示主界面，allbrand表示全部品牌,showall查看全部选项
-        nowshow: 'showall',
+        nowshow: 'main',
         // 当前选择的品牌
         brand: '',
         brand_arr: ['宝马', '奔驰', '奥迪', '本田', '丰田', '标致', '日产', '五菱'],
         now: {
             // 当前选择的颜色，由于可以多选，所以数组存放
-            color: ['红', '黑'],
+            color: [],
             // 当前选择的燃料，由于可以多选，所以数组存放
             fuel: [],
             // 当前选择的尾气，由于可以多选，所以数组存放
-            exhaust: ['国二'],
+            exhaust: [],
             // 当前选择的排量，由于可以多选，所以数组存放
             engine: []
         },
@@ -61,7 +61,11 @@ Component({
         // 点击确定按钮筛选出品牌
         okHan() {
             this.triggerEvent('ok', {
-                brand: this.data.brand
+                brand: this.data.brand,
+                color: this.data.now.color,
+                fuel: this.data.now.fuel,
+                exhaust: this.data.now.exhaust,
+                engine: this.data.now.engine
             })
         },
         pphan(e) {
@@ -105,6 +109,24 @@ Component({
                 })
             }
         },
+        // 查看全部选项
+        showalloption(_e) {
+            this.setData({
+                nowe: _e.target.dataset.e,
+                nowc: _e.target.dataset.c,
+                nowoptions: _e.target.dataset.options,
+                nowshow: 'showall'
+            })
+        },
+        okHan2(e) {
+            this.setData({
+                now: {
+                    ...this.data.now,
+                    [e.detail.e]: e.detail.current
+                },
+                nowshow: 'main'
+            })
+        }
     },
     // 组件的生命周期
     lifetimes: {

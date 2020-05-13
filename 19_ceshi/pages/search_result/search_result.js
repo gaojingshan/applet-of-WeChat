@@ -6,8 +6,12 @@ Page({
     // 存放结果的
     results: [],
     // 是否打开抽屉
-    isShowDrawer: true,
+    isShowDrawer: false,
     brand: '',
+    color: [],
+    fuel: [],
+    exhaust: [],
+    engine: [],
     filters: [{
         'c': '颜色',
         'e': 'color',
@@ -41,7 +45,7 @@ Page({
     })
     // AJax拉取第一页数据
     wx.request({
-      'url': 'http://www.aiqianduan.com:56506/cars?page=' + page + '&brand=' + this.data.brand,
+      'url': 'http://www.aiqianduan.com:56506/cars?page=' + page,
       success: (data) => {
         this.setData({
           results: data.data.results
@@ -59,7 +63,7 @@ Page({
     })
     // 拉取
     wx.request({
-      'url': 'http://www.aiqianduan.com:56506/cars?page=' + page + '&brand=' + this.data.brand,
+      'url': 'http://www.aiqianduan.com:56506/cars?page=' + page + '&brand=' + this.data.brand + '&color=' + this.data.color.join('v') + '&fuel=' + this.data.fuel.join('v') + '&exhaust=' + this.data.exhaust.join('v') + '&engine=' + this.data.engine.join('v'),
       success: (data) => {
         this.setData({
           results: [...this.data.results, ...data.data.results]
@@ -80,19 +84,23 @@ Page({
       isShowDrawer: false
     });
   },
+  // 抽屉传回来的数据
   drawer_inner_okHan(e) {
     this.setData({
       brand: e.detail.brand,
-      isShowDrawer: false
+      isShowDrawer: false,
+      color: e.detail.color,
+      fuel: e.detail.fuel,
+      exhaust: e.detail.exhaust,
+      engine: e.detail.engine,
     })
     wx.showLoading({
       title: '加载中',
     })
     page = 1;
-
     // 拉取
     wx.request({
-      'url': 'http://www.aiqianduan.com:56506/cars?page=1&brand=' + this.data.brand,
+      'url': 'http://www.aiqianduan.com:56506/cars?page=1&brand=' + this.data.brand + '&color=' + e.detail.color.join('v') + '&fuel=' + e.detail.fuel.join('v') + '&exhaust=' + e.detail.exhaust.join('v') + '&engine=' + e.detail.engine.join('v'),
       success: (data) => {
         this.setData({
           results: data.data.results,

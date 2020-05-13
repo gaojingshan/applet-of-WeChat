@@ -1,3 +1,7 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "i-button": "../../iviewui-dist/button/index",
+    "i-drawer": "../../iviewui-dist/drawer/index",
+    "drawer-inner": "/component/drawer-inner/drawer-inner"
+  }
 }

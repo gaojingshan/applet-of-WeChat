@@ -16,13 +16,13 @@
 					<view style="float:left">{{lm.c}}
 						<text style="font-size:14px">（可多选）</text>
 					</view>
-					<view style="float:right;font-size:14px">当前:</view>
+					<view style="float:right;font-size:14px">当前:{{now[lm.e]}}</view>
 				</view>
 				<view class="content">
 					<!-- wxml中不能调用slice函数，必须写到wxs中 -->
 					<wxs src="tool.wxs" module="tool" />
 					<view  wx:for="{{lm.options.length > 5 ? tool.myslice(lm.options, 0, 5) : lm.options}}" wx:key="index" wx:for-item="xiang" bindtap="ppphan" data-k="{{lm.e}}" data-v="{{xiang}}" class="btn {{tool.checkInArr(now[lm.e],xiang) ? 'cur' : ''}}">{{xiang}}</view>
-					<view class="btn all" bindtap="showallbrand" wx:if="{{lm.options.length > 5}}">查看全部</view>
+					<view class="btn all" bindtap="showalloption" data-e="{{lm.e}}" data-options="{{lm.options}}"  data-c="{{lm.c}}" wx:if="{{lm.options.length > 5}}">查看全部</view>
 				</view>
 			</view>
 		</scroll-view>
@@ -37,5 +37,5 @@
 	<all-brand wx:if="{{nowshow == 'allbrand'}}" bind:ok="allbrand_okHan"></all-brand>
 
 	<!-- 全部选项，除了品牌 -->
-	<show-all wx:if="{{nowshow == 'showall'}}" nowc="{{nowc}}" nowoptions="{{nowoptions}}" nowe="{{nowe}}"></show-all>
+	<show-all wx:if="{{nowshow == 'showall'}}" nowc="{{nowc}}" nowoptions="{{nowoptions}}" nowe="{{nowe}}" bind:ok="okHan2"></show-all>
 </view>

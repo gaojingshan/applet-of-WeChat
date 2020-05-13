@@ -1,0 +1,29 @@
+.bottom_btn {
+    display: flex;
+    height: 50px;
+    border-top: 1px solid #ccc;
+}
+
+.bottom_btn .btn1 {
+    flex: 1;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+}
+
+.bottom_btn .btn2 {
+    flex: 1;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    background-color: red;
+}
+.i-index-demo-item{
+    height: 40px;
+    line-height: 40px;
+    padding-left: 20px;
+}
+.i-index-demo-item.cur{
+    color: red;
+    font-weight: bold;
+}
