@@ -19,6 +19,7 @@
 						<view class="wz">
 							{{item.name}}
 						</view>
+
 					</view>
 				</view>
 			</template>

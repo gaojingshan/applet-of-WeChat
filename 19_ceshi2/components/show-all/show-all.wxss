@@ -1,0 +1,21 @@
+.bottom_box {
+    display: flex;
+    height: 50px;
+    border-top: 1px solid #ccc;
+}
+
+.bottom_box .btn1 {
+    flex: 1;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+}
+
+.bottom_box .btn2 {
+    flex: 1;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    background-color: red;
+    color: white;
+}
