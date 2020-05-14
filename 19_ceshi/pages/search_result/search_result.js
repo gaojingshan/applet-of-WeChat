@@ -1,5 +1,3 @@
-// 当前页面，这个页码不会直接引发视图更新
-var page = 1;
 Page({
   data: {
     windowHeight: 0,
@@ -7,6 +5,8 @@ Page({
     results: [],
     // 是否打开抽屉
     isShowDrawer: false,
+    // 当前页面
+    page: 1,
     brand: '',
     color: [],
     fuel: [],
@@ -34,7 +34,8 @@ Page({
       }
     ]
   },
-  onReady() {
+  // 当页面被打开的时候  onShow是不会被卸载的
+  onShow() {
     // 得到屏幕高度
     wx.getSystemInfo({
       success: (res) => {
@@ -43,33 +44,39 @@ Page({
         })
       }
     })
-    // AJax拉取第一页数据
-    wx.request({
-      'url': 'http://www.aiqianduan.com:56506/cars?page=' + page,
-      success: (data) => {
-        this.setData({
-          results: data.data.results
-        })
-        console.log(data.data.results);
-      }
-    })
+    this.loadData();
   },
-  // 滚动到底部了
-  lowerHandler() {
-    // 加页码
-    page++;
+  // 封装拉取数据方法
+  loadData() {
     wx.showLoading({
       title: '加载中',
     })
-    // 拉取
+    // AJax拉取第一页数据
     wx.request({
-      'url': 'http://www.aiqianduan.com:56506/cars?page=' + page + '&brand=' + this.data.brand + '&color=' + this.data.color.join('v') + '&fuel=' + this.data.fuel.join('v') + '&exhaust=' + this.data.exhaust.join('v') + '&engine=' + this.data.engine.join('v'),
+      'url': 'http://www.aiqianduan.com:56506/cars?' +
+        'page=' + this.data.page +
+        '&brand=' + this.data.brand +
+        '&color=' + this.data.color.join('v') +
+        '&fuel=' + this.data.fuel.join('v') +
+        '&exhaust=' + this.data.exhaust.join('v') +
+        '&engine=' + this.data.engine.join('v'),
       success: (data) => {
         this.setData({
           results: [...this.data.results, ...data.data.results]
         })
         wx.hideLoading()
+        console.log(this.data.results);
       }
+    })
+  },
+  // 滚动到底部了
+  lowerHandler() {
+    this.setData({
+      // 加页码
+      page: this.data.page + 1
+    }, function () {
+      // 改完page之后做的事情
+      this.loadData()
     })
   },
   // 点击筛选按钮打开抽屉
@@ -84,29 +91,21 @@ Page({
       isShowDrawer: false
     });
   },
-  // 抽屉传回来的数据
+  // 当抽屉里面的确定按钮被点击
   drawer_inner_okHan(e) {
     this.setData({
+      // 结果也要清空
+      results: [],
       brand: e.detail.brand,
       isShowDrawer: false,
       color: e.detail.color,
       fuel: e.detail.fuel,
       exhaust: e.detail.exhaust,
       engine: e.detail.engine,
-    })
-    wx.showLoading({
-      title: '加载中',
-    })
-    page = 1;
-    // 拉取
-    wx.request({
-      'url': 'http://www.aiqianduan.com:56506/cars?page=1&brand=' + this.data.brand + '&color=' + e.detail.color.join('v') + '&fuel=' + e.detail.fuel.join('v') + '&exhaust=' + e.detail.exhaust.join('v') + '&engine=' + e.detail.engine.join('v'),
-      success: (data) => {
-        this.setData({
-          results: data.data.results,
-        })
-        wx.hideLoading()
-      }
+      page: 1,
+    }, function () {
+      // 改变完之后做的事情
+      this.loadData()
     })
   },
   // 关闭抽屉

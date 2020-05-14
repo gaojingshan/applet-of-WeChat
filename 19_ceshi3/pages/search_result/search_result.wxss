@@ -1,0 +1,31 @@
+.sx {
+    height: 60px;
+    border-bottom: 1px solid #ccc;
+}
+.sx_btn{
+    float: right;
+    margin-bottom: 4px;
+}
+
+.the_grid {
+    display: flex;
+    padding: 10px;
+}
+
+.the_grid .picbox {
+    width: 160px;
+    height: 100px;
+}
+
+.the_grid .picbox image {
+    width: 160px;
+    height: 100px;
+}
+
+.the_grid .contentbox{
+    flex: 1;
+    padding-left: 10px;
+}
+.the_grid .contentbox .text{
+    font-size: 14px;
+}

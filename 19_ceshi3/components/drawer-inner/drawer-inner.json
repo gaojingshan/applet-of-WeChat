@@ -1,0 +1,7 @@
+{
+    "component": true,
+    "usingComponents": {
+        "all-brand": "/components/all-brand/all-brand",
+        "show-all":"/components/show-all/show-all"
+    }
+}
