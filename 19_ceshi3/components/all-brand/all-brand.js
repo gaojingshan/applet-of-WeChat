@@ -33,7 +33,8 @@ Component({
             this.triggerEvent('ok', {
                 brand: this.data.brand
             })
-        }
+        },
+        
     },
     // 生命周期
     lifetimes: {

@@ -36,6 +36,10 @@ Component({
         },
         onChange(event) {
             // console.log(event.detail, 'click right menu callback data')
+        },
+        // 点击取消按钮的处理程序
+        cancelHan(){
+            this.triggerEvent('cancel')
         }
     },
     // 组件的生命周期

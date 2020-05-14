@@ -16,6 +16,10 @@ Component({
             type: Array,
             value: []
         },
+        nowv: {
+            type: Array,
+            value: []
+        },
     },
 
     /**
@@ -44,6 +48,10 @@ Component({
                 e: this.properties.nowe,
                 current: this.data.current,
             })
+        },
+        // 取消按钮的事件处理程序
+        cancel_Han(){
+            this.triggerEvent('cancel')
         }
     },
     // 组件的生命周期
@@ -55,6 +63,10 @@ Component({
                         windowHeight: res.windowHeight
                     })
                 }
+            })
+            // 设置properties为data,进行数据的统一
+            this.setData({
+                current: this.properties.nowv
             })
         }
     },

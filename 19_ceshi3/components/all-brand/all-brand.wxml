@@ -9,7 +9,7 @@
 		</i-index>
 	</scroll-view>
 	<view class="bottom_btn">
-		<view class="btn1">取消</view>
+		<view class="btn1" >取消</view>
 		<view class="btn2" bindtap="okHan">确定</view>
 	</view>
 </view>

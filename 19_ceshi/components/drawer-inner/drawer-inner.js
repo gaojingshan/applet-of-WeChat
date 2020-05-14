@@ -11,6 +11,22 @@ Component({
         filters: {
             type: Array,
             value: []
+        },
+        color: {
+            type: Array,
+            value: []
+        },
+        fuel: {
+            type: Array,
+            value: []
+        },
+        exhaust: {
+            type: Array,
+            value: []
+        },
+        engine: {
+            type: Array,
+            value: []
         }
     },
 
@@ -37,9 +53,9 @@ Component({
         // 父亲传入的筛选器
         filters: [],
         // 当前正在点谁的全部
-        nowc: '颜色',
-        nowe: 'color',
-        nowoptions: ['红', '黄']
+        nowc: '',
+        nowe: '',
+        nowoptions: []
     },
 
     /**
@@ -82,7 +98,14 @@ Component({
         resetBtnHan() {
             // 小程序是MVVM模式的，数据变化了，视图就变化了
             this.setData({
-                brand: ''
+                brand: '',
+                now:{
+                    ...this.data.now,
+                    color: [],
+                    fuel: [],
+                    exhaust: [],
+                    engine: []
+                }
             })
         },
         // 除了品牌之外的点击，双色球的逻辑
@@ -126,10 +149,17 @@ Component({
                 },
                 nowshow: 'main'
             })
+        },
+        // 全部品牌的取消按钮的事件处理程序
+        all_brand_cancelHan() {
+            this.setData({
+                nowShow: 'main'
+            })
         }
     },
     // 组件的生命周期
     lifetimes: {
+        // 当组件加载好之后
         attached: function () {
             wx.getSystemInfo({
                 success: (res) => {
@@ -141,7 +171,14 @@ Component({
             // 把properties设置为data
             this.setData({
                 brand: this.properties.brand,
-                filters: this.properties.filters
+                filters: this.properties.filters,
+                now: {
+                    ...this.data.now,
+                    color: this.properties.color,
+                    fuel: this.properties.fuel,
+                    exhaust: this.properties.exhaust,
+                    engine: this.properties.engine,
+                }
             })
         }
     },

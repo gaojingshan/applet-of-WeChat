@@ -6,7 +6,7 @@
 		<i-drawer mode="right" visible="{{isShowDrawer}}" bind:close="onClose">
 			<view style="height:{{windowHeight}}px;background:white;width:290px">
 				<!-- 加wx:if的目的是为了让组件能够消亡，这样组件data会被重置 -->
-				<drawer-inner wx:if="{{isShowDrawer}}" bind:ok="drawer_inner_okHan" brand="{{brand}}" bind:close="drawer_inner_close_han" filters="{{filters}}"></drawer-inner>
+				<drawer-inner wx:if="{{isShowDrawer}}" bind:ok="drawer_inner_okHan" bind:close="drawer_inner_close_han" filters="{{filters}}" brand="{{brand}}" color="{{color}}" fuel="{{fuel}}" exhaust="{{exhaust}}" engine="{{engine}}"></drawer-inner>
 			</view>
 		</i-drawer>
 	</view>

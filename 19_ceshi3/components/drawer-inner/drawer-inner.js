@@ -10,7 +10,23 @@ Component({
         },
         filters: {
             type: Array,
-            value: ''
+            value: []
+        },
+        color: {
+            type: Array,
+            value: []
+        },
+        fuel: {
+            type: Array,
+            value: []
+        },
+        exhaust: {
+            type: Array,
+            value: []
+        },
+        engine: {
+            type: Array,
+            value: []
         }
     },
 
@@ -127,9 +143,16 @@ Component({
         // 重置
         resetbtn() {
             this.setData({
-                brand: ''
+                brand: '',
+                now: {
+                    color: [],
+                    fuel: [],
+                    exhaust: [],
+                    engine: []
+                }
             })
-        }
+        },
+        
     },
     // 生命周期
     lifetimes: {
@@ -145,7 +168,14 @@ Component({
             // 把properties设置为data
             this.setData({
                 brand: this.properties.brand,
-                filters: this.properties.filters
+                filters: this.properties.filters,
+                now: {
+                    color: this.properties.color,
+                    fuel: this.properties.fuel,
+                    exhaust: this.properties.exhaust,
+                    engine: this.properties.engine
+                }
+
             })
         },
 

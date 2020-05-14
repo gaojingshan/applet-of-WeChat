@@ -6,7 +6,7 @@ Page({
         showDrawer: false,
         page: 1,
         brand: '',
-        color: [],
+        color: ['红','黑'],
         fuel: [],
         exhaust: [],
         engine: [],

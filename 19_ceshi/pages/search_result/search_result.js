@@ -8,7 +8,7 @@ Page({
     // 当前页面
     page: 1,
     brand: '',
-    color: [],
+    color: ['黑','绿'],
     fuel: [],
     exhaust: [],
     engine: [],

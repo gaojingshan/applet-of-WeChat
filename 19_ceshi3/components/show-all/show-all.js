@@ -16,6 +16,10 @@ Component({
             type: String,
             value: ''
         },
+        nowv: {
+            type: Array,
+            value: []
+        }
     },
 
     /**
@@ -47,7 +51,7 @@ Component({
                 e: this.properties.nowe,
                 options: this.data.current
             })
-            
+
         }
     },
     // 生命周期
@@ -60,6 +64,9 @@ Component({
                         windowHeight: res.windowHeight
                     })
                 }
+            })
+            this.setData({
+                current: this.properties.nowv
             })
 
         }

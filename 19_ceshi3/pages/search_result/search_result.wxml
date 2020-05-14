@@ -3,7 +3,7 @@
 		<i-button class="sx_btn" bind:click="openClick" size="small">筛选</i-button>
 		<i-drawer mode="right" visible="{{showDrawer}}" bind:close="closeClick">
 			<view style="width:290px;height:{{windowHeight}}px;background:white">
-				<drawer-inner bind:ok="drawer_inner_han" filters="{{filters}}" bind:close="close_han" wx:if="{{showDrawer}}"></drawer-inner>
+				<drawer-inner bind:ok="drawer_inner_han" filters="{{filters}}" bind:close="close_han" wx:if="{{showDrawer}}" brand="{{brand}}" color="{{color}}" fuel="{{fuel}}" exhaust="{{exhaust}}" engine="{{engine}}"></drawer-inner>
 			</view>
 		</i-drawer>
 	</view>

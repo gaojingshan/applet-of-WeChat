@@ -15,10 +15,10 @@
 			<!-- 除了品牌之外的栏目 -->
 			<view class="grid" wx:for="{{filters}}" wx:key="e" wx:for-item="lm">
 				<view class="brand" style="overflow:hidden">
-					<view style="float:left;font-size:20px">{{lm.c}}
+					<view style="float:left;font-size:18px">{{lm.c}}
 						<text style="font-size:14px">（可多选）</text>
 					</view>
-					<view style="float:right">当前:{{now[lm.e]}}</view>
+					<view style="float:right;font-size:14px">当前:{{now[lm.e].length>3 ? tool.myslice(now[lm.e],0,2)+'等'+now[lm.e].length+'项' : now[lm.e]}}</view>
 				</view>
 				<view class="btnbox">
 					<wxs src="tool.wxs" module="tool" />
@@ -35,8 +35,8 @@
 	</view>
 
 	<!-- 显示全部品牌 -->
-	<all-brand wx:if="{{nowShow == 'allbrand'}}" bind:ok="allbrand_Han"></all-brand>
+	<all-brand wx:if="{{nowShow == 'allbrand'}}" bind:ok="allbrand_Han" ></all-brand>
 
 	<!-- 显示除品牌之外的栏目 -->
-	<show-all wx:if="{{nowShow == 'showall'}}" nowc="{{nowc}}" nowe="{{nowe}}" nowoptions="{{nowoptions}}" bind:ok="showall_Han2"></show-all>
+	<show-all wx:if="{{nowShow == 'showall'}}" nowc="{{nowc}}" nowe="{{nowe}}" nowoptions="{{nowoptions}}" bind:ok="showall_Han2" nowv="{{now[nowe]}}"></show-all>
 </view>

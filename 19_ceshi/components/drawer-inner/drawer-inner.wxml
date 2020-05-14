@@ -1,4 +1,6 @@
 <view>
+	<!-- wxml中不能调用slice函数，必须写到wxs中 -->
+	<wxs src="tool.wxs" module="tool" />
 	<view wx:if="{{nowshow == 'main'}}">
 		<scroll-view scroll-y="true" style="height:{{windowHeight-51}}px">
 			<view class="sx_grid">
@@ -14,15 +16,14 @@
 			<view class="sx_grid" wx:for="{{filters}}" wx:key="e" wx:for-item="lm">
 				<view class="title" style="overflow:hidden">
 					<view style="float:left">{{lm.c}}
-						<text style="font-size:14px">（可多选）</text>
+						<text style="font-size:12px">（可多选）</text>
 					</view>
-					<view style="float:right;font-size:14px">当前:{{now[lm.e]}}</view>
+					<view style="float:right;font-size:14px">当前:{{now[lm.e].length > 3 ?  tool.myslice(now[lm.e],0,2)+'等'+now[lm.e].length+'项' : now[lm.e]}}</view>
 				</view>
 				<view class="content">
-					<!-- wxml中不能调用slice函数，必须写到wxs中 -->
-					<wxs src="tool.wxs" module="tool" />
+					
 					<view  wx:for="{{lm.options.length > 5 ? tool.myslice(lm.options, 0, 5) : lm.options}}" wx:key="index" wx:for-item="xiang" bindtap="ppphan" data-k="{{lm.e}}" data-v="{{xiang}}" class="btn {{tool.checkInArr(now[lm.e],xiang) ? 'cur' : ''}}">{{xiang}}</view>
-					<view class="btn all" bindtap="showalloption" data-e="{{lm.e}}" data-options="{{lm.options}}"  data-c="{{lm.c}}" wx:if="{{lm.options.length > 5}}">查看全部</view>
+					<view class="btn all" bindtap="showalloption" data-e="{{lm.e}}" data-options="{{lm.options}}"  data-c="{{lm.c}}" wx:if="{{lm.options.length > 5}}" >查看全部</view>
 				</view>
 			</view>
 		</scroll-view>
@@ -34,8 +35,8 @@
 	</view>
 
 	<!-- 全部品牌 -->
-	<all-brand wx:if="{{nowshow == 'allbrand'}}" bind:ok="allbrand_okHan"></all-brand>
+	<all-brand wx:if="{{nowshow == 'allbrand'}}" bind:ok="allbrand_okHan" bind:cancel="all_brand_cancelHan"></all-brand>
 
 	<!-- 全部选项，除了品牌 -->
-	<show-all wx:if="{{nowshow == 'showall'}}" nowc="{{nowc}}" nowoptions="{{nowoptions}}" nowe="{{nowe}}" bind:ok="okHan2"></show-all>
+	<show-all wx:if="{{nowshow == 'showall'}}" nowc="{{nowc}}" nowoptions="{{nowoptions}}" nowe="{{nowe}}" bind:ok="okHan2" nowv="{{now[nowe]}}"></show-all>
 </view>
