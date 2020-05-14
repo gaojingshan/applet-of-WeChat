@@ -7,7 +7,7 @@ Page({
     isShowDrawer: false,
     // 当前页面
     page: 1,
-    brand: '',
+    brand: '日产',
     color: ['黑','绿'],
     fuel: [],
     exhaust: [],

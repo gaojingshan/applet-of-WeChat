@@ -52,6 +52,9 @@ Component({
                 options: this.data.current
             })
 
+        },
+        cancelHan() {
+            this.triggerEvent('cancel')
         }
     },
     // 生命周期

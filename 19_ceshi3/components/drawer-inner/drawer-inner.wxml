@@ -35,8 +35,8 @@
 	</view>
 
 	<!-- 显示全部品牌 -->
-	<all-brand wx:if="{{nowShow == 'allbrand'}}" bind:ok="allbrand_Han" ></all-brand>
+	<all-brand wx:if="{{nowShow == 'allbrand'}}" bind:ok="allbrand_Han" bind:cancel="all_brand_cancelHan" ></all-brand>
 
 	<!-- 显示除品牌之外的栏目 -->
-	<show-all wx:if="{{nowShow == 'showall'}}" nowc="{{nowc}}" nowe="{{nowe}}" nowoptions="{{nowoptions}}" bind:ok="showall_Han2" nowv="{{now[nowe]}}"></show-all>
+	<show-all wx:if="{{nowShow == 'showall'}}" nowc="{{nowc}}" nowe="{{nowe}}" nowoptions="{{nowoptions}}" bind:ok="showall_Han2" nowv="{{now[nowe]}}" bind:cancel="showall_cancelHan"></show-all>
 </view>

@@ -34,7 +34,11 @@ Component({
                 brand: this.data.brand
             })
         },
-        
+        // 点击取消按钮
+        cancel_Han() {
+            this.triggerEvent('cancel')
+        }
+
     },
     // 生命周期
     lifetimes: {

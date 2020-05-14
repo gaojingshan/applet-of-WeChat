@@ -152,7 +152,19 @@ Component({
                 }
             })
         },
-        
+        // 全部品牌取消按钮处理程序
+        all_brand_cancelHan() {
+            this.setData({
+                nowShow: 'main'
+            })
+        },
+        // 查看全部取消按钮的处理程序
+        showall_cancelHan() {
+            this.setData({
+                nowShow: 'main'
+            })
+        }
+
     },
     // 生命周期
     lifetimes: {

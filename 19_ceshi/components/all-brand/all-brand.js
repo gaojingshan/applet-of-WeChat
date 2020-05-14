@@ -4,7 +4,10 @@ Component({
      * 组件的属性列表
      */
     properties: {
-
+        brand: {
+            type: String,
+            value: ''
+        }
     },
 
     /**
@@ -38,7 +41,9 @@ Component({
             // console.log(event.detail, 'click right menu callback data')
         },
         // 点击取消按钮的处理程序
-        cancelHan(){
+        cancelHan() {
+            console.log(1);
+
             this.triggerEvent('cancel')
         }
     },
@@ -81,6 +86,9 @@ Component({
                         })
 
                     }
+                }),
+                this.setData({
+                    nowChoose: this.properties.brand
                 })
         }
     },

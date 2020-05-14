@@ -99,7 +99,7 @@ Component({
             // 小程序是MVVM模式的，数据变化了，视图就变化了
             this.setData({
                 brand: '',
-                now:{
+                now: {
                     ...this.data.now,
                     color: [],
                     fuel: [],
@@ -153,7 +153,13 @@ Component({
         // 全部品牌的取消按钮的事件处理程序
         all_brand_cancelHan() {
             this.setData({
-                nowShow: 'main'
+                nowshow: 'main'
+            })
+        },
+        // 查看全部的取消按钮的事件处理程序
+        show_all_cancelHan() {
+            this.setData({
+                nowshow: 'main'
             })
         }
     },
