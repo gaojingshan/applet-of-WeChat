@@ -8,7 +8,7 @@ Page({
     // 当前页面
     page: 1,
     // 默认选中的菜单
-    nowmenu: 'color',
+    nowmenu: '',
     now: {
       brand: '',
       color: [],
@@ -119,6 +119,19 @@ Page({
   drawer_inner_close_han() {
     this.setData({
       isShowDrawer: false
+    })
+  },
+  // 选项框切换
+  xxk_click_han(_e) {
+    var e = _e.target.dataset.e;
+    this.setData({
+      nowmenu: e
+    })
+  },
+  // 关闭菜单
+  close_Han() {
+    this.setData({
+      nowmenu: ''
     })
   }
 })

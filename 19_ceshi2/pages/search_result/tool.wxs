@@ -1,0 +1,11 @@
+function theOneItemInArray(arr, e) {
+    for (var i = 0; i < arr.length; i++) {
+        if (arr[i].e == e) {
+            return arr[i]
+        }
+    }
+    return {}
+}
+module.exports = {
+    theOneItemInArray: theOneItemInArray
+}

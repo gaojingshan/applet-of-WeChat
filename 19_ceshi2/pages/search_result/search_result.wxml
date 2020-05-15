@@ -6,13 +6,15 @@
 		<view class="row">
 			<scroll-view scroll-x="true">
 				<view class="unit">
-					<view class="xxk {{nowmenu == item.e ? 'cur' : ''}}" wx:for="{{filters}}" wx:key="index">{{item.c}}</view>
+					<view class="xxk {{nowmenu == item.e ? 'cur' : ''}}" wx:for="{{filters}}" wx:key="index" bindtap="xxk_click_han" data-e="{{item.e}}">{{item.c}}</view>
 				</view>
 			</scroll-view>
 		</view>
-		<view class="menu">
+		<wxs src="tool.wxs" module="tool" />
+		<view class="menu" wx:if="{{nowmenu}}">
+			<view class="mask" catchtap="close_Han"></view>
 			<view class="menu_inner">
-				<menu-inner ></menu-inner>
+				<menu-inner nowmenu="{{nowmenu}}" nowv="{{now[nowmenu]}}" nowo="{{tool.theOneItemInArray(filters,nowmenu)}}"></menu-inner>
 			</view>
 		</view>
 

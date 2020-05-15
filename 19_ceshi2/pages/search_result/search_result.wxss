@@ -17,6 +17,8 @@
 }
 
 .topbox .row .unit {
+  width: 600px;
+  height: 30px;
   margin-left: 20px;
 }
 
@@ -57,13 +59,21 @@
   left: 0px;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
   z-index: 99;
 }
-.topbox .menu .menu_inner{
+.topbox .menu .mask{
+  position: absolute;
   width: 100%;
-  height: 300px;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+.topbox .menu .menu_inner{
+  position: absolute;
+  width: 100%;
+  min-height: 300px;
   background-color: white;
+  z-index: 2;
 }
 
 .the_temp {

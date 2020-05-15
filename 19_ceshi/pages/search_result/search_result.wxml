@@ -19,10 +19,11 @@
 		<view class="menu" wx:if="{{nowmenu != ''}}" >
 			<view class="mask" catchtap="close_menu"></view>
 			<view class="menu_inner_box">
-				<menu-inner nowmenu="{{nowmenu}}" nowo="{{tool.getTheOneItemInArray(filters,nowmenu)}}" nowv="{{now[nowmenu]}}"></menu-inner>
+				<menu-inner nowmenu="{{nowmenu}}" nowo="{{tool.getTheOneItemInArray(filters,nowmenu)}}" nowv="{{now[nowmenu]}}" bind:cancel="cancelHan" bind:ok="menuokHan"></menu-inner>
 			</view>
 		</view>
 
+		<!-- 抽屉 -->
 		<i-drawer mode="right" visible="{{isShowDrawer}}" bind:close="onClose">
 			<view style="height:{{windowHeight}}px;background:white;width:290px">
 				<!-- 加wx:if的目的是为了让组件能够消亡，这样组件data会被重置 -->

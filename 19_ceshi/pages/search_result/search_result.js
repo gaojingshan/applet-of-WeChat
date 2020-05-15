@@ -86,7 +86,9 @@ Page({
   // 点击筛选按钮打开抽屉
   showDrawer() {
     this.setData({
-      isShowDrawer: true
+      isShowDrawer: true,
+      // 关闭菜单
+      nowmenu: ''
     });
   },
   // 点击黑色遮罩，关闭抽屉
@@ -132,6 +134,27 @@ Page({
   close_menu() {
     this.setData({
       nowmenu: ''
+    })
+  },
+  // 儿子传回来了取消
+  cancelHan() {
+    this.setData({
+      nowmenu: ''
+    })
+  },
+  // 菜单传回来的ok
+  menuokHan(e) {
+    this.setData({
+      now: {
+        ...this.data.now,
+        [this.data.nowmenu]: e.detail.current
+      },
+      nowmenu: '',
+      page: 1,
+      results: []
+    }, function () {
+      // 拉取数据
+      this.loadData()
     })
   }
 })

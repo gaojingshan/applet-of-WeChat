@@ -1,3 +1,10 @@
 <view>
-
+	<i-checkbox-group current="{{current}}" bindchange="handleFruitChange">
+		<i-checkbox wx:for="{{nowo.options}}" position="left" wx:key="index" value="{{item}}" style="float:left;width:50%">
+		</i-checkbox>
+	</i-checkbox-group>
+	<view class="bottombox">
+		<view class="btn1">取消</view>
+		<view class="btn2">确定</view>
+	</view>
 </view>

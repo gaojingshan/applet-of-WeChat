@@ -18,10 +18,9 @@
 					<view style="float:left">{{lm.c}}
 						<text style="font-size:12px">（可多选）</text>
 					</view>
-					<view style="float:right;font-size:14px">当前:{{now[lm.e].length > 3 ?  tool.myslice(now[lm.e],0,2)+'等'+now[lm.e].length+'项' : now[lm.e]}}</view>
+					<view style="float:right;font-size:14px;max-width:140px;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;  ">当前:{{now[lm.e].length > 3 ?  tool.myslice(now[lm.e],0,2)+'等'+now[lm.e].length+'项' : now[lm.e]}}</view>
 				</view>
 				<view class="content">
-					
 					<view  wx:for="{{lm.options.length > 5 ? tool.myslice(lm.options, 0, 5) : lm.options}}" wx:key="index" wx:for-item="xiang" bindtap="ppphan" data-k="{{lm.e}}" data-v="{{xiang}}" class="btn {{tool.checkInArr(now[lm.e],xiang) ? 'cur' : ''}}">{{xiang}}</view>
 					<view class="btn all" bindtap="showalloption" data-e="{{lm.e}}" data-options="{{lm.options}}"  data-c="{{lm.c}}" wx:if="{{lm.options.length > 5}}" >查看全部</view>
 				</view>
