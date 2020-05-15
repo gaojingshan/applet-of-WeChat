@@ -4,7 +4,7 @@ Page({
     // 存放结果的
     results: [],
     // 是否打开抽屉
-    isShowDrawer: false,
+    isShowDrawer: true,
     // 当前页面
     page: 1,
     now: {
@@ -13,6 +13,7 @@ Page({
       fuel: [],
       exhaust: [],
       engine: [],
+      series: []
     },
     // 当前正在展开谁的菜单
     nowmenu: '',
@@ -63,13 +64,14 @@ Page({
         '&color=' + this.data.now.color.join('v') +
         '&fuel=' + this.data.now.fuel.join('v') +
         '&exhaust=' + this.data.now.exhaust.join('v') +
-        '&engine=' + this.data.now.engine.join('v'),
+        '&engine=' + this.data.now.engine.join('v') +
+        "&series=" + this.data.now.series.join('v'),
       success: (data) => {
         this.setData({
           results: [...this.data.results, ...data.data.results]
         })
         wx.hideLoading()
-        console.log(this.data.results);
+        // console.log(this.data.results);
       }
     })
   },
@@ -110,6 +112,7 @@ Page({
         fuel: e.detail.fuel,
         exhaust: e.detail.exhaust,
         engine: e.detail.engine,
+        series: e.detail.series,
       },
       page: 1,
     }, function () {
@@ -152,7 +155,7 @@ Page({
       nowmenu: '',
       page: 1,
       results: []
-    }, function () {
+    }, () => {
       // 拉取数据
       this.loadData()
     })

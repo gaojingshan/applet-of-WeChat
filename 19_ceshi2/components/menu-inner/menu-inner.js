@@ -39,6 +39,16 @@ Component({
                 current: this.data.current
             });
         },
+        // 点击取消按钮
+        resetHan() {
+            this.triggerEvent('reset')
+        },
+        // 点击确定按钮
+        okHan() {
+            this.triggerEvent('ok', {
+                current: this.data.current
+            })
+        }
     },
     // 组件的生命周期
     lifetimes: {

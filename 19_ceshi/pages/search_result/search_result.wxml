@@ -27,7 +27,7 @@
 		<i-drawer mode="right" visible="{{isShowDrawer}}" bind:close="onClose">
 			<view style="height:{{windowHeight}}px;background:white;width:290px">
 				<!-- 加wx:if的目的是为了让组件能够消亡，这样组件data会被重置 -->
-				<drawer-inner wx:if="{{isShowDrawer}}" bind:ok="drawer_inner_okHan" bind:close="drawer_inner_close_han" filters="{{filters}}" brand="{{now.brand}}" color="{{now.color}}" fuel="{{now.fuel}}" exhaust="{{now.exhaust}}" engine="{{now.engine}}"></drawer-inner>
+				<drawer-inner wx:if="{{isShowDrawer}}" bind:ok="drawer_inner_okHan" bind:close="drawer_inner_close_han" filters="{{filters}}" brand="{{now.brand}}" color="{{now.color}}" fuel="{{now.fuel}}" exhaust="{{now.exhaust}}" engine="{{now.engine}}" series="{{now.series}}"></drawer-inner>
 			</view>
 		</i-drawer>
 	</view>
@@ -39,7 +39,7 @@
 			</view>
 			<view class="contentbox">
 				<view class="text">【id】{{item.id}}</view>
-				<view class="text">【品牌】{{item.brand}}</view>
+				<view class="text">【品牌】{{item.brand}}  {{item.series}}</view>
 				<view class="text">【价格】{{item.price}}</view>
 				<view class="text">【颜色】{{item.color}}【排放】{{item.exhaust}}</view>
 				<view class="text">【燃油】{{item.fuel}}</view>

@@ -42,8 +42,6 @@ Component({
         },
         // 点击取消按钮的处理程序
         cancelHan() {
-            console.log(1);
-
             this.triggerEvent('cancel')
         }
     },
@@ -63,7 +61,7 @@ Component({
                     success: (data) => {
                         // 写形式转换程序，因为wxs文件中不能使用for var k in 这样的语法
 
-                        console.log(data.data);
+                        // console.log(data.data);
                         var arr = [];
                         for (var zimu in data.data) {
                             // 给每个字母设置一个数字
@@ -77,14 +75,13 @@ Component({
                                 item_obj.list.push(pinpai)
                             }
                         }
-                        console.log(arr);
+                        // console.log(arr);
                         this.setData({
                             allbs: data.data,
                             allbs_zimu: Object.keys(data.data),
                             // 全部车辆数据的数组版本,当然外层还是对象
                             allbs_array: arr
                         })
-
                     }
                 }),
                 this.setData({

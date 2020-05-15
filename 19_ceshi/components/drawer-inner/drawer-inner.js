@@ -27,6 +27,10 @@ Component({
         engine: {
             type: Array,
             value: []
+        },
+        series: {
+            type: Array,
+            value: []
         }
     },
 
@@ -39,8 +43,12 @@ Component({
         nowshow: 'main',
         // 当前选择的品牌
         brand: '',
+        // 形式转换后的品牌名和车系的对象
+        allbs: {},
         brand_arr: ['宝马', '奔驰', '奥迪', '本田', '丰田', '标致', '日产', '五菱'],
         now: {
+            // 当前选择的车系，由于可以多选，所以数组存放
+            series: [],
             // 当前选择的颜色，由于可以多选，所以数组存放
             color: [],
             // 当前选择的燃料，由于可以多选，所以数组存放
@@ -62,6 +70,7 @@ Component({
      * 组件的方法列表
      */
     methods: {
+        // 显示所有品牌
         showallbrand() {
             this.setData({
                 nowshow: 'allbrand'
@@ -81,13 +90,34 @@ Component({
                 color: this.data.now.color,
                 fuel: this.data.now.fuel,
                 exhaust: this.data.now.exhaust,
-                engine: this.data.now.engine
+                engine: this.data.now.engine,
+                series: this.data.now.series
             })
         },
+        // 点击品牌做的事情
         pphan(e) {
-            this.setData({
-                brand: e.target.dataset.pinpai
-            })
+            // 判断，如果当前用户点击的，和当前一样，那么就去掉
+            // 否则设置
+            if (this.data.brand == e.target.dataset.pinpai) {
+                this.setData({
+                    brand: '',
+                    // 车系也要同时清空
+                    now: {
+                        ...this.data.now,
+                        series: []
+                    }
+                })
+            } else {
+                this.setData({
+                    brand: e.target.dataset.pinpai,
+                    // 车系也要同时清空
+                    now: {
+                        ...this.data.now,
+                        series: []
+                    }
+                })
+            }
+
         },
 
         closeBtnHan() {
@@ -176,16 +206,38 @@ Component({
             });
             // 把properties设置为data
             this.setData({
-                brand: this.properties.brand,
-                filters: this.properties.filters,
-                now: {
-                    ...this.data.now,
-                    color: this.properties.color,
-                    fuel: this.properties.fuel,
-                    exhaust: this.properties.exhaust,
-                    engine: this.properties.engine,
-                }
-            })
-        }
+                    brand: this.properties.brand,
+                    filters: this.properties.filters,
+                    now: {
+                        ...this.data.now,
+                        color: this.properties.color,
+                        fuel: this.properties.fuel,
+                        exhaust: this.properties.exhaust,
+                        engine: this.properties.engine,
+                        series: this.properties.series
+                    }
+                }),
+                // 请求所有品牌
+                // Ajax 拉取所有品牌数据
+                wx.request({
+                    url: 'http://www.aiqianduan.com:56506/allbs',
+                    success: (data) => {
+                        console.log(data.data);
+                        // 形式转换
+                        // 去掉所有的大写字母，用品牌当作键名，组合成为新的对象
+                        var o = {};
+                        for (let zimu in data.data) {
+                            for (let pinpai in data.data[zimu]) {
+                                o[pinpai] = data.data[zimu][pinpai]
+                            }
+                        }
+                        this.setData({
+                            allbs: o
+                        })
+
+                    }
+                })
+        },
+
     },
 })

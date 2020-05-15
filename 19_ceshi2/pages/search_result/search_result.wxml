@@ -14,7 +14,7 @@
 		<view class="menu" wx:if="{{nowmenu}}">
 			<view class="mask" catchtap="close_Han"></view>
 			<view class="menu_inner">
-				<menu-inner nowmenu="{{nowmenu}}" nowv="{{now[nowmenu]}}" nowo="{{tool.theOneItemInArray(filters,nowmenu)}}"></menu-inner>
+				<menu-inner nowmenu="{{nowmenu}}" nowv="{{now[nowmenu]}}" nowo="{{tool.theOneItemInArray(filters,nowmenu)}}" bind:reset="resetHan" bind:ok="menuokHan"></menu-inner>
 			</view>
 		</view>
 

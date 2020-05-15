@@ -4,7 +4,7 @@
 		</i-checkbox>
 	</i-checkbox-group>
 	<view class="bottombox">
-		<view class="btn1">取消</view>
-		<view class="btn2">确定</view>
+		<view class="btn1" bindtap="resetHan">取消</view>
+		<view class="btn2" bindtap="okHan">确定</view>
 	</view>
 </view>

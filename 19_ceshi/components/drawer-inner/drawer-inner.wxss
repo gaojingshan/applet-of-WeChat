@@ -22,14 +22,15 @@
     text-align: center;
     line-height: 50px;
     background-color: orange;
+    color: white;
 }
 
 .sx_grid{
     padding: 10px;
 }
 .sx_grid .title{
-    font-size: 18px;
-    line-height: 26px;
+    font-size: 15px;
+    line-height: 20px;
     border-bottom: 1px solid #ccc;
 }
 .sx_grid .content{
