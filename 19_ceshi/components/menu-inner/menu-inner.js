@@ -1,32 +1,28 @@
-// components/drawer-inner/drawer-inner.js
+// components/menu-inner/menu-inner.js
 Component({
     /**
      * 组件的属性列表
      */
     properties: {
-        nowc: {
+        nowmenu: {
             type: String,
             value: ''
         },
-        nowe: {
-            type: String,
-            value: ''
-        },
-        nowoptions: {
-            type: Array,
-            value: []
+        nowo: {
+            type: Object,
+            value: {}
         },
         nowv: {
             type: Array,
             value: []
-        },
+        }
     },
 
     /**
      * 组件的初始数据
      */
     data: {
-        windowHeight: 0,
+        // 当前选中的
         current: []
     },
 
@@ -44,28 +40,12 @@ Component({
                 current: this.data.current
             });
         },
-        okHan() {
-            this.triggerEvent('ok', {
-                e: this.properties.nowe,
-                current: this.data.current,
-            })
-        },
-        // 取消按钮的事件处理程序
-        cancel_Han(){
-            this.triggerEvent('cancel')
-        }
     },
     // 组件的生命周期
     lifetimes: {
+        // 当组件加载好之后
         attached: function () {
-            wx.getSystemInfo({
-                success: (res) => {
-                    this.setData({
-                        windowHeight: res.windowHeight
-                    })
-                }
-            })
-            // 设置properties为data,进行数据的统一
+            // 设置properties为data，进行数据的统一
             this.setData({
                 current: this.properties.nowv
             })

@@ -1,12 +1,26 @@
 <view>
 	<view class="topbox">
-		<i-button class="sx_btn" bind:click="showDrawer" size="small">
-			筛选
-		</i-button>
+		<view class="row">
+			<view class="sx_btn" bindtap="showDrawer" size="small">筛选</view>
+		</view>
+		<view class="row">
+			<scroll-view scroll-x="true">
+				<view class="unit">
+					<view class="xxk {{nowmenu == item.e ? 'cur' : ''}}" wx:for="{{filters}}" wx:key="index">{{item.c}}</view>
+				</view>
+			</scroll-view>
+		</view>
+		<view class="menu">
+			<view class="menu_inner">
+				<menu-inner ></menu-inner>
+			</view>
+		</view>
+
+
 		<i-drawer mode="right" visible="{{isShowDrawer}}" bind:close="onClose">
 			<view style="height:{{windowHeight}}px;background:white;width:290px">
 				<!-- 加wx:if的目的是为了让组件能够消亡，这样组件data会被重置 -->
-				<drawer-inner wx:if="{{isShowDrawer}}" bind:ok="drawer_inner_okHan" bind:close="drawer_inner_close_han" filters="{{filters}}" brand="{{brand}}" color="{{color}}" fuel="{{fuel}}" exhaust="{{exhaust}}" engine="{{engine}}"></drawer-inner>
+				<drawer-inner wx:if="{{isShowDrawer}}" bind:ok="drawer_inner_okHan" bind:close="drawer_inner_close_han" filters="{{filters}}" brand="{{now.brand}}" color="{{now.color}}" fuel="{{now.fuel}}" exhaust="{{now.exhaust}}" engine="{{now.engine}}"></drawer-inner>
 			</view>
 		</i-drawer>
 	</view>

@@ -1,0 +1,13 @@
+function getTheOneItemInArray(arr, e) {
+    for (var i = 0; i < arr.length; i++) {
+        if (arr[i].e == e) {
+            return arr[i]
+        }
+    }
+    // 默认返回一个空对象，防止报错等的发生
+    return {}
+}
+module.exports = {
+    getTheOneItemInArray: getTheOneItemInArray
+}
+

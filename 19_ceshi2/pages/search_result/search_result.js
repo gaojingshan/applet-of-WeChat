@@ -7,11 +7,15 @@ Page({
     isShowDrawer: false,
     // 当前页面
     page: 1,
-    brand: '',
-    color: [],
-    fuel: [],
-    exhaust: [],
-    engine: [],
+    // 默认选中的菜单
+    nowmenu: 'color',
+    now: {
+      brand: '',
+      color: [],
+      fuel: [],
+      exhaust: [],
+      engine: [],
+    },
     filters: [{
         'c': '颜色',
         'e': 'color',
@@ -55,11 +59,11 @@ Page({
     wx.request({
       'url': 'http://www.aiqianduan.com:56506/cars?' +
         'page=' + this.data.page +
-        '&brand=' + this.data.brand +
-        '&color=' + this.data.color.join('v') +
-        '&fuel=' + this.data.fuel.join('v') +
-        '&exhaust=' + this.data.exhaust.join('v') +
-        '&engine=' + this.data.engine.join('v'),
+        '&brand=' + this.data.now.brand +
+        '&color=' + this.data.now.color.join('v') +
+        '&fuel=' + this.data.now.fuel.join('v') +
+        '&exhaust=' + this.data.now.exhaust.join('v') +
+        '&engine=' + this.data.now.engine.join('v'),
       success: (data) => {
         this.setData({
           results: [...this.data.results, ...data.data.results]
@@ -96,12 +100,15 @@ Page({
     this.setData({
       // 结果也要清空
       results: [],
-      brand: e.detail.brand,
       isShowDrawer: false,
-      color: e.detail.color,
-      fuel: e.detail.fuel,
-      exhaust: e.detail.exhaust,
-      engine: e.detail.engine,
+      now: {
+        ...this.data.now,
+        brand: e.detail.brand,
+        color: e.detail.color,
+        fuel: e.detail.fuel,
+        exhaust: e.detail.exhaust,
+        engine: e.detail.engine,
+      },
       page: 1,
     }, function () {
       // 改变完之后做的事情

@@ -2,6 +2,7 @@
   "usingComponents": {
     "i-button": "../../iviewui-dist/button/index",
     "i-drawer": "../../iviewui-dist/drawer/index",
-    "drawer-inner": "/components/drawer-inner/drawer-inner"
+    "drawer-inner": "/components/drawer-inner/drawer-inner",
+    "menu-inner": "/components/menu-inner/menu-inner"
   }
 }
