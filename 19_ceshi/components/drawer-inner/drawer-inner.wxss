@@ -1,22 +1,25 @@
-.bottom_box{
+.bottom_box {
     display: flex;
     height: 50px;
     border-top: 1px solid #ccc;
 }
-.bottom_box .btn0{
+
+.bottom_box .btn0 {
     flex: 1;
     height: 50px;
     text-align: center;
     line-height: 50px;
     border-right: 1px solid #ccc;
 }
-.bottom_box .btn1{
+
+.bottom_box .btn1 {
     flex: 3;
     height: 50px;
     text-align: center;
     line-height: 50px;
 }
-.bottom_box .btn2{
+
+.bottom_box .btn2 {
     flex: 3;
     height: 50px;
     text-align: center;
@@ -25,19 +28,22 @@
     color: white;
 }
 
-.sx_grid{
+.sx_grid {
     padding: 10px;
 }
-.sx_grid .title{
+
+.sx_grid .title {
     font-size: 15px;
     line-height: 20px;
     border-bottom: 1px solid #ccc;
 }
-.sx_grid .content{
+
+.sx_grid .content {
     padding-top: 10px;
     overflow: hidden;
 }
-.sx_grid .btn{
+
+.sx_grid .btn {
     float: left;
     width: 33.33%;
     background: #eee;
@@ -50,13 +56,24 @@
     border-radius: 4px;
     font-size: 14px;
 }
-.sx_grid .btn:nth-child(3n){
+
+.sx_grid .btn:nth-child(3n) {
     border-right: 0;
 }
-.sx_grid .btn.all{
+
+.sx_grid .btn.all {
     background: white;
     border: 1px solid #eee;
 }
-.sx_grid .btn.cur{
+
+.sx_grid .btn.cur {
     background: yellow;
+}
+
+/* 购买时间 */
+.picker {
+    border: 1px solid #eee;
+    padding: 2px;
+    margin: 4px 0;
+    font-size: 16px;
 }

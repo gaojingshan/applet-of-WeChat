@@ -7,7 +7,16 @@ function getTheOneItemInArray(arr, e) {
     // 默认返回一个空对象，防止报错等的发生
     return {}
 }
-module.exports = {
-    getTheOneItemInArray: getTheOneItemInArray
-}
 
+// 将时间戳变为字符串
+function changeTime(timestamp) {
+    // 日期对象
+    var dateobj = getDate(timestamp);
+    // 调用API,得到年月日
+    return dateobj.getFullYear() + '-' + (dateobj.getMonth()+1) + '-' + dateobj.getDate()
+
+}
+module.exports = {
+    getTheOneItemInArray: getTheOneItemInArray,
+    changeTime: changeTime
+}

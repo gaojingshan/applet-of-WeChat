@@ -4,7 +4,11 @@ Page({
     // 存放结果的
     results: [],
     // 是否打开抽屉
-    isShowDrawer: false,
+    isShowDrawer: true,
+    date1_timestamp: 0,
+    date2_timestamp: 0,
+    date1: '',
+    date2: '',
     // 当前页面
     page: 1,
     // 默认选中的菜单
@@ -15,6 +19,7 @@ Page({
       fuel: [],
       exhaust: [],
       engine: [],
+      series: []
     },
     filters: [{
         'c': '颜色',
@@ -63,13 +68,15 @@ Page({
         '&color=' + this.data.now.color.join('v') +
         '&fuel=' + this.data.now.fuel.join('v') +
         '&exhaust=' + this.data.now.exhaust.join('v') +
-        '&engine=' + this.data.now.engine.join('v'),
+        '&engine=' + this.data.now.engine.join('v') +
+        '&series=' + this.data.now.series.join('v') +
+        (this.data.date1_timestamp != 0 && this.data.date2_timestamp != 0 ? ('&buydate=' + this.data.date1_timestamp + 'to' + this.data.date2_timestamp) : ''),
       success: (data) => {
         this.setData({
           results: [...this.data.results, ...data.data.results]
         })
         wx.hideLoading()
-        console.log(this.data.results);
+        // console.log(this.data.results);
       }
     })
   },
@@ -109,7 +116,12 @@ Page({
         fuel: e.detail.fuel,
         exhaust: e.detail.exhaust,
         engine: e.detail.engine,
+        series: e.detail.series
       },
+      date1_timestamp: e.detail.date1_timestamp,
+      date2_timestamp: e.detail.date2_timestamp,
+      date1:e.detail.date1,
+      date2:e.detail.date2,
       page: 1,
     }, function () {
       // 改变完之后做的事情

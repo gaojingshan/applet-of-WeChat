@@ -3,6 +3,7 @@
 	<wxs src="tool.wxs" module="tool" />
 	<view wx:if="{{nowshow == 'main'}}">
 		<scroll-view scroll-y="true" style="height:{{windowHeight-51}}px">
+			<!-- 品牌筛选 -->
 			<view class="sx_grid">
 				<view class="title" style="overflow:hidden">
 					<view style="float:left">品牌</view>
@@ -13,6 +14,43 @@
 					<view class="btn all" bindtap="showallbrand">查看全部</view>
 				</view>
 			</view>
+
+			<!-- 系列筛选 -->
+			<view class="sx_grid" wx:if="{{brand}}">
+				<view class="title" style="overflow:hidden">
+					<view style="float:left">车系
+						<text style="font-size:12px">（可多选）</text>
+					</view>
+					<view style="float:right;font-size:14px">当前:{{now.series.length > 3 ?  tool.myslice(now.series,0,2)+'等'+now.series.length+'项' : now.series}}</view>
+				</view>
+				<view class="content">
+					<view  wx:for="{{allbs[brand].length > 5 ? tool.myslice(allbs[brand], 0, 5) : allbs[brand]}}" wx:key="index"  bindtap="ppphan" data-k="series" data-v="{{item}}" class="btn {{tool.checkInArr(now.series,item) ? 'cur' : ''}}">{{item}}</view>
+					<view class="btn all" bindtap="showalloption" data-e="series" data-options="{{allbs[brand]}}"  data-c="{{brand}}" wx:if="{{allbs[brand].length > 5}}" >查看全部</view>
+				</view>
+			</view>
+
+			<!-- 购买时间 -->
+			<view class="sx_grid">
+				<view class="title" style="overflow:hidden">
+					<view style="float:left">购买时间</view>
+					<view style="float:right;font-size:14px">当前:</view>
+				</view>
+				<view class="content">
+					<picker mode="date" value="{{date1}}" start="2000-01-01" end="2020-01-01" bindchange="bindDateChange1">
+						<view class="picker">
+						当前选择: {{date1}}
+						</view>
+					</picker>
+					<picker mode="date" value="{{date2}}" start="2000-01-01" end="2020-01-01" bindchange="bindDateChange2">
+						<view class="picker">
+						当前选择: {{date2}}
+						</view>
+					</picker>
+					<view bindtap="reset_times">重置日期</view>
+				</view>
+			</view>
+
+			<!--其他筛选 -->
 			<view class="sx_grid" wx:for="{{filters}}" wx:key="e" wx:for-item="lm">
 				<view class="title" style="overflow:hidden">
 					<view style="float:left">{{lm.c}}

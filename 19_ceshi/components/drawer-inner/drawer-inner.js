@@ -31,6 +31,14 @@ Component({
         series: {
             type: Array,
             value: []
+        },
+        date1: {
+            type: String,
+            value: ''
+        },
+        date2: {
+            type: String,
+            value: ''
         }
     },
 
@@ -63,7 +71,12 @@ Component({
         // 当前正在点谁的全部
         nowc: '',
         nowe: '',
-        nowoptions: []
+        nowoptions: [],
+        // 时间
+        date1: '',
+        date2: '',
+        // 今天的日期
+        nowdate: ''
     },
 
     /**
@@ -91,7 +104,9 @@ Component({
                 fuel: this.data.now.fuel,
                 exhaust: this.data.now.exhaust,
                 engine: this.data.now.engine,
-                series: this.data.now.series
+                series: this.data.now.series,
+                date1: this.data.date1,
+                date2: this.data.date2,
             })
         },
         // 点击品牌做的事情
@@ -134,8 +149,11 @@ Component({
                     color: [],
                     fuel: [],
                     exhaust: [],
-                    engine: []
-                }
+                    engine: [],
+                    series: []
+                },
+                date1: '',
+                date2: ''
             })
         },
         // 除了品牌之外的点击，双色球的逻辑
@@ -162,7 +180,7 @@ Component({
                 })
             }
         },
-        // 查看全部选项
+        // 查看全部选项 和 品牌系列的查看全部
         showalloption(_e) {
             this.setData({
                 nowe: _e.target.dataset.e,
@@ -191,7 +209,26 @@ Component({
             this.setData({
                 nowshow: 'main'
             })
-        }
+        },
+        // 时间
+        bindDateChange1(e) {
+            this.setData({
+                date1: e.detail.value
+            })
+        },
+        bindDateChange2(e) {
+            this.setData({
+                date2: e.detail.value
+            })
+        },
+        // 时间重置按钮
+        resetbtn_times() {
+            this.setData({
+                date1: '',
+                date2: ''
+            })
+        },
+
     },
     // 组件的生命周期
     lifetimes: {
@@ -215,7 +252,9 @@ Component({
                         exhaust: this.properties.exhaust,
                         engine: this.properties.engine,
                         series: this.properties.series
-                    }
+                    },
+                    date1: this.properties.date1,
+                    date2: this.properties.date2
                 }),
                 // 请求所有品牌
                 // Ajax 拉取所有品牌数据
@@ -236,7 +275,23 @@ Component({
                         })
 
                     }
+                });
+            // 设置data2
+            var y = new Date().getFullYear();
+            var m = String(new Date().getMonth() + 1).padStart(2, '0');
+            var d = String(new Date().getDate()).padStart(2, '0');
+            if (this.data.date2 == '') {
+                this.setData({
+                    date2: y + '-' + m + '-' + d
                 })
+            } else {
+                this.setData({
+                    date2: this.properties.date2
+                })
+            }
+            this.setData({
+                nowdate: y + '-' + m + '-' + d
+            })
         },
 
     },

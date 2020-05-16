@@ -7,6 +7,10 @@ Page({
     isShowDrawer: true,
     // 当前页面
     page: 1,
+    date1_timestamp: 0,
+    date2_timestamp: 0,
+    date1: '',
+    date2: '',
     now: {
       brand: '',
       color: [],
@@ -50,6 +54,8 @@ Page({
       }
     })
     this.loadData();
+
+
   },
   // 封装拉取数据方法
   loadData() {
@@ -65,7 +71,8 @@ Page({
         '&fuel=' + this.data.now.fuel.join('v') +
         '&exhaust=' + this.data.now.exhaust.join('v') +
         '&engine=' + this.data.now.engine.join('v') +
-        "&series=" + this.data.now.series.join('v'),
+        "&series=" + this.data.now.series.join('v') +
+        (this.data.date1_timestamp != 0 && this.data.date2_timestamp != 0 ? ('&buydate=' + this.data.date1_timestamp + 'to' + this.data.date2_timestamp) : ''),
       success: (data) => {
         this.setData({
           results: [...this.data.results, ...data.data.results]
@@ -101,24 +108,52 @@ Page({
   },
   // 当抽屉里面的确定按钮被点击
   drawer_inner_okHan(e) {
-    this.setData({
-      // 结果也要清空
-      results: [],
-      isShowDrawer: false,
-      now: {
-        ...this.data.now,
-        brand: e.detail.brand,
-        color: e.detail.color,
-        fuel: e.detail.fuel,
-        exhaust: e.detail.exhaust,
-        engine: e.detail.engine,
-        series: e.detail.series,
-      },
-      page: 1,
-    }, function () {
-      // 改变完之后做的事情
-      this.loadData()
-    })
+    // 将儿子发来的字符串日期变为时间戳
+    var date1_timestamp = 0;
+    var date2_timestamp = 0;
+    if (e.detail.date1 != '' && e.detail.date2 != '') {
+      date1_timestamp = Date.parse(new Date(e.detail.date1));
+      date2_timestamp = Date.parse(new Date(e.detail.date2));
+    } else {
+      date1_timestamp = 0;
+      date2_timestamp = 0;
+    }
+
+    if (date1_timestamp > date2_timestamp) {
+      wx.showToast({
+        title: '购买日期，开始日期不能大于结束日期',
+        icon: 'none',
+        duration: 2000
+      })
+      this.setData({
+        isShowDrawer: true,
+      })
+    } else {
+      this.setData({
+        // 结果也要清空
+        results: [],
+        isShowDrawer: false,
+        now: {
+          ...this.data.now,
+          brand: e.detail.brand,
+          color: e.detail.color,
+          fuel: e.detail.fuel,
+          exhaust: e.detail.exhaust,
+          engine: e.detail.engine,
+          series: e.detail.series,
+        },
+        page: 1,
+        date1_timestamp: date1_timestamp,
+        date2_timestamp: date2_timestamp,
+        date1: e.detail.date1,
+        date2: e.detail.date2
+      }, function () {
+        // 改变完之后做的事情
+        this.loadData()
+      })
+    }
+
+
   },
   // 关闭抽屉
   drawer_inner_close_han() {
