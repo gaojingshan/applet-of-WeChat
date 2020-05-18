@@ -1,18 +1,8 @@
 // pages/index/index.js
 Page({
-
-    /**
-     * 页面的初始数据
-     */
-    data: {
-
-    },
-
-    
-    // 点击进入搜索页
-    click_soso() {
+    gotososo(){
         wx.navigateTo({
-            url: '/pages/soso/soso'
+          url: '/pages/soso/soso',
         })
     }
 })

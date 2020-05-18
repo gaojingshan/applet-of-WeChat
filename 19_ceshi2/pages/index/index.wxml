@@ -1,7 +1,9 @@
 <view class="topbox">
-	<view class="search" bindtap="click_soso">
-		<image class="fdj" src="/images/fdj.png"></image>
-		<view>华为P40手机</view>
-	</view>
-	<view>我是首页</view>
+    <view class="kuang" bindtap="gotososo">
+        <image class="fdj" src="/images/fdj.png"></image>
+        <text>华为P40手机</text>
+    </view>
+    <view>
+        <view>我是首页</view>
+    </view>
 </view>

@@ -1,3 +1,5 @@
-<view>{{a}}</view>
-<button bindtap="fl_lm">看分类栏目</button>
-<button bindtap="add">按我a加1</button>
+<view>
+	<view>{{a}}</view>
+	<button bindtap="gotocategory">看分类栏目</button>
+    <button bindtap="add">按我a加1</button>
+</view>
