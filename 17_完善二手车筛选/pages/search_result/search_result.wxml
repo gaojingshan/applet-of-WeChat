@@ -17,7 +17,7 @@
 		<view class="menu" wx:if="{{nowmenu != ''}}" >
 			<view class="mask" catchtap="close_menu"></view>
 			<view class="menu_inner_box">
-				<menu-inner nowmenu="{{nowmenu}}" nowo="{{tool.getTheOneItemInArray(filters,nowmenu)}}" nowv="{{now[nowmenu]}}" bind:cancel="cancelHan" bind:ok="menuokHan"></menu-inner>
+				<menu-inner wx:for="{{['color','fuel','exhaust','engine']}}" wx:key="index" wx:if="{{nowmenu == item}}" nowmenu="{{item}}" nowo="{{tool.getTheOneItemInArray(filters,item)}}" nowv="{{now[item]}}" bind:cancel="cancelHan" bind:ok="menuokHan"></menu-inner>
 			</view>
 		</view>
 

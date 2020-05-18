@@ -4,8 +4,9 @@
 }
 
 .topbox .row {
-  height: 30px;
+  height: 40px;
   padding-top: 10px;
+  overflow: hidden;
 }
 
 .topbox .row .sx_btn {
@@ -81,7 +82,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  min-height: 320px;
+  min-height: 400px;
   background: #fff;
   z-index: 2;
 }
