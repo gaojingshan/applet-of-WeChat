@@ -1,4 +1,4 @@
-// pages/index/index.js
+// pages/cart/cart.js
 Page({
 
     /**
@@ -8,11 +8,9 @@ Page({
 
     },
 
-    
-    // 点击进入搜索页
-    click_soso() {
+    gototest2(){
         wx.navigateTo({
-            url: '/pages/soso/soso'
+          url: '/pages/test2/test2',
         })
     }
 })

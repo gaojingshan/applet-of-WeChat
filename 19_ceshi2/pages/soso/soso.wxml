@@ -1,0 +1,16 @@
+<view class="top">
+	<view class="topbox">
+		<image class="fdj" src="/images/fdj.png"></image>
+		<input placeholder="{{inputvalue}}" focus bindconfirm="search_han"></input>
+	</view>
+	<view class="cancel">取消</view>
+</view>
+<view class="lsss_box">
+	<view class="lsss">
+		<view class="lsss_text">历史搜索</view>
+		<view class="ljt" bindtap="ljt_click">
+            <image src="/images/ljt.png"></image>
+        </view>
+	</view>
+    <view class="storage" wx:for="{{Storage}}" wx:key="index">{{item}}</view>
+</view>

@@ -1,0 +1,60 @@
+.top {
+    display: flex;
+}
+.topbox {
+    flex: 1;
+    height: 30px;
+    padding: 6px 16px;
+}
+
+.topbox .kuang {
+    width: 100%;
+    height: 100%;
+    background-color: #eee;
+    border-radius: 200px;
+    position: relative;
+    padding: 5px 40px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.topbox .kuang .fdj {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 5px;
+    left: 4px;
+}
+.top .cancelbtn {
+    width: 40px;
+    padding-top: 10px;
+    font-size: 14px;
+}
+
+/* 历史搜索 */
+.lsss_box{
+    padding: 10px;
+}
+.lsss_box .hd{
+    overflow: hidden;
+}
+.lsss_box .lsss{
+    float: left;
+    font-size: 13px;
+}
+.lsss_box .ljt{
+    float: right;
+}
+.lsss_box .ljt image{
+    width: 20px;
+    height: 20px;
+}
+.lishiword{
+    float: left;
+    padding: 4px 6px;
+    background: #eee;
+    margin-right: 10px;
+    border-radius: 10px;
+    font-size: 14px;
+    margin-top: 10px;
+}
