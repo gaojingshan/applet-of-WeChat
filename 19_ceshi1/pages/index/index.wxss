@@ -1,6 +1,24 @@
+Page{
+    background: #eee;
+}
+.topstatusbar {
+    width: 750rpx;
+    height: 190px;
+    background-image: -webkit-linear-gradient(top, rgb(207, 22, 22), rgb(212, 79, 79));
+    padding-top: 30px;
+    box-sizing: border-box;
+}
+
+.topstatusbar .logo {
+    width: 120px;
+    height: 78px;
+    margin: 0px auto;
+    display: block;
+}
+
+
 .topbox {
-    height: 30px;
-    padding: 6px 16px;
+    padding: 4px 10px;
 }
 
 .topbox .kuang {
@@ -20,4 +38,90 @@
     position: absolute;
     top: 5px;
     left: 4px;
+}
+
+.topstatusbar .xscrollviewbox {
+    display: flex;
+}
+
+.topstatusbar .xscrollviewbox .scrollview {
+    flex: 1;
+    overflow: hidden;
+    padding-top: 10px;
+}
+
+.topstatusbar .xscrollviewbox .sjx {
+    width: 30px;
+    height: 30px;
+    /* background-color: orange; */
+}
+
+.topstatusbar .xscrollviewbox .scrollview .xunit {
+    width: 1000px;
+    height: 30px;
+}
+
+.topstatusbar .xscrollviewbox .scrollview .xxk {
+    float: left;
+    margin-right: 20px;
+    color: white;
+    position: relative;
+    height: 26px;
+    font-size: 14px;
+}
+
+.topstatusbar .xscrollviewbox .scrollview .xxk.cur::before {
+    content: '';
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: #fff;
+    bottom: 0px;
+    left: 0;
+}
+
+.topstatusbar .xscrollviewbox .scrollview .xxk.cur::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background: -webkit-linear-gradient(left, rgba(255, 255, 255, .5), rgba(255, 255, 255, .2));
+    bottom: 0;
+    left: 0;
+
+}
+.loadingtext{
+    text-align: center;
+    line-height: 40px;
+}
+.xlm{
+    background: #eee;
+}
+.tuijian{
+    width: 100%;
+    background: white;
+    border-radius: 10px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+.row{
+    overflow: hidden;
+    display: flex;
+    width: 100%;
+    padding-top: 10px;
+}
+.row .grid{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.row .grid .pic image{
+   width: 100rpx;
+   height: 100rpx;
+}
+.row .grid .word{
+    font-size: 13px;
+    color: #333;
 }

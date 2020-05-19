@@ -1,9 +1,18 @@
-<view class="topbox">
-    <view class="kuang" bindtap="gotososo">
-        <image class="fdj" src="/images/fdj.png"></image>
-        <text>华为P40手机</text>
-    </view>
-    <view>
-        <view>我是首页</view>
-    </view>
+<view class="top">
+	<image class="pic" src="/images/logo.png"></image>
+	<view class="topbox">
+		<view class="kuang" bindtap="gotososo">
+			<image class="fdj" src="/images/fdj.png"></image>
+			<text>华为P40手机</text>
+		</view>
+		<view class="scrollview_unit">
+			<scroll-view class="scrollview" scroll-x="true" scroll-into-view="{{indexC}}" scroll-with-animation="true">
+				<view class="unit">
+					<view wx:for="{{xbararr}}" wx:key="index" class="xxk {{nowcur == item ? 'cur' : ''}}" data-title="{{item}}" data-index="{{index}}" bindtap="xxk_click" id="i{{index}}">{{item}}</view>
+				</view>
+			</scroll-view>
+			<view class="sjx"></view>
+		</view>
+
+	</view>
 </view>
