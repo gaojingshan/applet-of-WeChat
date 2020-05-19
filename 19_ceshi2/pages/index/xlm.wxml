@@ -1,0 +1,25 @@
+<template name="xlm">
+	<view class="xlm">
+			<view class="showLoading" wx:if="{{showLoading}}">正在加载，请稍后</view>
+			<view class="rowbox" wx:else>
+				<view class="tuijian">
+					<view class="row">
+						<view class="grid" wx:for="{{xlmarr1}}" wx:key="index">
+							<view class="pic">
+								<image src="{{item.pic}}"></image>
+							</view>
+							<view class="word">{{item.c}}</view>
+						</view>
+					</view>
+					<view class="row">
+						<view class="grid" wx:for="{{xlmarr2}}" wx:key="index">
+							<view class="pic">
+								<image src="{{item.pic}}"></image>
+							</view>
+							<view class="word">{{item.c}}</view>
+						</view>
+					</view>
+				</view>
+			</view>
+	</view>
+</template>

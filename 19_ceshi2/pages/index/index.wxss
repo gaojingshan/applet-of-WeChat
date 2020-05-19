@@ -1,5 +1,8 @@
+Page{
+    background: #eee;
+}
 .top {
-    height: 200px;
+    height: 190px;
     background: -webkit-linear-gradient(top, rgb(207, 22, 22), rgb(212, 79, 79));
     padding-top: 30px;
     box-sizing: border-box;
@@ -85,4 +88,35 @@
     width: 30px;
     height: 30px;
     /* background: orange; */
-} 
+}
+.showLoading{
+    text-align: center;
+    font-size: 14px;
+    color: #333;
+}
+/* 小栏目 template */
+.rowbox{
+    overflow: hidden;
+}
+.tuijian{
+    background: white;
+    border-radius: 10px;
+}
+.xlm .row {
+    display: flex;
+    padding: 10px 0;
+}
+
+.xlm .row .grid {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.xlm .row .grid .pic image{
+    width: 100rpx;
+    height: 100rpx;
+}
+.xlm .row .grid .word{
+    font-size: 13px;
+}

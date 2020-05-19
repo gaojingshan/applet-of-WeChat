@@ -14,5 +14,13 @@
 			<view class="sjx"></view>
 		</view>
 
+
 	</view>
 </view>
+
+<!-- 小栏目 -->
+<import src="./xlm.wxml" />
+<scroll-view scroll-y="true" style="height:{{windowHeight - 190}}px">
+
+	<template is="xlm" data="{{xlmarr1: xlmarr1,xlmarr2: xlmarr2,showLoading: showLoading}}" wx:if="{{nowcur != '首页'}}"> </template>
+</scroll-view>
