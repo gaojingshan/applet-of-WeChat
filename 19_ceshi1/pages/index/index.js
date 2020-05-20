@@ -6,21 +6,17 @@ Page({
     nowcur: '生鲜',
     scrollintoview: 'i0',
     windowHeight: app.globalData.windowHeight,
+    windowWidth: app.globalData.windowWidth,
+    // 小栏目，生鲜、厨房用品等的小栏目
     tjarr1: [],
     tjarr2: [],
-    isShowLoading: true
+    isShowLoading: true,
+    // 瀑布流左边和右边
+    left_arr: [],
+    right_arr: []
   },
   onReady() {
-    wx.request({
-      url: 'http://192.168.43.106:3000/xlm?lm=' + this.data.nowcur,
-      success: (data) => {
-        this.setData({
-          tjarr1: data.data.slice(0, 5),
-          tjarr2: data.data.slice(5, 10),
-          isShowLoading: false
-        })
-      }
-    })
+    this.loadData()
   },
   // 跳转到搜索页面
   gotososo() {
@@ -28,23 +24,13 @@ Page({
       url: '/pages/soso/soso',
     })
   },
-  // 点击选项块
-  xxktap(e) {
-    const title = e.target.dataset.title;
-    const index = e.target.dataset.index;
-    this.setData({
-      nowcur: title,
-      scrollintoview: 'i' + (index - 1),
-      isShowLoading: true
-    });
-    // 判断，如果不是首页，那么
-    if (title != '首页') {
-      // 发出Ajax请求
+  loadData() {
+    // 判断，如果不是首页
+    if (this.data.nowcur != '首页') {
+      // 发出Ajax请求，请求小栏目接口
       wx.request({
-        url: 'http://192.168.43.106:3000/xlm?lm=' + title,
+        url: 'http://192.168.43.106:3000/xlm?lm=' + this.data.nowcur,
         success: (data) => {
-          console.log(data.data);
-
           this.setData({
             tjarr1: data.data.slice(0, 5),
             tjarr2: data.data.slice(5, 10),
@@ -52,7 +38,47 @@ Page({
           })
         }
       })
+
+      // 发出请求，请求瀑布流接口
+      wx.request({
+        url: 'http://192.168.43.106:3000/pbl?lm=' + this.data.nowcur,
+        success: (data) => {
+          // console.log(data.data);
+          for (let i = 0; i < data.data.length; i++) {
+            if (i % 2 == 0) {
+              // 临时用一下push，但是不引发视图更新，后面一起setData
+              this.data.left_arr.push(data.data[i])
+            } else {
+              this.data.right_arr.push(data.data[i])
+            }
+          }
+          console.log(this.data.left_arr, this.data.right_arr);
+          // 引发视图更新
+          this.setData({
+            left_arr: this.data.left_arr,
+            right_arr: this.data.right_arr
+          })
+
+        }
+      })
     }
+
+
+  },
+  // 切换小栏目的选项块
+  xxktap(e) {
+    const title = e.target.dataset.title;
+    const index = e.target.dataset.index;
+    this.setData({
+      nowcur: title,
+      scrollintoview: 'i' + (index - 1),
+      isShowLoading: true,
+      left_arr: [],
+      right_arr: []
+    }, () => {
+      this.loadData();
+    });
+
 
   }
 
