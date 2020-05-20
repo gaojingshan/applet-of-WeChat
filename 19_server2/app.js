@@ -2,99 +2,64 @@ const express = require('express');
 
 const url = require('url');
 
-const app = express();
-app.use(express.static('www'));
+const mockjs = require('mockjs');
+const Random = mockjs.Random;
 
+const app = express();
+
+app.use('/images', express.static('images'));
+
+const arr1 = require('./arr1.js');
+const arr2 = require('./arr2.js');
+
+// 小栏目的接口
 app.get('/xlm', (req, res) => {
   const lm = url.parse(req.url, true).query.lm;
 
   if (lm == '生鲜') {
-    res.json([
-      {
-        c: '牛排',
-        pic: 'http://192.168.43.106:3000/1.jpg',
-      },
-      {
-        c: '肉卷',
-        pic: 'http://192.168.43.106:3000/2.jpg',
-      },
-      {
-        c: '皮蛋',
-        pic: 'http://192.168.43.106:3000/3.jpg',
-      },
-      {
-        c: '虾仁',
-        pic: 'http://192.168.43.106:3000/4.jpg',
-      },
-      {
-        c: '海鲜',
-        pic: 'http://192.168.43.106:3000/5.jpg',
-      },
-      {
-        c: '海参',
-        pic: 'http://192.168.43.106:3000/6.jpg',
-      },
-      {
-        c: '奇异果',
-        pic: 'http://192.168.43.106:3000/7.jpg',
-      },
-      {
-        c: '百香果',
-        pic: 'http://192.168.43.106:3000/8.jpg',
-      },
-      {
-        c: '肉',
-        pic: 'http://192.168.43.106:3000/9.jpg',
-      },
-      {
-        c: '大虾',
-        pic: 'http://192.168.43.106:3000/10.jpg',
-      },
-    ]);
+    res.json(arr1);
   } else if (lm == '厨房用品') {
-    res.json([
-      {
-        c: '茶具',
-        pic: 'http://192.168.43.106:3000/11.jpg',
-      },
-      {
-        c: '锅',
-        pic: 'http://192.168.43.106:3000/12.jpg',
-      },
-      {
-        c: '刀',
-        pic: 'http://192.168.43.106:3000/13.jpg',
-      },
-      {
-        c: '保鲜盒',
-        pic: 'http://192.168.43.106:3000/14.jpg',
-      },
-      {
-        c: '饭盒',
-        pic: 'http://192.168.43.106:3000/15.jpg',
-      },
-      {
-        c: '刀组',
-        pic: 'http://192.168.43.106:3000/16.jpg',
-      },
-      {
-        c: '健康锅',
-        pic: 'http://192.168.43.106:3000/17.jpg',
-      },
-      {
-        c: '烧水壶',
-        pic: 'http://192.168.43.106:3000/18.jpg',
-      },
-      {
-        c: '茶几',
-        pic: 'http://192.168.43.106:3000/19.jpg',
-      },
-      {
-        c: '锅盆',
-        pic: 'http://192.168.43.106:3000/20.jpg',
-      },
-    ]);
-  
+    res.json(arr2);
   }
 });
+
+// 瀑布流接口
+app.get('/pbl', (req, res) => {
+  const lm = url.parse(req.url, true).query.lm;
+
+  if (lm == '生鲜') {
+    var THEWHERE = arr1;
+  } else if (lm == '厨房用品') {
+    var THEWHERE = arr2;
+  } else {
+    var THEWHERE = [];
+  }
+
+  const arr = [];
+  // 随机一个不一样尺寸的领券中心
+  const n = Random.integer(0, 9);
+  for (let i = 0; i < 10; i++) {
+    if (n == i) {
+      arr.push({
+        pic: 'http://192.168.43.106:3000/images/a.png',
+        type: 2,
+        width: 362,
+        height: 427,
+      });
+    } else {
+      arr.push({
+        content: Random.cword(18, 30),
+        content: Random.cword(18, 30),
+        price: Random.integer(10, 300),
+        pic: Random.pick(THEWHERE).pic,
+        type: 1,
+        hot: Random.pick([true, false]),
+        width: 360,
+        height: 360,
+      });
+    }
+  }
+  res.json(arr);
+});
+
 app.listen(3000);

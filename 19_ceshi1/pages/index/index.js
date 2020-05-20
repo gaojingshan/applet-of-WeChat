@@ -3,7 +3,7 @@ const app = getApp();
 Page({
   data: {
     xbararr: ['首页', '生鲜', '厨房用品', '食品饮料', '电脑办公', '图书', '手机', '腕表珠宝', '箱包皮具', '男鞋', '男装', '母婴', '医疗健康', '运动'],
-    nowcur: '生鲜',
+    nowcur: '首页',
     scrollintoview: 'i0',
     windowHeight: app.globalData.windowHeight,
     windowWidth: app.globalData.windowWidth,
@@ -13,7 +13,10 @@ Page({
     isShowLoading: true,
     // 瀑布流左边和右边
     left_arr: [],
-    right_arr: []
+    right_arr: [],
+    page: 1,
+    m: 20,
+    n: 30
   },
   onReady() {
     this.loadData()
@@ -39,9 +42,13 @@ Page({
         }
       })
 
+      // 显示正在加载
+      wx.showLoading({
+        title: '正在加载',
+      })
       // 发出请求，请求瀑布流接口
       wx.request({
-        url: 'http://192.168.43.106:3000/pbl?lm=' + this.data.nowcur,
+        url: 'http://192.168.43.106:3000/pbl?lm=' + this.data.nowcur + '&page=' + this.data.page,
         success: (data) => {
           // console.log(data.data);
           for (let i = 0; i < data.data.length; i++) {
@@ -52,15 +59,21 @@ Page({
               this.data.right_arr.push(data.data[i])
             }
           }
-          console.log(this.data.left_arr, this.data.right_arr);
+          // console.log(this.data.left_arr, this.data.right_arr);
           // 引发视图更新
           this.setData({
             left_arr: this.data.left_arr,
             right_arr: this.data.right_arr
           })
 
+          // 拉取数据后隐藏正在加载
+          wx.hideLoading()
+
         }
+
       })
+    } else {
+      // 首页
     }
 
 
@@ -79,6 +92,14 @@ Page({
       this.loadData();
     });
 
+
+  },
+  // 瀑布流，当页面到底时触发
+  lowerHandler() {
+    // 这里直接更改page,不需要setData
+    // 因为这个page不会直接引发试图更新，所以可以直接更改page
+    this.data.page++;
+    this.loadData();
 
   }
 

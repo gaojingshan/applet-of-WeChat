@@ -1,0 +1,5 @@
+<template name="myswiper">
+    <view>
+        我是轮播图, 我收到的m是{{m}}
+    </view>    
+</template>

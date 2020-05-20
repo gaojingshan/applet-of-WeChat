@@ -1,4 +1,5 @@
 <template name="xlm">
+
 	<scroll-view scroll-y="true" style="height:{{windowHeight - 190}}px" bindscrolltolower="lowerHandler" lower-threshold="140">
 		<view class="loadingtext" wx:if="{{isShowLoading}}">正在加载，请稍后</view>
 		<view wx:else class="xlm">
@@ -25,9 +26,10 @@
 		<view class="pbl">
 			<view class="left">
 				<view class="grid" wx:for="{{left_arr}}" wx:key="index">
-
-					<!-- mode="widthFix" 缩放模式，宽度不变，高度自动变化，保持原图宽高比不变 -->
-					<image class="pic" src="{{item.pic}}" style="width:{{windowWidth / 2 - 30}}px;height:{{(windowWidth / 2 - 30) / (item.width / item.height)}}px"></image>
+					<view style="text-align: center;">
+						<!-- mode="widthFix" 缩放模式，宽度不变，高度自动变化，保持原图宽高比不变 -->
+						<image class="pic" src="{{item.pic}}" style="width:{{windowWidth / 2 - 30}}px;height:{{(windowWidth / 2 - 30) / (item.width / item.height)}}px"></image>
+					</view>
 					<view class="content" wx:if="{{item.type == 1}}">
 						<view class="title">
 							<image src="/images/hot.png" wx:if="{{item.hot}}" style="width:40px;height:20px"></image>
@@ -39,7 +41,9 @@
 			</view>
 			<view class="right">
 				<view class="grid" wx:for="{{right_arr}}" wx:key="index">
-					<image class="pic" src="{{item.pic}}" style="width:{{windowWidth / 2 - 30}}px;height:{{(windowWidth / 2 - 30) / (item.width / item.height)}}px"></image>
+					<view style="text-align: center;">
+						<image class="pic" src="{{item.pic}}" style="width:{{windowWidth / 2 - 30}}px;height:{{(windowWidth / 2 - 30) / (item.width / item.height)}}px"></image>
+					</view>
 					<view class="content" wx:if="{{item.type == 1}}">
 						<view class="title">
 							<image src="/images/hot.png" wx:if="{{item.hot}}" style="width:40px;height:20px"></image>

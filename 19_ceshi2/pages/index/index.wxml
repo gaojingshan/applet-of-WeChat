@@ -20,7 +20,5 @@
 
 <!-- 小栏目 -->
 <import src="./xlm.wxml" />
-<scroll-view scroll-y="true" style="height:{{windowHeight - 190}}px">
 
-	<template is="xlm" data="{{xlmarr1: xlmarr1,xlmarr2: xlmarr2,showLoading: showLoading}}" wx:if="{{nowcur != '首页'}}"> </template>
-</scroll-view>
+<template is="xlm" data="{{xlmarr1: xlmarr1,xlmarr2: xlmarr2,showLoading: showLoading,windowHeight: windowHeight,left_arr: left_arr,right_arr: right_arr,windowWidth: windowWidth}}" wx:if="{{nowcur != '首页'}}"> </template>

@@ -17,5 +17,14 @@
 </view>
 
 <import src="./xlm.wxml" />
+<import src="./myswiper.wxml" />
+<import src="./icons.wxml" />
 
-<template is="xlm" data="{{windowHeight: windowHeight,tjarr1: tjarr1,tjarr2: tjarr2,isShowLoading: isShowLoading,left_arr: left_arr,right_arr: right_arr,windowWidth: windowWidth}}" wx:if="{{nowcur != '首页'}}"> </template>
+<view wx:if="{{nowcur != '首页'}}">
+	<template is="xlm" data="{{windowHeight: windowHeight,tjarr1: tjarr1,tjarr2: tjarr2,isShowLoading: isShowLoading,left_arr: left_arr,right_arr: right_arr,windowWidth: windowWidth}}"> </template>
+</view>
+<view wx:else>
+	<!-- 使用服务端来上树 -->
+	<template is="myswiper" data="{{m:m}}"></template>
+	<template is="icons" data="{{n:n}}"></template>
+</view>

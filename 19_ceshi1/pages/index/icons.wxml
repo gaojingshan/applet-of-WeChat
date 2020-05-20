@@ -1,0 +1,5 @@
+<template name="icons">
+    <view>
+        我是图标, 我收到的n是{{n}}
+    </view>    
+</template>

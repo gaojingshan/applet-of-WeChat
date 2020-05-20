@@ -120,3 +120,38 @@ Page{
 .xlm .row .grid .word{
     font-size: 13px;
 }
+
+/* 瀑布流 */
+.pbl{
+    display: flex;
+    padding: 10px;
+}
+.pbl .pbl_left{
+    flex: 1;
+}
+.pbl .pbl_right{
+    flex: 1;
+    margin-left: 10px;
+
+}
+.pbl_box{
+    margin-bottom: 10px;
+    background: white;
+    border-radius: 6px;
+}
+
+.pbl .pic {
+    text-align: center;
+}
+.pbl .content{
+    font-size: 14px;
+    padding: 6px;
+}
+.pbl .content .text image{
+    width: 40px;
+    height: 20px;
+}
+.pbl .content .price{
+    color: orange;
+    font-size: 26px;
+}
