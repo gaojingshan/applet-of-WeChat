@@ -1,0 +1,3 @@
+<template name="icons">
+    <view>我是icons</view>
+</template>

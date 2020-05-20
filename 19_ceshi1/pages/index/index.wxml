@@ -20,11 +20,17 @@
 <import src="./myswiper.wxml" />
 <import src="./icons.wxml" />
 
-<view wx:if="{{nowcur != '首页'}}">
-	<template is="xlm" data="{{windowHeight: windowHeight,tjarr1: tjarr1,tjarr2: tjarr2,isShowLoading: isShowLoading,left_arr: left_arr,right_arr: right_arr,windowWidth: windowWidth}}"> </template>
-</view>
-<view wx:else>
-	<!-- 使用服务端来上树 -->
-	<template is="myswiper" data="{{m:m}}"></template>
-	<template is="icons" data="{{n:n}}"></template>
-</view>
+<scroll-view scroll-y="true" style="height:{{windowHeight - 190}}px" bindscrolltolower="lowerHandler" lower-threshold="140">
+
+	<view wx:if="{{nowcur != '首页'}}">
+		<template is="xlm" data="{{tjarr1: tjarr1,tjarr2: tjarr2,isShowLoading: isShowLoading,left_arr: left_arr,right_arr: right_arr,windowWidth: windowWidth}}"> </template>
+	</view>
+	
+	<view wx:else>
+		<!-- 首页 -->
+		<view class="circle_bg"></view>
+		<!-- 使用服务端来上树 -->
+		<!-- 遍历indexArr,动态决定用哪个template -->
+		<template wx:for="{{indexArr}}" wx:key="index" is="{{item.type}}" data="{{...item.data,windowWidth: windowWidth}}"></template>
+	</view>
+</scroll-view>

@@ -155,3 +155,18 @@ Page{
     color: orange;
     font-size: 26px;
 }
+/* 首页的轮播图 */
+.myswiper{
+    padding-top: 6px;
+}
+.circle_bg{
+    position: absolute;
+    width: 150%;
+    height: 100px;
+    top: 0;
+    left: -25%;
+    background: -webkit-linear-gradient(top,rgb(212, 79, 79),rgb(233, 104, 104));
+    border-bottom-left-radius: 100%;
+    border-bottom-right-radius: 100%;
+    z-index: -1;
+}

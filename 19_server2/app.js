@@ -62,4 +62,28 @@ app.get('/pbl', (req, res) => {
   res.json(arr);
 });
 
+// 首页
+app.get('/indexapi', (req, res) => {
+  res.json([
+    {
+      type: 'myswiper',
+      data: {
+        images: [
+          'http://192.168.43.106:3000/images/banner/1.jpg',
+          'http://192.168.43.106:3000/images/banner/2.jpg',
+          'http://192.168.43.106:3000/images/banner/3.jpg',
+          'http://192.168.43.106:3000/images/banner/4.jpg',
+          'http://192.168.43.106:3000/images/banner/5.jpg',
+        ],
+      },
+    },
+    {
+      type: 'icons',
+      data: {
+        
+      },
+    },
+  ]);
+});
+
 app.listen(3000);

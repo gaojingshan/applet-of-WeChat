@@ -1,56 +1,54 @@
 <template name="xlm">
-	<scroll-view scroll-y="true" style="height:{{windowHeight - 190}}px" bindscrolltolower="scrolltolower" lower-threshold="140">
-		<!-- 小栏目 -->
-		<view class="xlm">
-			<view class="showLoading" wx:if="{{showLoading}}">正在加载，请稍后</view>
-			<view class="rowbox" wx:else>
-				<view class="tuijian">
-					<view class="row">
-						<view class="grid" wx:for="{{xlmarr1}}" wx:key="index">
-							<view class="pic">
-								<image src="{{item.pic}}"></image>
-							</view>
-							<view class="word">{{item.c}}</view>
+	<!-- 小栏目 -->
+	<view class="xlm">
+		<view class="showLoading" wx:if="{{showLoading}}">正在加载，请稍后</view>
+		<view class="rowbox" wx:else>
+			<view class="tuijian">
+				<view class="row">
+					<view class="grid" wx:for="{{xlmarr1}}" wx:key="index">
+						<view class="pic">
+							<image src="{{item.pic}}"></image>
 						</view>
+						<view class="word">{{item.c}}</view>
 					</view>
-					<view class="row">
-						<view class="grid" wx:for="{{xlmarr2}}" wx:key="index">
-							<view class="pic">
-								<image src="{{item.pic}}"></image>
-							</view>
-							<view class="word">{{item.c}}</view>
+				</view>
+				<view class="row">
+					<view class="grid" wx:for="{{xlmarr2}}" wx:key="index">
+						<view class="pic">
+							<image src="{{item.pic}}"></image>
 						</view>
+						<view class="word">{{item.c}}</view>
 					</view>
 				</view>
 			</view>
 		</view>
+	</view>
 
-		<!-- 瀑布流 -->
-		<view class="pbl">
-			<view class="pbl_left">
-				<view class="pbl_box" wx:for="{{left_arr}}" wx:key="index">
-					<view class="pic" >
-						<image style="width:{{windowWidth / 2 -30}}px;height:{{(windowWidth / 2 -30) / (item.width / item.height)}}px" src="{{item.pic}}"></image>
-					</view>
-					<view class="content" wx:if="{{item.type == 1}}">
-						<view class="text">
-							<image wx:if="{{item.hot}}" src="/images/hot.png"></image>{{item.content}}
-						</view>
-						<view class="price">￥{{item.price}}</view>
-					</view>
+	<!-- 瀑布流 -->
+	<view class="pbl">
+		<view class="pbl_left">
+			<view class="pbl_box" wx:for="{{left_arr}}" wx:key="index">
+				<view class="pic">
+					<image style="width:{{windowWidth / 2 -30}}px;height:{{(windowWidth / 2 -30) / (item.width / item.height)}}px" src="{{item.pic}}"></image>
 				</view>
-			</view>
-			<view class="pbl_right">
-				<view class="pbl_box" wx:for="{{right_arr}}" wx:key="index">
-					<view class="pic">
-						<image style="width:{{windowWidth / 2 -30}}px;height:{{(windowWidth / 2 -30) / (item.width / item.height)}}px" src="{{item.pic}}"></image>
+				<view class="content" wx:if="{{item.type == 1}}">
+					<view class="text">
+						<image wx:if="{{item.hot}}" src="/images/hot.png"></image>{{item.content}}
 					</view>
-					<view class="content" wx:if="{{item.type == 1}}">
-						<view>{{item.content}}</view>
-						<view class="price">￥{{item.price}}</view>
-					</view>
+					<view class="price">￥{{item.price}}</view>
 				</view>
 			</view>
 		</view>
-	</scroll-view>
+		<view class="pbl_right">
+			<view class="pbl_box" wx:for="{{right_arr}}" wx:key="index">
+				<view class="pic">
+					<image style="width:{{windowWidth / 2 -30}}px;height:{{(windowWidth / 2 -30) / (item.width / item.height)}}px" src="{{item.pic}}"></image>
+				</view>
+				<view class="content" wx:if="{{item.type == 1}}">
+					<view>{{item.content}}</view>
+					<view class="price">￥{{item.price}}</view>
+				</view>
+			</view>
+		</view>
+	</view>
 </template>

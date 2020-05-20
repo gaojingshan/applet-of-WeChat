@@ -4,7 +4,7 @@ Page({
     data: {
         xbararr: ['首页', '生鲜', '厨房用品', '食品饮料', '电脑办公', '图书', '手机', '腕表珠宝', '箱包皮具', '男鞋', '男装', '母婴', '医疗健康', '运动'],
         // 当前点击的谁
-        nowcur: '生鲜',
+        nowcur: '首页',
         indexC: 'i0',
         windowWidth: app.globalData.windowWidth,
         windowHeight: app.globalData.windowHeight,
@@ -15,7 +15,9 @@ Page({
         // 瀑布流展示
         left_arr: [],
         right_arr: [],
-        page: 1
+        page: 1,
+        // 首页
+        indexArr: []
 
     },
     // 页面一加载
@@ -40,7 +42,7 @@ Page({
                 }
             })
             wx.showLoading({
-              title: '正在加载',
+                title: '正在加载',
             })
             // 拉取Ajax，瀑布流接口
             wx.request({
@@ -61,7 +63,16 @@ Page({
                     // console.log(data.data);
 
                     // console.log(this.data.left_arr, this.data.right_arr);
-
+                }
+            })
+        } else {
+            // 首页
+            wx.request({
+                url: 'http://192.168.43.106:3000/indexapi',
+                success: (data) => {
+                    this.setData({
+                        indexArr: data.data
+                    })
 
                 }
             })

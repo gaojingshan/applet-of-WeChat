@@ -152,21 +152,41 @@ Page {
     background: white;
     border-radius: 6px;
     margin-bottom: 10px;
-    
-    
+
+
 }
 
 .pbl .grid .pic {
     /* width: 100%; */
     /* 去掉白边，面试爱考小技巧，没有什么道理，设置垂直居中了（当然也不会垂直居中，它只能用于表格垂直居中） */
     vertical-align: middle;
-    
+
 }
-.pbl .grid .content{
+
+.pbl .grid .content {
     padding: 5px;
     font-size: 14px;
 }
-.pbl .grid .content .price{
+
+.pbl .grid .content .price {
     font-size: 26px;
     color: orange;
+}
+
+/* myswiper轮播图 */
+.myswiper {
+    padding-top: 6px;
+}
+
+.circle_bg {
+    position: absolute;
+    width: 150%;
+    height: 100px;
+    background: -webkit-linear-gradient(top,rgb(212, 79, 79),rgb(226, 108, 108));
+    top: 0;
+    left: -25%;
+    z-index: -1;
+    border-bottom-left-radius: 100%;
+    border-bottom-right-radius: 100%;
+    
 }

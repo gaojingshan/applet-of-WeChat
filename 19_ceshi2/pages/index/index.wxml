@@ -20,5 +20,18 @@
 
 <!-- 小栏目 -->
 <import src="./xlm.wxml" />
+<import src="./myswiper.wxml" />
+<import src="./icons.wxml" />
 
-<template is="xlm" data="{{xlmarr1: xlmarr1,xlmarr2: xlmarr2,showLoading: showLoading,windowHeight: windowHeight,left_arr: left_arr,right_arr: right_arr,windowWidth: windowWidth}}" wx:if="{{nowcur != '首页'}}"> </template>
+<scroll-view scroll-y="true" style="height:{{windowHeight - 190}}px" bindscrolltolower="scrolltolower" lower-threshold="140">
+
+	<view wx:if="{{nowcur != '首页'}}">
+		<template is="xlm" data="{{xlmarr1: xlmarr1,xlmarr2: xlmarr2,showLoading: showLoading,left_arr: left_arr,right_arr: right_arr,windowWidth: windowWidth}}"> </template>
+	</view>
+
+	<view wx:else>
+		<view class="circle_bg"></view>
+		<template wx:for="{{indexArr}}" wx:key="index" is="{{item.type}}" data="{{...item.data,windowWidth: windowWidth}}"></template>
+	</view>
+
+</scroll-view>

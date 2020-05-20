@@ -15,8 +15,8 @@ Page({
     left_arr: [],
     right_arr: [],
     page: 1,
-    m: 20,
-    n: 30
+    // 首页
+    indexArr: [],
   },
   onReady() {
     this.loadData()
@@ -74,6 +74,16 @@ Page({
       })
     } else {
       // 首页
+      // 请求首页接口
+      wx.request({
+        url: 'http://192.168.43.106:3000/indexapi',
+        success: (data) => {
+          // console.log(data.data);
+          this.setData({
+            indexArr: data.data
+          })
+        }
+      })
     }
 
 
