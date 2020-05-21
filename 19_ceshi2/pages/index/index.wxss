@@ -189,3 +189,53 @@ Page{
     width: 110rpx;
     height: 110rpx;
 }
+
+/* hotpro */
+.hotpro{
+    padding: 10px;
+}
+.hotpro .row{
+    background:white;
+    display: flex;
+}
+.hotpro .row .grid{
+    flex: 1;
+    position: relative;
+}
+.hotpro .row .grid:first-child{
+    border-right: 1px solid #eee;
+}
+.hotpro .row .grid .p_row{
+    display: flex;
+}
+.hotpro .row .grid .p_row .picgrid{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: orangered;
+}
+.hotpro .row .grid .title{
+    font-weight: bold;
+    padding: 10px;
+    font-size: 14px;
+}
+.hotpro .row .grid .countdown{
+    position: absolute;
+    right: 0;
+    top: 8px;
+    
+}
+.hotpro .row .grid .countdown .time{
+    background: orange;
+    border-radius: 6px;
+    padding: 2px;
+    font-weight: bold;
+    font-size: 13px;
+}
+.hotpro .row .grid .countdown .maohao{
+    margin: 0 2px;
+}
+.hotpro .row.row2{
+    border-top: 1px solid #eee;
+}

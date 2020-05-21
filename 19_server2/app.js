@@ -11,6 +11,7 @@ app.use('/images', express.static('images'));
 
 const arr1 = require('./arr1.js');
 const arr2 = require('./arr2.js');
+const arr3 = require('./arr3.js');
 
 // 小栏目的接口
 app.get('/xlm', (req, res) => {
@@ -20,6 +21,8 @@ app.get('/xlm', (req, res) => {
     res.json(arr1);
   } else if (lm == '厨房用品') {
     res.json(arr2);
+  } else {
+    res.json([]);
   }
 });
 
@@ -31,6 +34,8 @@ app.get('/pbl', (req, res) => {
     var THEWHERE = arr1;
   } else if (lm == '厨房用品') {
     var THEWHERE = arr2;
+  } else if (lm == '首页') {
+    var THEWHERE = arr3;
   } else {
     var THEWHERE = [];
   }
@@ -138,7 +143,32 @@ app.get('/indexapi', (req, res) => {
       type: 'hotpro',
       data: {
         g1: {
-          
+          title: '天天低价',
+          p1pic: 'yadan.jpg',
+          p1price: '1.79',
+          p2pic: 'juhua.jpg',
+          p2price: '1.7',
+        },
+        g2: {
+          title: '天天低价',
+          p1pic: 'yadan.jpg',
+          p1price: '1.79',
+          p2pic: 'juhua.jpg',
+          p2price: '1.7',
+        },
+        g3: {
+          title: '天天低价',
+          p1pic: 'yadan.jpg',
+          p1price: '1.79',
+          p2pic: 'juhua.jpg',
+          p2price: '1.7',
+        },
+        g4: {
+          title: '天天低价',
+          p1pic: 'yadan.jpg',
+          p1price: '1.79',
+          p2pic: 'juhua.jpg',
+          p2price: '1.7',
         },
       },
     },

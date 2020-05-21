@@ -1,0 +1,82 @@
+<template name="hotpro">
+	<view class="hotpro">
+		<view class="row">
+			<view class="grid">
+				<view class="p_hd">
+					<view class="title">{{g1.title}}</view>
+					<view class="countdown">
+						<text class="time">{{diff_h}}</text>
+						<text class="maohao">:</text>
+						<text class="time">{{diff_m}}</text>
+						<text class="maohao">:</text>
+						<text class="time">{{diff_s}}</text>
+					</view>
+				</view>
+				<view class="p_row">
+					<view class="picgrid">
+						<image src="http://192.168.43.106:3000/images/{{g1.p1pic}}" style="width:{{(windowWidth -30) / 4 }}px;height:{{(windowWidth -30) / 4 }}px"></image>
+						<view class="price">￥{{g1.p1price}}</view>
+					</view>
+					<view class="picgrid">
+						<image src="http://192.168.43.106:3000/images/{{g1.p2pic}}" style="width:{{(windowWidth -30) / 4 }}px;height:{{(windowWidth -30) / 4 }}px"></image>
+						<view class="price">￥{{g1.p2price}}</view>
+					</view>
+				</view>
+			</view>
+			<view class="grid">
+				<view class="p_hd">
+					<view class="title">{{g2.title}}</view>
+				</view>
+				<view class="p_row">
+					<view class="picgrid">
+						<image src="http://192.168.43.106:3000/images/{{g2.p1pic}}" style="width:{{(windowWidth -30) / 4 }}px;height:{{(windowWidth -30) / 4 }}px"></image>
+						<view class="price">￥{{g2.p1price}}</view>
+					</view>
+					<view class="picgrid">
+						<image src="http://192.168.43.106:3000/images/{{g2.p2pic}}" style="width:{{(windowWidth -30) / 4 }}px;height:{{(windowWidth -30) / 4 }}px"></image>
+						<view class="price">￥{{g2.p2price}}</view>
+					</view>
+				</view>
+			</view>
+		</view>
+        <view class="row row2">
+			<view class="grid">
+				<view class="p_hd">
+					<view class="title">{{g1.title}}</view>
+					<view class="countdown">
+						<text class="time">{{diff_h}}</text>
+						<text class="maohao">:</text>
+						<text class="time">{{diff_m}}</text>
+						<text class="maohao">:</text>
+						<text class="time">{{diff_s}}</text>
+					</view>
+				</view>
+				<view class="p_row">
+					<view class="picgrid">
+						<image src="http://192.168.43.106:3000/images/{{g1.p1pic}}" style="width:{{(windowWidth -30) / 4 }}px;height:{{(windowWidth -30) / 4 }}px"></image>
+						<view class="price">￥{{g1.p1price}}</view>
+					</view>
+					<view class="picgrid">
+						<image src="http://192.168.43.106:3000/images/{{g1.p2pic}}" style="width:{{(windowWidth -30) / 4 }}px;height:{{(windowWidth -30) / 4 }}px"></image>
+						<view class="price">￥{{g1.p2price}}</view>
+					</view>
+				</view>
+			</view>
+			<view class="grid">
+				<view class="p_hd">
+					<view class="title">{{g2.title}}</view>
+				</view>
+				<view class="p_row">
+					<view class="picgrid">
+						<image src="http://192.168.43.106:3000/images/{{g2.p1pic}}" style="width:{{(windowWidth -30) / 4 }}px;height:{{(windowWidth -30) / 4 }}px"></image>
+						<view class="price">￥{{g2.p1price}}</view>
+					</view>
+					<view class="picgrid">
+						<image src="http://192.168.43.106:3000/images/{{g2.p2pic}}" style="width:{{(windowWidth -30) / 4 }}px;height:{{(windowWidth -30) / 4 }}px"></image>
+						<view class="price">￥{{g2.p2price}}</view>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+</template>

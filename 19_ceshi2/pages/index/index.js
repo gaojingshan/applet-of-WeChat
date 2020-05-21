@@ -17,7 +17,11 @@ Page({
         right_arr: [],
         page: 1,
         // 首页
-        indexArr: []
+        indexArr: [],
+        // 倒计时
+        diff_h: '00',
+        diff_m: '00',
+        diff_s: '00',
 
     },
     // 页面一加载
@@ -41,30 +45,7 @@ Page({
 
                 }
             })
-            wx.showLoading({
-                title: '正在加载',
-            })
-            // 拉取Ajax，瀑布流接口
-            wx.request({
-                url: 'http://192.168.43.106:3000/pbl?lm=' + this.data.nowcur + '&page=' + this.data.page,
-                success: (data) => {
-                    for (let i = 0; i < data.data.length; i++) {
-                        if (i % 2 == 0) {
-                            this.data.left_arr.push(data.data[i])
-                        } else {
-                            this.data.right_arr.push(data.data[i])
-                        }
-                    }
-                    this.setData({
-                        left_arr: this.data.left_arr,
-                        right_arr: this.data.right_arr,
-                    })
-                    wx.hideLoading()
-                    // console.log(data.data);
 
-                    // console.log(this.data.left_arr, this.data.right_arr);
-                }
-            })
         } else {
             // 首页
             wx.request({
@@ -76,9 +57,65 @@ Page({
 
                 }
             })
+
+            // 页面一加载就要开始倒计时
+            this.timeStamp();
+            // 开启定时器，倒计时
+            setInterval(() => {
+                this.timeStamp();
+
+            }, 1000);
+        }
+        wx.showLoading({
+            title: '正在加载',
+        })
+        // 拉取Ajax，瀑布流接口
+        wx.request({
+            url: 'http://192.168.43.106:3000/pbl?lm=' + this.data.nowcur + '&page=' + this.data.page,
+            success: (data) => {
+                for (let i = 0; i < data.data.length; i++) {
+                    if (i % 2 == 0) {
+                        this.data.left_arr.push(data.data[i])
+                    } else {
+                        this.data.right_arr.push(data.data[i])
+                    }
+                }
+                this.setData({
+                    left_arr: this.data.left_arr,
+                    right_arr: this.data.right_arr,
+                })
+                wx.hideLoading()
+                // console.log(data.data);
+
+                // console.log(this.data.left_arr, this.data.right_arr);
+            }
+        })
+    },
+    // 获取时间的函数
+    timeStamp() {
+        // 12:00的时间戳
+        var timeStamp12 = Math.ceil(Date.parse(new Date()) / 43200000) * 43200000 - 8 * 60 * 60 * 1000;
+        // 0:00时间戳
+        var timeStamp0 = Math.ceil(Date.parse(new Date()) / 86400000) * 86400000 - 8 * 60 * 60 * 1000;
+
+        // 当前的时间戳
+        var nowtimeStamp = Date.parse(new Date())
+
+        if (new Date().getHours() <= 12) {
+            var diff = timeStamp12 - nowtimeStamp
+        } else {
+            var diff = timeStamp0 - nowtimeStamp
         }
 
-
+        var diff_h = parseInt(diff / (60 * 60 * 1000));
+        var diff_m = parseInt(diff % (60 * 60 * 1000) / (60 * 1000));
+        var diff_s = diff % (60 * 1000) / 1000;
+        // console.log(diff_h, diff_m, diff_s);
+        this.setData({
+            diff_h: diff_h.toString().padStart(2, '0'),
+            diff_m: diff_m.toString().padStart(2, '0'),
+            diff_s: diff_s.toString().padStart(2, '0'),
+        })
     },
     gotososo() {
         wx.navigateTo({

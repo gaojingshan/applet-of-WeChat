@@ -1,0 +1,29 @@
+<template name="pbl">
+    <!-- 瀑布流 -->
+	<view class="pbl">
+		<view class="pbl_left">
+			<view class="pbl_box" wx:for="{{left_arr}}" wx:key="index">
+				<view class="pic">
+					<image style="width:{{windowWidth / 2 -30}}px;height:{{(windowWidth / 2 -30) / (item.width / item.height)}}px" src="{{item.pic}}"></image>
+				</view>
+				<view class="content" wx:if="{{item.type == 1}}">
+					<view class="text">
+						<image wx:if="{{item.hot}}" src="/images/hot.png"></image>{{item.content}}
+					</view>
+					<view class="price">￥{{item.price}}</view>
+				</view>
+			</view>
+		</view>
+		<view class="pbl_right">
+			<view class="pbl_box" wx:for="{{right_arr}}" wx:key="index">
+				<view class="pic">
+					<image style="width:{{windowWidth / 2 -30}}px;height:{{(windowWidth / 2 -30) / (item.width / item.height)}}px" src="{{item.pic}}"></image>
+				</view>
+				<view class="content" wx:if="{{item.type == 1}}">
+					<view>{{item.content}}</view>
+					<view class="price">￥{{item.price}}</view>
+				</view>
+			</view>
+		</view>
+	</view>
+</template>

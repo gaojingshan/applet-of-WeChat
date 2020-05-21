@@ -22,6 +22,7 @@
 <import src="./xlm.wxml" />
 <import src="./myswiper.wxml" />
 <import src="./icons.wxml" />
+<import src="./hotpro.wxml" />
 
 <scroll-view scroll-y="true" style="height:{{windowHeight - 190}}px" bindscrolltolower="scrolltolower" lower-threshold="140">
 
@@ -30,10 +31,13 @@
 	</view>
 
 	<view wx:else>
-	<!-- 首页 -->
+		<!-- 首页 -->
 		<view class="circle_bg"></view>
-		<template wx:for="{{indexArr}}" wx:key="index" is="{{item.type}}" data="{{...item.data,windowWidth: windowWidth}}"></template>
+		<template wx:for="{{indexArr}}" wx:key="index" is="{{item.type}}" data="{{...item.data,windowWidth: windowWidth,diff_h: diff_h,diff_m: diff_m,diff_s: diff_s}}"></template>
 
+		<!-- 瀑布流 -->
+		<import src="./pbl.wxml" />
+		<template is="pbl" data="{{left_arr: left_arr,right_arr: right_arr,windowWidth: windowWidth}}"></template>
 	</view>
 
 </scroll-view>
