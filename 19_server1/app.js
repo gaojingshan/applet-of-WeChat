@@ -11,6 +11,7 @@ const Random = mockjs.Random;
 // 模块
 const arr1 = require('./arr1.js');
 const arr2 = require('./arr2.js');
+const arr3 = require('./arr3.js');
 
 // 开静态
 app.use('/images', express.static('images'));
@@ -34,6 +35,8 @@ app.get('/pbl', (req, res) => {
     var THEARR = arr1;
   } else if (lm == '厨房用品') {
     var THEARR = arr2;
+  } else if (lm == '首页') {
+    var THEARR = arr3;
   } else {
     var THEARR = [];
   }
@@ -143,8 +146,6 @@ app.get('/indexapi', (req, res) => {
       data: {
         g1: {
           title: '天天低价',
-          // 截止时间
-          headline: '1590026246000',
           info: '人气好货限时抢',
           p1: 'yadan.jpg',
           p1link: '',
@@ -155,8 +156,6 @@ app.get('/indexapi', (req, res) => {
         },
         g2: {
           title: '天天低价',
-          // 截止时间
-          headline: '1590026246000',
           info: '人气好货限时抢',
           p1: 'yadan.jpg',
           p1link: '',
@@ -167,8 +166,6 @@ app.get('/indexapi', (req, res) => {
         },
         g3: {
           title: '天天低价',
-          // 截止时间
-          headline: '1590026246000',
           info: '人气好货限时抢',
           p1: 'yadan.jpg',
           p1link: '',
@@ -179,8 +176,6 @@ app.get('/indexapi', (req, res) => {
         },
         g4: {
           title: '天天低价',
-          // 截止时间
-          headline: '1590026246000',
           info: '人气好货限时抢',
           p1: 'yadan.jpg',
           p1link: '',

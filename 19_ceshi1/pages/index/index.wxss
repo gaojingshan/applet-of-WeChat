@@ -192,6 +192,9 @@ Page {
 }
 
 /* icons */
+.icons {
+    padding-top: 10px;
+}
 .icons .row {
     display: flex;
 }
@@ -221,6 +224,8 @@ Page {
 
 .hotprobox .row .grid {
     flex: 1;
+    position: relative;
+    
 }
 
 .hotprobox .row .grid:first-child {
@@ -234,11 +239,11 @@ Page {
     padding-top: 10px;
 }
 
-.hotprobox .row .grid .info {
+/* .hotprobox .row .grid .info {
     font-size: 12px;
     padding-left: 12px;
-    padding-top: 10px;
-}
+    padding-top: 4px;
+} */
 
 .hotprobox .row .grid .pbox {
     display: flex;
@@ -246,9 +251,33 @@ Page {
 
 .hotprobox .row .grid .pbox .pgrid {
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .hotprobox .row .grid .pbox .pgrid image {
     width: 160rpx;
     height: 160rpx;
+}
+.hotprobox .row .grid .pbox .pgrid .price{
+    color: orangered;
+}
+
+.hotprobox .countdown{
+    position: absolute;
+    right: -14px;
+    top: 10px;
+    width: 80px;
+    height: 20px;
+}
+.hotprobox .countdown .sj{
+    background: orange;
+    border-radius: 5px;
+    font-size: 13px;
+    margin: 0 2px;
+    font-weight: bold;
+}
+.hotprobox .row2{
+    border-top: 1px solid #eee;
 }

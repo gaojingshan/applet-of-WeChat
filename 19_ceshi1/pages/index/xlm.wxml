@@ -21,35 +21,6 @@
 		</view>
 	</view>
 	<!-- 瀑布流 -->
-	<view class="pbl">
-		<view class="left">
-			<view class="grid" wx:for="{{left_arr}}" wx:key="index">
-				<view style="text-align: center;">
-					<!-- mode="widthFix" 缩放模式，宽度不变，高度自动变化，保持原图宽高比不变 -->
-					<image class="pic" src="{{item.pic}}" style="width:{{windowWidth / 2 - 30}}px;height:{{(windowWidth / 2 - 30) / (item.width / item.height)}}px"></image>
-				</view>
-				<view class="content" wx:if="{{item.type == 1}}">
-					<view class="title">
-						<image src="/images/hot.png" wx:if="{{item.hot}}" style="width:40px;height:20px"></image>
-						{{item.title}}
-					</view>
-					<view class="price">￥{{item.price}}</view>
-				</view>
-			</view>
-		</view>
-		<view class="right">
-			<view class="grid" wx:for="{{right_arr}}" wx:key="index">
-				<view style="text-align: center;">
-					<image class="pic" src="{{item.pic}}" style="width:{{windowWidth / 2 - 30}}px;height:{{(windowWidth / 2 - 30) / (item.width / item.height)}}px"></image>
-				</view>
-				<view class="content" wx:if="{{item.type == 1}}">
-					<view class="title">
-						<image src="/images/hot.png" wx:if="{{item.hot}}" style="width:40px;height:20px"></image>
-						{{item.title}}
-					</view>
-					<view class="price">￥{{item.price}}</view>
-				</view>
-			</view>
-		</view>
-	</view>
+	<import src="./pbl.wxml" />
+	<template is="pbl" data="{{left_arr: left_arr,right_arr: right_arr,windowWidth: windowWidth}}"></template>
 </template>

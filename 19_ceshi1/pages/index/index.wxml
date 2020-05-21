@@ -30,8 +30,13 @@
 	<view wx:else>
 		<!-- 首页 -->
 		<view class="circle_bg"></view>
+
 		<!-- 使用服务端来上树 -->
 		<!-- 遍历indexArr,动态决定用哪个template -->
-		<template wx:for="{{indexArr}}" wx:key="index" is="{{item.type}}" data="{{...item.data,windowWidth: windowWidth}}"></template>
-	</view>
+		<template wx:for="{{indexArr}}" wx:key="index" is="{{item.type}}" data="{{...item.data,windowWidth: windowWidth,diff_h: diff_h,diff_m: diff_m,diff_s: diff_s}}"></template>
+
+		<!-- 瀑布流 -->
+		<import src="./pbl.wxml" />
+		<template is="pbl" data="{{left_arr: left_arr,right_arr: right_arr,windowWidth: windowWidth}}"></template>
+ 	</view>
 </scroll-view>
