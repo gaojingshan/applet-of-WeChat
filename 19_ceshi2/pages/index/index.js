@@ -54,17 +54,18 @@ Page({
                     this.setData({
                         indexArr: data.data
                     })
+                    // 页面一加载就要开始倒计时
+                    this.timeStamp();
+                    // 开启定时器，倒计时
+                    setInterval(() => {
+                        this.timeStamp();
+
+                    }, 1000);
 
                 }
             })
 
-            // 页面一加载就要开始倒计时
-            this.timeStamp();
-            // 开启定时器，倒计时
-            setInterval(() => {
-                this.timeStamp();
 
-            }, 1000);
         }
         wx.showLoading({
             title: '正在加载',

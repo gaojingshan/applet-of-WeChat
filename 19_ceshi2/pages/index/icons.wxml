@@ -3,13 +3,13 @@
 <template name="icons">
     <view class="icons">
         <view class="row">
-            <view class="grid" wx:for="{{tool.myslice(images, 0, 5)}}" wx:key="index">
+            <view class="grid" wx:for="{{tool.myslice(images, 0, 5)}}" wx:key="*this">
                 <image src="http://192.168.43.106:3000/images/icons/{{item.pic}}"></image>
                 <view class="text">{{item.title}}</view>
             </view>
         </view>
          <view class="row">
-            <view class="grid" wx:for="{{tool.myslice(images, 5, 10)}}" wx:key="index">
+            <view class="grid" wx:for="{{tool.myslice(images, 5, 10)}}" wx:key="*this">
                 <image src="http://192.168.43.106:3000/images/icons/{{item.pic}}"></image>
                 <view class="text">{{item.title}}</view>
             </view>

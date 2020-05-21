@@ -1,3 +1,4 @@
+<!-- 引入wxs -->
 <wxs src="../../utils/tool.wxs" module="tool" />
 <template name="icons">
 	<view class="icons">

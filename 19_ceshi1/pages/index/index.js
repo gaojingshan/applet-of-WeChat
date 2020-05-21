@@ -24,7 +24,9 @@ Page({
     diff_m: '00',
     diff_s: '00',
   },
+  // 页面一加载
   onReady() {
+    // 拉取接口
     this.loadData()
   },
   // 跳转到搜索页面
