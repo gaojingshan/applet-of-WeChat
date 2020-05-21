@@ -89,52 +89,52 @@ app.get('/indexapi', (req, res) => {
       data: {
         images: [
           {
-            pic: '158140198536389245.png',
+            pic: '1.png',
             title: 'xx',
             link: '',
           },
           {
-            pic: '158225094251284751.png',
+            pic: '2.png',
             title: 'xx',
             link: '',
           },
           {
-            pic: '158225098618947382.png',
+            pic: '3.png',
             title: 'xx',
             link: '',
           },
           {
-            pic: '158225102941495158.png',
+            pic: '4.png',
             title: 'xx',
             link: '',
           },
           {
-            pic: '158225106790473382.png',
+            pic: '5.png',
             title: 'xx',
             link: '',
           },
           {
-            pic: '158225110605546246.png',
+            pic: '6.png',
             title: 'xx',
             link: '',
           },
           {
-            pic: '158225119197911173.png',
+            pic: '7.png',
             title: 'xx',
             link: '',
           },
           {
-            pic: '158225123358512204.png',
+            pic: '8.png',
             title: 'xx',
             link: '',
           },
           {
-            pic: '158225135374622745.png',
+            pic: '9.png',
             title: 'xx',
             link: '',
           },
           {
-            pic: '158225129991255185.png',
+            pic: '10.png',
             title: 'xx',
             link: '',
           },

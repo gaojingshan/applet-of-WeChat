@@ -80,7 +80,66 @@ app.get('/indexapi', (req, res) => {
     {
       type: 'icons',
       data: {
-        
+        images: [
+          {
+            pic: '1.png',
+            title: 'xx',
+            link: '',
+          },
+          {
+            pic: '2.png',
+            title: 'xx',
+            link: '',
+          },
+          {
+            pic: '3.png',
+            title: 'xx',
+            link: '',
+          },
+          {
+            pic: '4.png',
+            title: 'xx',
+            link: '',
+          },
+          {
+            pic: '5.png',
+            title: 'xx',
+            link: '',
+          },
+          {
+            pic: '6.png',
+            title: 'xx',
+            link: '',
+          },
+          {
+            pic: '7.png',
+            title: 'xx',
+            link: '',
+          },
+          {
+            pic: '8.png',
+            title: 'xx',
+            link: '',
+          },
+          {
+            pic: '9.png',
+            title: 'xx',
+            link: '',
+          },
+          {
+            pic: '10.png',
+            title: 'xx',
+            link: '',
+          },
+        ],
+      },
+    },
+    {
+      type: 'hotpro',
+      data: {
+        g1: {
+          
+        },
       },
     },
   ]);

@@ -30,8 +30,10 @@
 	</view>
 
 	<view wx:else>
+	<!-- 首页 -->
 		<view class="circle_bg"></view>
 		<template wx:for="{{indexArr}}" wx:key="index" is="{{item.type}}" data="{{...item.data,windowWidth: windowWidth}}"></template>
+
 	</view>
 
 </scroll-view>

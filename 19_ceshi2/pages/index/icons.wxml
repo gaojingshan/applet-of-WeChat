@@ -1,3 +1,18 @@
+<!-- 引入工具包 -->
+<wxs src="../../utils/tool.wxs" module="tool" />
 <template name="icons">
-    <view>我是icons</view>
+    <view class="icons">
+        <view class="row">
+            <view class="grid" wx:for="{{tool.myslice(images, 0, 5)}}" wx:key="index">
+                <image src="http://192.168.43.106:3000/images/icons/{{item.pic}}"></image>
+                <view class="text">{{item.title}}</view>
+            </view>
+        </view>
+         <view class="row">
+            <view class="grid" wx:for="{{tool.myslice(images, 5, 10)}}" wx:key="index">
+                <image src="http://192.168.43.106:3000/images/icons/{{item.pic}}"></image>
+                <view class="text">{{item.title}}</view>
+            </view>
+        </view>
+    </view>
 </template>

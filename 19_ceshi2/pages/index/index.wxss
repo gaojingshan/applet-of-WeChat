@@ -170,3 +170,22 @@ Page{
     border-bottom-right-radius: 100%;
     z-index: -1;
 }
+
+/* icons */
+.icons{
+    padding: 10px;
+}
+.icons .row{
+    display: flex;
+}
+.icons .row .grid{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.icons .row .grid image{
+    width: 110rpx;
+    height: 110rpx;
+}
