@@ -22,6 +22,8 @@ app.get('/xlm', (req, res) => {
     res.json(arr1);
   } else if (lm == '厨房用品') {
     res.json(arr2);
+  } else {
+    res.json([]);
   }
 });
 
@@ -70,19 +72,123 @@ app.get('/indexapi', (req, res) => {
     {
       type: 'myswiper',
       data: {
-        images:[
+        images: [
           'http://192.168.43.106:3000/images/banner/1.jpg',
           'http://192.168.43.106:3000/images/banner/2.jpg',
           'http://192.168.43.106:3000/images/banner/3.jpg',
           'http://192.168.43.106:3000/images/banner/4.jpg',
           'http://192.168.43.106:3000/images/banner/5.jpg',
-        ]
+        ],
       },
     },
     {
       type: 'icons',
       data: {
-        n: 5,
+        images: [
+          {
+            pic: '158140198536389245.png',
+            title: 'xx',
+            link: '',
+          },
+          {
+            pic: '158225094251284751.png',
+            title: 'xx',
+            link: '',
+          },
+          {
+            pic: '158225098618947382.png',
+            title: 'xx',
+            link: '',
+          },
+          {
+            pic: '158225102941495158.png',
+            title: 'xx',
+            link: '',
+          },
+          {
+            pic: '158225106790473382.png',
+            title: 'xx',
+            link: '',
+          },
+          {
+            pic: '158225110605546246.png',
+            title: 'xx',
+            link: '',
+          },
+          {
+            pic: '158225119197911173.png',
+            title: 'xx',
+            link: '',
+          },
+          {
+            pic: '158225123358512204.png',
+            title: 'xx',
+            link: '',
+          },
+          {
+            pic: '158225135374622745.png',
+            title: 'xx',
+            link: '',
+          },
+          {
+            pic: '158225129991255185.png',
+            title: 'xx',
+            link: '',
+          },
+        ],
+      },
+    },
+    {
+      type: 'hotpro',
+      data: {
+        g1: {
+          title: '天天低价',
+          // 截止时间
+          headline: '1590026246000',
+          info: '人气好货限时抢',
+          p1: 'yadan.jpg',
+          p1link: '',
+          p1price: '1.79',
+          p2: 'juhua.jpg',
+          p2link: '',
+          p2price: '1.7',
+        },
+        g2: {
+          title: '天天低价',
+          // 截止时间
+          headline: '1590026246000',
+          info: '人气好货限时抢',
+          p1: 'yadan.jpg',
+          p1link: '',
+          p1price: '1.79',
+          p2: 'juhua.jpg',
+          p2link: '',
+          p2price: '1.7',
+        },
+        g3: {
+          title: '天天低价',
+          // 截止时间
+          headline: '1590026246000',
+          info: '人气好货限时抢',
+          p1: 'yadan.jpg',
+          p1link: '',
+          p1price: '1.79',
+          p2: 'juhua.jpg',
+          p2link: '',
+          p2price: '1.7',
+        },
+        g4: {
+          title: '天天低价',
+          // 截止时间
+          headline: '1590026246000',
+          info: '人气好货限时抢',
+          p1: 'yadan.jpg',
+          p1link: '',
+          p1price: '1.79',
+          p2: 'juhua.jpg',
+          p2link: '',
+          p2price: '1.7',
+        },
       },
     },
   ]);

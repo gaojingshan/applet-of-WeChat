@@ -19,13 +19,14 @@
 <import src="./xlm.wxml" />
 <import src="./myswiper.wxml" />
 <import src="./icons.wxml" />
+<import src="./hotpro.wxml" />
 
 <scroll-view scroll-y="true" style="height:{{windowHeight - 190}}px" bindscrolltolower="lowerHandler" lower-threshold="140">
 
 	<view wx:if="{{nowcur != '首页'}}">
 		<template is="xlm" data="{{tjarr1: tjarr1,tjarr2: tjarr2,isShowLoading: isShowLoading,left_arr: left_arr,right_arr: right_arr,windowWidth: windowWidth}}"> </template>
 	</view>
-	
+
 	<view wx:else>
 		<!-- 首页 -->
 		<view class="circle_bg"></view>

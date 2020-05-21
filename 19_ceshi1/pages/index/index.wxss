@@ -109,26 +109,26 @@ Page {
     padding-bottom: 6px;
 }
 
-.row {
+.tuijian .row {
     overflow: hidden;
     display: flex;
     width: 100%;
     padding-top: 10px;
 }
 
-.row .grid {
+.tuijian .row .grid {
     flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.row .grid .pic image {
+.tuijian .row .grid .pic image {
     width: 100rpx;
     height: 100rpx;
 }
 
-.row .grid .word {
+.tuijian .row .grid .word {
     font-size: 13px;
     color: #333;
 }
@@ -182,11 +182,73 @@ Page {
     position: absolute;
     width: 150%;
     height: 100px;
-    background: -webkit-linear-gradient(top,rgb(212, 79, 79),rgb(226, 108, 108));
+    background: -webkit-linear-gradient(top, rgb(212, 79, 79), rgb(226, 108, 108));
     top: 0;
     left: -25%;
     z-index: -1;
     border-bottom-left-radius: 100%;
     border-bottom-right-radius: 100%;
-    
+
+}
+
+/* icons */
+.icons .row {
+    display: flex;
+}
+
+.icons .row .grid {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.icons .row .grid image {
+    width: 110rpx;
+    height: 110rpx;
+}
+
+/* hotpro 热卖商品 */
+.hotprobox {
+    width: 670rpx;
+    margin: 10px auto;
+    background: white;
+}
+
+.hotprobox .row {
+    display: flex;
+}
+
+.hotprobox .row .grid {
+    flex: 1;
+}
+
+.hotprobox .row .grid:first-child {
+    border-right: 1px solid #eee;
+}
+
+.hotprobox .row .grid .title {
+    font-size: 16px;
+    font-weight: bold;
+    padding-left: 12px;
+    padding-top: 10px;
+}
+
+.hotprobox .row .grid .info {
+    font-size: 12px;
+    padding-left: 12px;
+    padding-top: 10px;
+}
+
+.hotprobox .row .grid .pbox {
+    display: flex;
+}
+
+.hotprobox .row .grid .pbox .pgrid {
+    flex: 1;
+}
+
+.hotprobox .row .grid .pbox .pgrid image {
+    width: 160rpx;
+    height: 160rpx;
 }
