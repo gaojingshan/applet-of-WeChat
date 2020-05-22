@@ -1,8 +1,8 @@
 {
     "pages": [
-        "pages/cardetail/cardetail",
-        "pages/search_result/search_result",
         "pages/index/index",
+        "pages/search_result/search_result",
+        "pages/cardetail/cardetail",
         "pages/soso/soso",
         "pages/category/category",
         "pages/cart/cart",

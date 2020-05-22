@@ -1,6 +1,8 @@
+const app = getApp();
+
 Page({
   data: {
-    windowHeight: 0,
+    windowHeight: app.globalData.windowHeight,
     // 存放结果的
     results: [],
     // 是否打开抽屉
@@ -45,14 +47,7 @@ Page({
   },
   // 当页面被打开的时候  onShow是不会被卸载的
   onShow() {
-    // 得到屏幕高度
-    wx.getSystemInfo({
-      success: (res) => {
-        this.setData({
-          windowHeight: res.windowHeight
-        })
-      }
-    })
+    
     this.loadData();
 
 
