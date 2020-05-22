@@ -1,3 +1,10 @@
+<!-- 自定义状态栏 -->
+<view class="topstatusbar">
+	<view class="backbox" bindtap="goback">
+		返回
+		<image class="arrowlift" src="/images/arrow-lift.png"></image>
+	</view>
+</view>
 <view class="top">
 	<view class="topbox">
 		<view class="kuang">

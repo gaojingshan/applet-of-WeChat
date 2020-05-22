@@ -42,5 +42,9 @@ Page({
         this.setData({
             lishiwords: []
         })
+    },
+    // 返回上一页
+    goback() {
+        wx.navigateBack()
     }
 })

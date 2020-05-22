@@ -9,6 +9,7 @@ App({
     },
     // 当小程序初始化的时候
     onLaunch() {
+        // 读取微信的API，可以调用系统信息
         // 得到屏幕可用高度、状态栏高度
         wx.getSystemInfo({
             success: (res) => {
@@ -21,4 +22,5 @@ App({
             }
         })
     }
+    
 })

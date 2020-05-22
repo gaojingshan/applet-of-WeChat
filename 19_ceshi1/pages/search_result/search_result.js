@@ -194,5 +194,9 @@ Page({
       // 拉取数据
       this.loadData()
     })
+  },
+  // 返回上一页
+  goback() {
+    wx.navigateBack()
   }
 })

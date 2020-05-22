@@ -1,4 +1,12 @@
 <view>
+	<!-- 自定义状态栏 -->
+	<view class="topstatusbar">
+		<view class="backbox" bindtap="goback">
+			返回
+			<image class="arrowlift" src="/images/arrow-lift.png"></image>
+		</view>
+	</view>
+
 	<view class="topbox">
 		<!-- 下拉框 -->
 		<view class="row">
@@ -23,7 +31,7 @@
 
 		<!-- 抽屉 -->
 		<i-drawer mode="right" visible="{{isShowDrawer}}" bind:close="onClose">
-			<view style="height:{{windowHeight}}px;background:white;width:290px">
+			<view style="height:{{windowHeight - 91 - 41}}px;background:white;width:290px">
 				<!-- 加wx:if的目的是为了让组件能够消亡，这样组件data会被重置 -->
 				<drawer-inner wx:if="{{isShowDrawer}}" bind:ok="drawer_inner_okHan" bind:close="drawer_inner_close_han" filters="{{filters}}" brand="{{now.brand}}" color="{{now.color}}" fuel="{{now.fuel}}" exhaust="{{now.exhaust}}" engine="{{now.engine}}" series="{{now.series}}" date1="{{date1}}" date2="{{date2}}"></drawer-inner>
 			</view>
