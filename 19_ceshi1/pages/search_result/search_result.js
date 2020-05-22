@@ -198,5 +198,12 @@ Page({
   // 返回上一页
   goback() {
     wx.navigateBack()
+  },
+  // 去细节页面
+  gotodetail(e) {
+    // currentTarget 表示当前正在触碰的这个
+    wx.navigateTo({
+      url: '/pages/cardetail/cardetail?id=' + e.currentTarget.dataset.id
+    })
   }
 })

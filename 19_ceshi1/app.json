@@ -1,5 +1,6 @@
 {
     "pages": [
+        "pages/cardetail/cardetail",
         "pages/search_result/search_result",
         "pages/index/index",
         "pages/soso/soso",

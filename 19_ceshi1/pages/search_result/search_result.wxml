@@ -31,7 +31,7 @@
 
 		<!-- 抽屉 -->
 		<i-drawer mode="right" visible="{{isShowDrawer}}" bind:close="onClose">
-			<view style="height:{{windowHeight - 91 - 41}}px;background:white;width:290px">
+			<view style="height:{{windowHeight }}px;background:white;width:290px">
 				<!-- 加wx:if的目的是为了让组件能够消亡，这样组件data会被重置 -->
 				<drawer-inner wx:if="{{isShowDrawer}}" bind:ok="drawer_inner_okHan" bind:close="drawer_inner_close_han" filters="{{filters}}" brand="{{now.brand}}" color="{{now.color}}" fuel="{{now.fuel}}" exhaust="{{now.exhaust}}" engine="{{now.engine}}" series="{{now.series}}" date1="{{date1}}" date2="{{date2}}"></drawer-inner>
 			</view>
@@ -39,7 +39,7 @@
 	</view>
 	<!-- 定义汽车小格的模板 -->
 	<template name="the_temp">
-		<view class="the_temp">
+		<view class="the_temp" bindtap="gotodetail" data-id="{{item.id}}">
 			<view class="picbox">
 				<image src="http://aiqianduan.com:56506/images/carimages_small/{{item.id}}/view/{{item.img}}"></image>
 			</view>
@@ -55,7 +55,7 @@
 			</view>
 		</view>
 	</template>
-	<scroll-view scroll-y="true" style="height:{{windowHeight-41}}px" bindscrolltolower="lowerHandler" lower-threshold="140">
+	<scroll-view scroll-y="true" style="height:{{windowHeight-41-91}}px" bindscrolltolower="lowerHandler" lower-threshold="140">
 		<template wx:for="{{results}}" wx:key="id" is="the_temp" data="{{item:item}}"></template>
 		<view style="font-size:12px;text-align:center;color:#ccc">我是有底线滴</view>
 	</scroll-view>

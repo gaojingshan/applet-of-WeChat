@@ -2,7 +2,7 @@
 	<!-- wxml中不能调用slice函数，必须写到wxs中 -->
 	<wxs src="../../utils/tool.wxs" module="tool" />
 	<view wx:if="{{nowshow == 'main'}}">
-		<scroll-view scroll-y="true" style="height:{{windowHeight-51}}px">
+		<scroll-view scroll-y="true" style="height:{{windowHeight-51}}px" >
 			<!-- 品牌筛选器 -->
 			<view class="sx_grid">
 				<view class="title" style="overflow:hidden">
