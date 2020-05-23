@@ -8,6 +8,12 @@ const mockjs = require('mockjs');
 
 const Random = mockjs.Random;
 
+const formidable = require('formidable');
+
+const https = require('https');
+const iconv = require('iconv-lite');
+const fs = require('fs');
+
 // 模块
 const arr1 = require('./arr1.js');
 const arr2 = require('./arr2.js');
@@ -187,6 +193,44 @@ app.get('/indexapi', (req, res) => {
       },
     },
   ]);
+});
+
+// 通过code换OpenId
+app.post('/getMyOpenId', (req, outerres) => {
+  const form = formidable({multiples: true});
+  form.parse(req, (err, fields, files) => {
+    // fields参数就是HTTP的报文体中的信息
+    console.log('服务器已经收到了你的code' + fields.code);
+
+    var url =
+      'https://api.weixin.qq.com/sns/jscode2session?appid=wx4f35b7c886a891eb&secret=418b1d054721a6848fda8a293eeab45e&js_code=' +
+      fields.code +
+      '&grant_type=authorization_code';
+
+    // 发出https的get请求，等于说是我们的服务器发往小程序的服务器，服务器和服务器之间也可以有https请求。
+    https
+      .get(url, function (res) {
+        var datas = [];
+        var size = 0;
+        res.on('data', function (data) {
+          datas.push(data);
+          size += data.length;
+          //process.stdout.write(data);
+        });
+        res.on('end', function () {
+          var buff = Buffer.concat(datas, size);
+          var result = iconv.decode(buff, 'utf8'); //转码//var result = buff.toString();//不需要转编码,直接tostring
+          console.log(result);
+
+          // 读取“users.txt”模拟数据库
+          fs.readFile
+        });
+      })
+      .on('error', function (err) {
+        Logger.error(err.stack);
+        callback.apply(null);
+      });
+  });
 });
 
 app.listen(3000);
