@@ -4,17 +4,17 @@ const app = getApp()
 
 Page({
     data: {
-        motto: 'Hello World',
-        userInfo: {},
+        userInfo: {
+            nickName:'没有登陆，点击登陆'
+        },
         hasUserInfo: false,
-        canIUse: wx.canIUse('button.open-type.getUserInfo')
+        canIUse: wx.canIUse('button.open-type.getUserInfo'),
+        // 默认头像地址
+        avatarurl:'/images/defaultavatar.jpg',
+        // 用户绑定的手机号
+        mobile:''
     },
-    //事件处理函数
-    bindViewTap: function () {
-        wx.navigateTo({
-            url: '../logs/logs'
-        })
-    },
+    
     onLoad: function () {
         if (app.globalData.userInfo) {
             this.setData({

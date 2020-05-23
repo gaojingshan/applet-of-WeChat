@@ -14,6 +14,7 @@ const https = require('https');
 const iconv = require('iconv-lite');
 const fs = require('fs');
 
+
 // 模块
 const arr1 = require('./arr1.js');
 const arr2 = require('./arr2.js');
@@ -221,9 +222,25 @@ app.post('/getMyOpenId', (req, outerres) => {
           var buff = Buffer.concat(datas, size);
           var result = iconv.decode(buff, 'utf8'); //转码//var result = buff.toString();//不需要转编码,直接tostring
           console.log(result);
+          var resultobj = JSON.parse(result);
 
           // 读取“users.txt”模拟数据库
-          fs.readFile
+          fs.readFile('./users.txt', (err, content) => {
+            var obj = JSON.parse(content.toString());
+            // 判断键名是否存在，键名就是openId
+            if (!obj.hasOwnProperty(resultobj.openid)) {
+              // 如果没有这个键就要加上这个键
+              obj[resultobj.openid] = {
+                tel: '',
+              };
+              // 再把这个对象写进去
+              fs.writeFile('./users.txt',JSON.stringify(obj),(err)=>{
+                outerres.json({ok: 1});
+              })
+            } else {
+              outerres.json({ok: 1});
+            }
+          });
         });
       })
       .on('error', function (err) {
@@ -232,5 +249,7 @@ app.post('/getMyOpenId', (req, outerres) => {
       });
   });
 });
+
+
 
 app.listen(3000);
