@@ -1,0 +1,29 @@
+<!-- 状态栏 -->
+<view class="top_status">
+	<view class="arrowlift_box" bindtap="gotoback">
+		返回
+		<image class="arrowlift" src="/images/arrow-lift.png"></image>
+	</view>
+</view>
+<!-- 轮播图 -->
+<swiper class="myswiper" duration="300" circular="true" bindchange="changeHan" current="{{nowcurrent}}" bindtap="bigpic">
+	<view wx:for="{{result_arr_key}}" wx:key="*this" wx:for-item="key">
+		<block wx:for="{{result.images[key]}}" wx:key="*this">
+			<swiper-item>
+				<view class="swiper-item">
+					<image src="http://aiqianduan.com:56506/images/carimages/{{result.id}}/{{key}}/{{item}}"></image>
+				</view>
+			</swiper-item>
+		</block>
+	</view>
+</swiper>
+<!-- 导航 -->
+<view class="navbox">
+	<view class="grid {{nowdetail == 'view' ? 'cur' : ''}}" bindtap="navHan" data-t="view">外观({{nowdetail == 'view' ? nowsmallpicidx + '/' : ''}}{{result.images.view.length}})</view>
+
+	<view class="grid {{nowdetail == 'inner' ? 'cur' : ''}}" bindtap="navHan" data-t="inner">内饰({{nowdetail == 'inner' ? nowsmallpicidx + '/' : ''}}{{result.images.inner.length}})</view>
+
+	<view class="grid {{nowdetail == 'engine' ? 'cur' : ''}}" bindtap="navHan" data-t="engine">发动机({{nowdetail == 'engine' ? nowsmallpicidx + '/' : ''}}{{result.images.engine.length}})</view>
+
+	<view class="grid {{nowdetail == 'more' ? 'cur' : ''}}" bindtap="navHan" data-t="more">细节({{nowdetail == 'more' ? nowsmallpicidx + '/' : ''}}{{result.images.more.length}})</view>
+</view>

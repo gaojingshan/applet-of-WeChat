@@ -194,5 +194,17 @@ Page({
       // 拉取数据
       this.loadData()
     })
+  },
+  // 返回上一页
+  gotoback() {
+    wx.navigateBack()
+  },
+  // 点击进入看车的细节
+  cardetail(e) {
+    const id = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '/pages/cardetail/cardetail?id=' + id,
+    })
+
   }
 })

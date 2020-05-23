@@ -9,6 +9,8 @@ Page({
             // 写images的原因是为了防止一会儿undefined
             images: {}
         },
+        // 形式转换后的result,罗列images里面的key
+        result_arr_key: [],
         // 当前所在的相册
         nowalbum: 'view',
         // 当前所在的号码
@@ -27,8 +29,14 @@ Page({
             url: 'http://www.aiqianduan.com:56506/car/' + id,
             success: (data) => {
                 console.log(data.data.result);
+                // 形式转换
+                var arr = []
+                for (let k in data.data.result.images) {
+                    arr.push(k)
+                }
                 this.setData({
-                    result: data.data.result
+                    result: data.data.result,
+                    result_arr_key: arr
                 })
 
             }
@@ -86,17 +94,20 @@ Page({
     },
     // 当用户点击轮播图的时候
     tapHan() {
-        var arr1 = this.data.result.images.view.map(item => `http://aiqianduan.com:56506/images/carimages/${this.data.result.id}/view/` + item);
-        var arr2 = this.data.result.images.inner.map(item => `http://aiqianduan.com:56506/images/carimages/${this.data.result.id}/inner/` + item);
-        var arr3 = this.data.result.images.engine.map(item => `http://aiqianduan.com:56506/images/carimages/${this.data.result.id}/engine/` + item);
-        var arr4 = this.data.result.images.more.map(item => `http://aiqianduan.com:56506/images/carimages/${this.data.result.id}/more/` + item);
-        wx.previewImage({
-            current: `http://aiqianduan.com:56506/images/carimages/${this.data.result.id}/${this.data.nowalbum}/${this.data.result.images[this.data.nowalbum][this.data.nowsmallpicidx-1]}`,
-            urls: [...arr1, ...arr2, ...arr3, ...arr4]
-        })
-        // console.log([...arr1, ...arr2, ...arr3, ...arr4]);
+        // 遍历出图片链接
+        var arr = [];
+        for (var i = 0; i < this.data.result_arr_key.length; i++) {
+            console.log();
+            var arr1 = this.data.result.images[this.data.result_arr_key[i]].map(item => `http://aiqianduan.com:56506/images/carimages/${this.data.result.id}/${this.data.result_arr_key[i]}/` + item);
+            arr.push(...arr1);
+        }
         
+        wx.previewImage({
+            // 当前显示图片的http链接
+            current: `http://aiqianduan.com:56506/images/carimages/${this.data.result.id}/${this.data.nowalbum}/${this.data.result.images[this.data.nowalbum][this.data.nowsmallpicidx-1]}`,
+
+            // 需要预览的图片http链接列表
+            urls: arr
+        })
     }
-
-
 })

@@ -1,0 +1,32 @@
+.myswiper {
+    width: 750rpx;
+    height: 500rpx;
+}
+
+.myswiper image {
+    width: 750rpx;
+    height: 500rpx;
+}
+
+/* 导航 */
+.navbox {
+    display: flex;
+}
+
+.navbox .grid {
+    flex: 1;
+    text-align: center;
+    background: #eee;
+    border-right: 1px solid #ccc;
+    font-size: 13px;
+    line-height: 30px;
+}
+
+.navbox .grid:last-child {
+    border-right: none
+}
+
+.navbox .grid.cur {
+    background: orange;
+    color: white;
+}

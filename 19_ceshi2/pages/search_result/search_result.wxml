@@ -1,4 +1,11 @@
 <view>
+	<!-- 状态栏 -->
+	<view class="top_status">
+		<view class="arrowlift_box" bindtap="gotoback">
+			返回
+			<image class="arrowlift" src="/images/arrow-lift.png"></image>
+		</view>
+	</view>
 	<view class="topbox">
 		<!-- 下拉框 -->
 		<view class="row">
@@ -31,7 +38,7 @@
 	</view>
 	<!-- 定义汽车小格的模板 -->
 	<template name="the_temp">
-		<view class="the_temp">
+		<view class="the_temp" bindtap="cardetail" data-id="{{item.id}}">
 			<view class="picbox">
 				<image src="http://aiqianduan.com:56506/images/carimages_small/{{item.id}}/view/{{item.img}}"></image>
 			</view>
@@ -47,7 +54,7 @@
 			</view>
 		</view>
 	</template>
-	<scroll-view scroll-y="true" style="height:{{windowHeight-41}}px" bindscrolltolower="lowerHandler" lower-threshold="140">
+	<scroll-view scroll-y="true" style="height:{{windowHeight-41-91}}px" bindscrolltolower="lowerHandler" lower-threshold="140">
 		<template wx:for="{{results}}" wx:key="id" is="the_temp" data="{{item:item}}"></template>
 		<view style="font-size:12px;text-align:center;color:#ccc">我是有底线滴</view>
 	</scroll-view>

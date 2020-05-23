@@ -6,6 +6,7 @@ Page{
     background: -webkit-linear-gradient(top, rgb(207, 22, 22), rgb(212, 79, 79));
     padding-top: 30px;
     box-sizing: border-box;
+    border-bottom: none;
 }
 
 .top .pic {

@@ -1,3 +1,11 @@
+<!-- 状态栏 -->
+<view class="top_status">
+	<view class="arrowlift_box" bindtap="gotoback">
+		返回
+		<image class="arrowlift" src="/images/arrow-lift.png"></image>
+	</view>
+</view>
+
 <view class="top">
 	<view class="topbox">
 		<view class="kuang">

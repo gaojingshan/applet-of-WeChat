@@ -1,11 +1,13 @@
+<!-- 状态栏 -->
+<view class="top_status"></view>
 <view class="page">
-	<view class="slider_bar" style="height:{{windowHeight}}px">
+	<view class="slider_bar" style="height:{{windowHeight - 91}}px">
 		<view wx:for="{{products_keys}}" wx:key="index" class="lm_left {{nowtype==item?'cur':''}}" bindtap="changetype" data-index="{{index}}" data-name="{{item}}">
 			{{item}}
 		</view>
 	</view>
-	<view class="content" style="height:{{windowHeight}}px">
-		<scroll-view scroll-y="true" style="height:{{windowHeight}}px" scroll-into-view="t{{nowid}}" scroll-with-animation="true" bindscroll="scrollHan">
+	<view class="content" style="height:{{windowHeight - 91}}px">
+		<scroll-view scroll-y="true" style="height:{{windowHeight - 91}}px" scroll-into-view="t{{nowid}}" scroll-with-animation="true" bindscroll="scrollHan">
 			<!-- 定义模板 -->
 			<template name="the_temp">
 				<view class="the_temp" id="t{{index}}">
@@ -27,7 +29,5 @@
 				<template is="the_temp" data="{{title:item,the_products_keys:products[item],index:index}}"></template>
 			</view>
 		</scroll-view>
-
-
 	</view>
 </view>
