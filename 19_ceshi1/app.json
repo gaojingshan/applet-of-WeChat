@@ -1,5 +1,6 @@
 {
     "pages": [
+        "pages/mobilebind/mobilebind",
         "pages/me/me",
         "pages/index/index",
         "pages/search_result/search_result",
@@ -8,16 +9,15 @@
         "pages/category/category",
         "pages/cart/cart",
         "pages/test2/test2"
-
     ],
     "window": {
-
         "navigationStyle": "custom"
     },
     "sitemapLocation": "sitemap.json",
     "tabBar": {
         "selectedColor": "#f38",
-        "list": [{
+        "list": [
+            {
                 "pagePath": "pages/index/index",
                 "text": "首页",
                 "iconPath": "/images/i1a.png",

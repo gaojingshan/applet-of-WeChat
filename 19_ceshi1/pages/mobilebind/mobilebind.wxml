@@ -1,0 +1,18 @@
+<view>
+	<view class="topstatusbar">
+		<view class="backbox" bindtap="goback">
+			返回
+			<image class="arrowlift" src="/images/arrow-lift.png"></image>
+		</view>
+	</view>
+	<view>
+		<view>
+			<input class="kuang1" autofocus placeholder="请填写手机号码" bindinput="inputHan1"></input>
+		</view>
+		<view class="row">
+			<input class="kuang2" autofocus placeholder="请填写验证码" bindinput="inputHan1"></input>
+            <button class="btn">发送验证码</button>
+		</view>
+		
+	</view>
+</view>

@@ -1,1 +1,30 @@
-/* pages/me/me.wxss */
+.top_status {
+    height: 190px;
+    width: 100%;
+    padding-top: 40px;
+    box-sizing: border-box;
+
+}
+
+.avatar {
+    width: 90px;
+    height: 90px;
+    margin: 0 auto;
+    display: block;
+    border-radius: 50%;
+    background-size: 100% 100%;
+}
+.wz{
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    line-height: 30px;
+}
+.yellow{
+    color: yellow;
+    text-align: center;
+}
+.green{
+    color: green;
+    text-align: center;
+}

@@ -14,7 +14,6 @@ const https = require('https');
 const iconv = require('iconv-lite');
 const fs = require('fs');
 
-
 // 模块
 const arr1 = require('./arr1.js');
 const arr2 = require('./arr2.js');
@@ -208,6 +207,8 @@ app.post('/getMyOpenId', (req, outerres) => {
       fields.code +
       '&grant_type=authorization_code';
 
+    // 百度搜索 nodejs https发出get请求  https://blog.csdn.net/tiramisu_ljh/article/details/78487747
+    // https://nodejs.org/api/https.html
     // 发出https的get请求，等于说是我们的服务器发往小程序的服务器，服务器和服务器之间也可以有https请求。
     https
       .get(url, function (res) {
@@ -234,9 +235,9 @@ app.post('/getMyOpenId', (req, outerres) => {
                 tel: '',
               };
               // 再把这个对象写进去
-              fs.writeFile('./users.txt',JSON.stringify(obj),(err)=>{
+              fs.writeFile('./users.txt', JSON.stringify(obj), (err) => {
                 outerres.json({ok: 1});
-              })
+              });
             } else {
               outerres.json({ok: 1});
             }
@@ -249,7 +250,5 @@ app.post('/getMyOpenId', (req, outerres) => {
       });
   });
 });
-
-
 
 app.listen(3000);

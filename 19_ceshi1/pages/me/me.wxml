@@ -1,7 +1,7 @@
 <view>
 	<!-- 自定义状态栏 -->
 	<view class="topstatusbar">
-		<button wx:if="{{!hasUserInfo && canIUse}}" class="avatar" style="background-image:url({{avatarurl}})" open-type="getUserInfo" bindgetuserinfo="getUserInfo"></button>
+		<button wx:if="{{!hasUserInfo && canIUse}}" class="avatar" style="background-image:url({{userInfo.avatarurl}})" open-type="getUserInfo" bindgetuserinfo="getUserInfo"></button>
 
 		<image wx:else class="avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
 		<view class="nickname">{{userInfo.nickName}}</view>

@@ -5,16 +5,17 @@ const app = getApp()
 Page({
     data: {
         userInfo: {
-            nickName:'没有登陆，点击登陆'
+            nickName: '没有登陆，点击登陆',
+            // 默认头像地址
+            avatarurl: '/images/defaultavatar.jpg',
         },
         hasUserInfo: false,
         canIUse: wx.canIUse('button.open-type.getUserInfo'),
-        // 默认头像地址
-        avatarurl:'/images/defaultavatar.jpg',
+
         // 用户绑定的手机号
-        mobile:''
+        mobile: ''
     },
-    
+
     onLoad: function () {
         if (app.globalData.userInfo) {
             this.setData({
@@ -45,10 +46,14 @@ Page({
     },
     getUserInfo: function (e) {
         console.log(e)
-        app.globalData.userInfo = e.detail.userInfo
-        this.setData({
-            userInfo: e.detail.userInfo,
-            hasUserInfo: true
-        })
+        // 当用户点击拒绝的时候，什么也不做
+        if (e.detail.userInfo) {
+            app.globalData.userInfo = e.detail.userInfo
+            this.setData({
+                userInfo: e.detail.userInfo,
+                hasUserInfo: true
+            })
+        }
+        
     }
 })

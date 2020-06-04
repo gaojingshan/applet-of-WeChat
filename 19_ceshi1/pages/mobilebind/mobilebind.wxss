@@ -1,0 +1,26 @@
+.kuang1{
+    border: 1px solid #eee;
+    width: 600rpx;
+    height: 30px;
+    margin: 10px auto;
+}
+.row{
+    width: 600rpx;
+    height: 30px;
+    margin: 10px auto;
+}
+.kuang2{
+    float: left;
+    border: 1px solid #eee;
+    width: 400rpx;
+    height: 30px;
+    box-sizing: border-box;
+}
+.btn{
+    float: left;
+    width: 200rpx;
+    height: 30px;
+    font-size: 12px;
+    box-sizing: border-box;
+    border: 1px solid #eee;
+}

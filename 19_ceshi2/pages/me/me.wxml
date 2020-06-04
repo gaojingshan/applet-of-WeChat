@@ -1,2 +1,13 @@
-<!--pages/me/me.wxml-->
-<text>pages/me/me.wxml</text>
+<view>
+	<!-- 状态栏 -->
+	<view class="top_status">
+		<button wx:if="{{!hasUserInfo && canIUse}}" class="avatar" style="background-image: url(/images/defaultavatar.jpg)" open-type="getUserInfo" bindgetuserinfo="getUserInfo"></button>
+		<image wx:else bindtap="bindViewTap" class="avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+		<view class="wz">{{userInfo.nickName}}</view>
+
+		<view class="yellow" wx:if="{{mobile == ''}}">您还没有绑定手机号，请点击绑定</view>
+		<view class="green" wx:else>您的手机号是：{{mobile}}</view>
+
+	</view>
+
+</view>
