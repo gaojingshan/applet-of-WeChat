@@ -1,4 +1,0 @@
-<view>
-    {{a}}
-</view>
-<button bindtap="add" disabled="{{a == 20}}">按我加1</button>
