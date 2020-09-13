@@ -1,0 +1,10 @@
+<view>
+    <radio-group  bindchange="radioHan">
+        <radio wx:for="{{hero}}" wx:key="index" value="{{item}}" checked="{{nowType == item}}">{{item}}</radio>
+    </radio-group>
+    <view class="y" wx:for="{{arr}}" wx:key="index">
+        <image src="http://www.aiqianduan.com:56506/images/wzry/{{item.pic}}.jpg"></image>
+        {{item.cname}}
+        <view class="mask" wx:if="{{nowType != item.hero_type && nowType != item.hero_type2}}"></view>
+    </view>
+</view>
