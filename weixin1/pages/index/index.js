@@ -66,7 +66,7 @@ Page({
   // 右边的卷动事件
   scrollHan(e) {
     const scrollTop = e.detail.scrollTop;
-    // console.log(scrollTop);
+    console.log(scrollTop);
     // 看看介于哪两个之间
     for (let i = 0; i < allTypeTops.length; i++) {
       if (scrollTop >= allTypeTops[i] && scrollTop < allTypeTops[i + 1]) {

@@ -1,18 +1,28 @@
-<view class="box" style="height:{{windowHeight}}px">
+<view class="box">
   <view class="slidebar" style="height:{{windowHeight}}px">
-    <view class="lm" wx:for="{{products_keys}}" wx:key="index">{{item}}</view>
+    <view class="lm {{nowtype == item ? 'cur' : ''}}" wx:for="{{products_keys}}" wx:key="index" bindtap="lmHan" data-index="{{index}}" data-name="{{item}}">
+      {{item}}
+    </view>
   </view>
-  <view class="mainbar">
-    <template is="the_temp">
-      <view class="the_temp">
+  <view class="maincontent">
+    <scroll-view scroll-y="true" style="height:{{windowHeight}}px" scroll-into-view="t{{nowid}}" scroll-with-animation="true" bindscroll="scrollHan">
+      <!-- 使用 -->
+      <template is="the_temp" wx:for="{{products_keys}}" wx:key="index" data="{{products_keys: products_keys,the_type_products: products[item],nowid: index,bt:item}}">
+      </template>
+    </scroll-view>
+    <!-- 定义 -->
+    <template name="the_temp">
+      <view class="the_temp" id="t{{nowid}}">
         <view class="bt">
-          {{products_keys}}
+          {{bt}}
+        </view>
+        <view class="content" wx:for="{{the_type_products}}" wx:key="index">
+            <image src="http://www.aiqianduan.com:56506/images/productpics/{{item.pic}}"></image>
+            <div class="wz">
+              {{item.name}}
+            </div>
         </view>
       </view>
     </template>
-    <scroll-view style="height:{{windowHeight}}px">
-      <template wx:for="{{products_keys}}" wx:key="index" name="the_temp" data="{{item: item}}">
-      </template>
-    </scroll-view>
   </view>
 </view>
