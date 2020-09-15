@@ -1,0 +1,18 @@
+<view class="box" style="height:{{windowHeight}}px">
+  <view class="slidebar" style="height:{{windowHeight}}px">
+    <view class="lm" wx:for="{{products_keys}}" wx:key="index">{{item}}</view>
+  </view>
+  <view class="mainbar">
+    <template is="the_temp">
+      <view class="the_temp">
+        <view class="bt">
+          {{products_keys}}
+        </view>
+      </view>
+    </template>
+    <scroll-view style="height:{{windowHeight}}px">
+      <template wx:for="{{products_keys}}" wx:key="index" name="the_temp" data="{{item: item}}">
+      </template>
+    </scroll-view>
+  </view>
+</view>

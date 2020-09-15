@@ -1,0 +1,34 @@
+<view class="page-container">
+  <view class="slidebar" style="height:{{windowHeight}}px">
+    <view class="lm {{nowtype == item ? 'cur' : ''}}" wx:for="{{products_keys}}" wx:key="index" bindtap="lmTapHan"
+      data-index="{{index}}" data-name="{{item}}">
+      {{item}}
+    </view>
+  </view>
+  <view class="maincontent" style="height:{{windowHeight}}px">
+    <scroll-view scroll-y="true" style="height:{{windowHeight}}px" scroll-into-view="t{{nowid}}"
+      scroll-with-animation="true" bindscroll="scrollHan">
+      <!-- 定义一个template -->
+      <template name="the_temp">
+        <view class="the_temp" id="t{{index}}">
+          <view class="bt">
+            {{bt}}
+          </view>
+          <view>
+            <view class="p_box" wx:for="{{the_type_products}}" wx:key="index">
+              <view class="picbox">
+                <image src="http://www.aiqianduan.com:56506/images/productpics/{{item.pic}}"></image>
+              </view>
+              <view class="wordbox">
+                {{item.name}}
+              </view>
+            </view>
+          </view>
+        </view>
+      </template>
+      <template wx:for="{{products_keys}}" wx:key="index" is="the_temp"
+        data="{{bt:item,the_type_products:products[item],index:index}}"></template>
+    </scroll-view>
+  </view>
+
+</view>
