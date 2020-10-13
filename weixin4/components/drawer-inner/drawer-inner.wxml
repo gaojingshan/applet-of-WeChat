@@ -1,0 +1,45 @@
+<view>
+    <view wx:if="{{show == 'main'}}">
+        <view class="container" style="height:{{windowHeight - 41}}px">
+            <scroll-view scroll-y="true" style="height:{{windowHeight - 41}}px">
+                <!-- 品牌 -->
+                <view>
+                    <view class="header">
+                        <view class="view1">品牌</view>
+                        <view class="view2">当前:{{now.brand}}</view>
+                    </view>
+                    <view>
+                        <view class="xxk {{now.brand == item ? 'cur' : ''}}" wx:for="{{brandArr}}" wx:key="index"
+                            bindtap="clickCellHan" data-brand="{{item}}">{{item}}</view>
+                        <view class="xxk xxk0" bindtap="all_brand_Han">全部</view>
+                    </view>
+                </view>
+                <wxs src="./tool.wxs" module="tool"></wxs>
+                <!-- 其他分类 -->
+                <view wx:for="{{filters}}" wx:key="e" wx:for-item="fil" style="clear: both;padding-top: 20px;">
+                    <view class="header">
+                        <view class="view1">{{fil.c}}（可多选）</view>
+                        <view class="view2">
+                            当前:{{now[fil.e].length>2 ? tool.myslice(now[fil.e],0,2) + '等'+ now[fil.e].length + '项' : now[fil.e]}}
+                        </view>
+                    </view>
+                    <view>
+                        <view class="xxk {{tool.isCheckArr(now[fil.e], item) ? 'cur' : ''}}"
+                            wx:for="{{fil.options.length > 5 ? tool.myslice(fil.options,0,5) : fil.options}}"
+                            wx:key="index" bindtap="pppHan" data-xxkk="{{item}}" data-e="{{fil.e}}">{{item}}</view>
+                        <view class="xxk xxk0" bindtap="show_all_Han" data-nowe="{{fil.e}}" data-nowc="{{fil.c}}" data-nowoptions="{{fil.options}}" wx:if="{{fil.options.length > 5}}">全部</view>
+                    </view>
+                </view>
+            </scroll-view>
+        </view>
+        <view class="footer">
+            <view class="btn">×</view>
+            <view class="btn">重置</view>
+            <view class="btn" bindtap="okHan">确定</view>
+        </view>
+    </view>
+
+
+    <all-brand wx:if="{{show == 'allbrand'}}" bind:ok="allbrand_okHan" now="{{now}}"></all-brand>
+    <show-all wx:if="{{show == 'showall'}}" filters="{{filters}}" nowe="{{nowe}}" nowc="{{nowc}}" nowoptions="{{nowoptions}}"></show-all>
+</view>
