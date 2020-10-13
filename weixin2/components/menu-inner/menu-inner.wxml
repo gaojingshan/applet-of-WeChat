@@ -1,0 +1,6 @@
+<view>
+    <i-checkbox-group current="{{current}}" bindchange="handleFruitChange">
+        <i-checkbox wx:for="{{nowo.options}}" position="left" wx:key="index" value="{{item}}">
+        </i-checkbox>
+    </i-checkbox-group>
+</view>

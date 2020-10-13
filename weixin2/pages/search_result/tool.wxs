@@ -1,0 +1,12 @@
+function getTheOneItemInArray(arr, e) {
+    for (var i = 0; i < arr.length; i++) {
+        if (e == arr[i].e) {
+            return arr[i];
+        }
+    }
+    // 默认返回一个空对象，防止报错
+    return {};
+}
+module.exports = {
+    getTheOneItemInArray: getTheOneItemInArray
+}

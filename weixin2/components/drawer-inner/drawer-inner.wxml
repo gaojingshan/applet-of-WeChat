@@ -1,0 +1,53 @@
+<view>
+    <!-- wx:if 指令表示这个组件是否显示-->
+    <view wx:if="{{nowshow == 'main'}}">
+        <scroll-view scroll-y="true" style="height:{{windowHeight - 51}}px">
+            <!-- 品牌筛选 -->
+            <view class="sx_grid">
+                <view class="title" style="overflow: hidden;font-size:13px">
+                    <view style="float:left">品牌</view>
+                    <view style="float:right">当前：{{now.brand}}</view>
+                </view>
+                <view class="content">
+                    <view class="btn {{now.brand == item ? 'cur' : ''}}" wx:for="{{brandArr}}" wx:key="index"
+                        bindtap="pphan" data-pinpai="{{item}}">{{item}}</view>
+                    <view class="btn btn_all" bindtap="showallbrand">全部</view>
+                </view>
+            </view>
+            <wxs src="./tool.wxs" module="tool"></wxs>
+            <!-- 其他筛选 -->
+            <view class="sx_grid" wx:for="{{filters}}" wx:key="e" wx:for-item="lm">
+                <view class="title" style="overflow: hidden;font-size:13px">
+                    <view style="float:left">
+                        {{lm.c}}
+                        <text style="font-size:12px">（可多选）</text>
+                    </view>
+                    <view style="float:right">
+                        当前：{{now[lm.e].length > 2 ? tool.myslice(now[lm.e], 0, 2) + '等' + (now[lm.e].length) + '项' : now[lm.e]}}
+                    </view>
+                </view>
+                <view class="content">
+                    <view wx:for="{{lm.options.length > 5 ? tool.myslice(lm.options, 0, 5) : lm.options}}"
+                        wx:key="index" wx:for-item="xx" class="btn {{tool.checkInArr(now[lm.e], xx) ? 'cur' : ''}}"
+                        bindtap="ppphan" data-k="{{lm.e}}" data-v="{{xx}}">{{xx}}</view>
+                    <view class="btn btn_all" bindtap="showalloption" data-c="{{lm.c}}" data-e="{{lm.e}}"
+                        data-options="{{lm.options}}" wx:if="{{lm.options.length > 5}}">全部</view>
+                </view>
+            </view>
+        </scroll-view>
+        <view class="bottom_box">
+            <view class="btn0" bindtap="closeBtnHan">×</view>
+            <view class="btn1" bindtap="resetBtnHan">重置</view>
+            <view class="btn2" bindtap="okHan">确定</view>
+        </view>
+    </view>
+
+    <!-- 全部品牌 -->
+    <all-brand wx:if="{{nowshow == 'allbrand'}}" brand="{{now.brand}}" bind:ok="all_brand_okHan"
+        bind:close="all_brand_closeHan"></all-brand>
+
+    <!-- 全部选项，除了品牌 -->
+    <show-all wx:if="{{nowshow == 'showall'}}" nowc="{{nowc}}" nowe="{{nowe}}" nowoptions="{{nowoptions}}"
+        current="{{now[nowe]}}" bind:ok="show_all_okHan" bind:close="show_all_closeHan"></show-all>
+
+</view>

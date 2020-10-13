@@ -1,0 +1,54 @@
+<view>
+    <view class="topbox">
+        <view class="row">
+            <view class="sx_btn" size="small" bindtap="showDrawer">筛选</view>
+        </view>
+        <view class="row">
+            <scroll-view scroll-x="true">
+                <view class="unit">
+                    <view class="xxk {{nowmenu == item.e ? 'cur' : ''}}" wx:for="{{filters}}" wx:key="index"
+                        bindtap="xxk_tap_han" data-e="{{item.e}}">
+                        {{item.c}}
+                    </view>
+                </view>
+            </scroll-view>
+        </view>
+        <wxs src="./tool.wxs" module="tool"></wxs>
+        <view class="menu" wx:if="{{nowmenu != ''}}">
+            <view class="mask" catchtap="close_menu"></view>
+            <view class="menu_inner_box">
+                <menu-inner nowmenu="{{nowmenu}}" nowo="{{tool.getTheOneItemInArray(filters, nowmenu)}}"
+                    nowv="{{now[nowmenu]}}"></menu-inner>
+            </view>
+        </view>
+        <i-drawer mode="right" visible="{{ isShowDrawer }}" bind:close="onClose">
+            <view style="width:280px;background:white;height: {{windowHeight}}px">
+                <drawer-inner wx:if="{{isShowDrawer}}" bind:close="drawer_inner_closeHan" bind:ok="drawer_inner_okHan"
+                    now="{{now}}" filters="{{filters}}"></drawer-inner>
+            </view>
+        </i-drawer>
+    </view>
+    <!-- 定义汽车小格的模板 -->
+    <template name="car_grid">
+        <view class="car_grid">
+            <view class="picbox">
+                <image class="carpic"
+                    src="http://aiqianduan.com:56506/images/carimages_small/{{item.id}}/view/{{item.img}}"></image>
+            </view>
+            <view class="wordbox">
+                <view>【id】{{item.id}}</view>
+                <view>【品牌】{{item.brand}}</view>
+                <view>【价格】{{item.price}}</view>
+                <view>【颜色】{{item.color}} 【排放】{{item.exhaust}}</view>
+                <view>【燃油】{{item.fuel}}</view>
+                <view>【动力】{{item.engine}}</view>
+            </view>
+        </view>
+    </template>
+    <scroll-view scroll-y="true" style="height: {{windowHeight - 61}}px" bindscrolltolower="lowerHan"
+        lower-threshold="140">
+        <template is="car_grid" wx:for="{{results}}" wx:key="id" data="{{item:item}}">
+        </template>
+        <view style="text-align:center;font-size:12px;color:#ccc">到底了，没有更多了</view>
+    </scroll-view>
+</view>
