@@ -1,0 +1,23 @@
+.bottombox{
+    display: flex;
+    height: 60px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border: 1px solid #eee;
+}
+.bottombox .btn1{
+    flex: 1;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    background-color: #eee;
+}
+.bottombox .btn2{
+    flex: 1;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    background-color: orange;
+}

@@ -1,0 +1,27 @@
+<view>
+  <view class="topstatusbar">
+    <view class="backbox" bindtap="goback">
+      返回
+      <image class="arrowlift" src="/images/arrow-lift.png"></image>
+    </view>
+  </view>
+  <view>
+    <view>【移动电源】</view>
+  </view>
+  <view>
+    <textarea></textarea>
+  </view>
+  <view class="box">
+    <view class="grid" wx:for="{{images}}" wx:key="index">
+      <image src="{{item}}" mode="aspectFill" bindlongpress="longpressHan" data-index="{{index}}"></image>
+    </view>
+    <view class="grid" bindtap="chooseimage" wx:if="{{images.length != 9}}" >
+      + 
+    </view>
+  </view>
+  <view>
+    <i-action-sheet visible="{{ visible1 }}" actions="{{ actions1 }}" show-cancel bind:cancel="handleCancel1" bind:click="handleClickItem1" />
+
+    <button bindtap="tijiao">提交</button>
+  </view>
+</view>

@@ -1,0 +1,31 @@
+.myswiper {
+    width: 750rpx;
+    height: 500rpx;
+}
+
+.myswiper image {
+    width: 750rpx;
+    height: 500rpx;
+}
+
+.picnav {
+    display: flex;
+}
+
+.picnav .grid {
+    flex: 1;
+    text-align: center;
+    background: #eee;
+    border-right: 1px solid #ccc;
+    line-height: 30px;
+    font-size: 13px;
+}
+
+.picnav .grid.last {
+    border-right: none;
+}
+
+.picnav .grid.cur {
+    background: orange;
+    color: white;
+}

@@ -1,0 +1,11 @@
+<view>
+    <view class="topstatusbar">
+        <view class="backbox" bindtap="goback">
+            返回
+            <image class="arrowlift" src="/images/arrow-lift.png"></image>
+        </view>
+    </view>
+    {{a}}
+    <button bindtap="gotoA">按我a加1</button>
+    <button bindtap="gotocate">看分类栏目</button>
+</view>

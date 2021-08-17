@@ -68,3 +68,30 @@
 .sx_grid .content .btn.cur {
     background: yellow;
 }
+.picker{
+    border: 1px solid #eee;
+    padding: 2px;
+    margin: 4px 0;
+    font-size: 12px;
+    background: #eee;
+    text-align: center;
+}
+.gmrq{
+    display: flex;
+    font-size: 12px;
+}
+.gmrq .p1{
+    flex: 1;
+    margin-right: 6px;
+}
+.gmrq .p2{
+    flex: 1;
+}
+.sx_grid .clear_gmrq{
+    width: 100px;
+    font-size: 12px;
+    text-align: center;
+    border: 1px solid #ccc;
+    margin-top: 10px;
+    padding: 4px 0;
+}

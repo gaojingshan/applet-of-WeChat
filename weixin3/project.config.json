@@ -10,9 +10,9 @@
         "postcss": true,
         "preloadBackgroundData": false,
         "minified": true,
-        "newFeature": true,
+        "newFeature": false,
         "coverView": true,
-        "nodeModules": true,
+        "nodeModules": false,
         "autoAudits": false,
         "showShadowRootInWxmlPanel": true,
         "scopeDataCheck": false,
@@ -22,7 +22,7 @@
         "uploadWithSourceMap": true,
         "compileHotReLoad": false,
         "useMultiFrameRuntime": false,
-        "useApiHook": true,
+        "useApiHook": false,
         "babelSetting": {
             "ignore": [],
             "disablePlugins": [],
@@ -32,33 +32,37 @@
         "useCompilerModule": true,
         "userConfirmedUseCompilerModuleSwitch": false,
         "packNpmManually": false,
-        "packNpmRelationList": []
+        "packNpmRelationList": [],
+        "minifyWXSS": true
     },
     "compileType": "miniprogram",
-    "libVersion": "2.11.0",
+    "libVersion": "2.14.1",
     "appid": "wx4f35b7c886a891eb",
-    "projectname": "wechat",
+    "projectname": "weixin3",
     "debugOptions": {
         "hidedInDevtools": []
     },
+    "scripts": {},
     "isGameTourist": false,
     "simulatorType": "wechat",
     "simulatorPluginLibVersion": {},
     "condition": {
         "search": {
-            "current": -1,
             "list": []
         },
         "conversation": {
-            "current": -1,
             "list": []
         },
         "game": {
-            "currentL": -1,
+            "list": []
+        },
+        "plugin": {
+            "list": []
+        },
+        "gamePlugin": {
             "list": []
         },
         "miniprogram": {
-            "current": -1,
             "list": []
         }
     }

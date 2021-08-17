@@ -1,8 +1,11 @@
 <view>
-    <view class="topbox">
-        <view class="row">
-            <view class="sx_btn" size="small" bindtap="showDrawer">筛选</view>
+    <view class="topstatusbar">
+        <view class="backbox" bindtap="goback">
+            返回
+            <image class="arrowlift" src="/images/arrow-lift.png"></image>
         </view>
+    </view>
+    <view class="topbox">
         <view class="row">
             <scroll-view scroll-x="true">
                 <view class="unit">
@@ -12,40 +15,46 @@
                     </view>
                 </view>
             </scroll-view>
+            <view class="sx_btn" size="small" bindtap="showDrawer">筛选</view>
         </view>
+        <!-- 菜单 -->
         <wxs src="./tool.wxs" module="tool"></wxs>
         <view class="menu" wx:if="{{nowmenu != ''}}">
             <view class="mask" catchtap="close_menu"></view>
             <view class="menu_inner_box">
-                <menu-inner nowmenu="{{nowmenu}}" nowo="{{tool.getTheOneItemInArray(filters, nowmenu)}}"
-                    nowv="{{now[nowmenu]}}"></menu-inner>
+                <menu-inner wx:for="{{['color', 'fuel', 'exhaust', 'engine']}}" wx:key="index"
+                    wx:if="{{nowmenu == item}}" nowmenu="{{item}}" nowo="{{tool.getTheOneItemInArray(filters, item)}}"
+                    nowv="{{now[item]}}" bind:cancel="cancelHan" bind:ok="okHan"></menu-inner>
             </view>
         </view>
+        <!-- 抽屉 -->
         <i-drawer mode="right" visible="{{ isShowDrawer }}" bind:close="onClose">
             <view style="width:280px;background:white;height: {{windowHeight}}px">
                 <drawer-inner wx:if="{{isShowDrawer}}" bind:close="drawer_inner_closeHan" bind:ok="drawer_inner_okHan"
-                    now="{{now}}" filters="{{filters}}"></drawer-inner>
+                    now="{{now}}" filters="{{filters}}" date1="{{date1}}" date2="{{date2}}"></drawer-inner>
             </view>
         </i-drawer>
     </view>
     <!-- 定义汽车小格的模板 -->
     <template name="car_grid">
-        <view class="car_grid">
+        <view class="car_grid" bindtap="gotodetail" data-id="{{item.id}}">
             <view class="picbox">
                 <image class="carpic"
                     src="http://aiqianduan.com:56506/images/carimages_small/{{item.id}}/view/{{item.img}}"></image>
             </view>
             <view class="wordbox">
-                <view>【id】{{item.id}}</view>
-                <view>【品牌】{{item.brand}}</view>
-                <view>【价格】{{item.price}}</view>
-                <view>【颜色】{{item.color}} 【排放】{{item.exhaust}}</view>
-                <view>【燃油】{{item.fuel}}</view>
-                <view>【动力】{{item.engine}}</view>
+                <view class="ppcx">
+                    <text class="big">{{item.brand}}{{item.series}}</text>
+                    <text class="small">{{item.id}}</text>
+                </view>
+                <view class="price">￥{{item.price}}万</view>
+                <view>颜色：{{item.color}} 排放：{{item.exhaust}}</view>
+                <view>燃油：{{item.fuel}} 排量：{{item.engine}}</view>
+                <view>初次购买时间：{{tool.changeTime(item.buydate)}}</view>
             </view>
         </view>
     </template>
-    <scroll-view scroll-y="true" style="height: {{windowHeight - 61}}px" bindscrolltolower="lowerHan"
+    <scroll-view scroll-y="true" style="height: {{windowHeight - 41 - 81}}px" bindscrolltolower="lowerHan"
         lower-threshold="140">
         <template is="car_grid" wx:for="{{results}}" wx:key="id" data="{{item:item}}">
         </template>

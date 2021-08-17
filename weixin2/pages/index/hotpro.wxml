@@ -1,0 +1,110 @@
+<template name="hotpro">
+    <view class="hotprobox">
+        <view class="row">
+            <view class="grid first">
+                <view class="title">
+                    {{g1.title}}
+                </view>
+                <view class="info">
+                    {{g1.info}}
+                </view>
+                <view class="countdown">
+                    <text class="sj">{{diff_h}}</text>
+                    <text class="maohao">:</text>
+                    <text class="sj">{{diff_m}}</text>
+                    <text class="maohao">:</text>
+                    <text class="sj">{{diff_s}}</text>
+                </view>
+                <view class="pbox">
+                    <view class="pgrid">
+                        <image src="http://127.0.0.1:3000/images/{{g1.p1}}"></image>
+                        <view class="price">
+                            ￥{{g1.p1price}}
+                        </view>
+                    </view>
+                    <view class="pgrid">
+                        <image src="http://127.0.0.1:3000/images/{{g1.p2}}"></image>
+                        <view class="price">
+                            ￥{{g1.p2price}}
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="grid">
+                <view class="title">
+                    {{g2.title}}
+                </view>
+                <view class="info">
+                    {{g2.info}}
+                </view>
+                <view class="pbox">
+                    <view class="pgrid">
+                        <image src="http://127.0.0.1:3000/images/{{g2.p1}}"></image>
+                        <view class="price">
+                            ￥{{g2.p1price}}
+                        </view>
+                    </view>
+                    <view class="pgrid">
+                        <image src="http://127.0.0.1:3000/images/{{g2.p2}}"></image>
+                        <view class="price">
+                            ￥{{g2.p2price}}
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="row row2">
+            <view class="grid first">
+                <view class="title">
+                    {{g1.title}}
+                </view>
+                <view class="info">
+                    {{g1.info}}
+                </view>
+                <view class="countdown">
+                    <text class="sj">{{diff_h}}</text>
+                    <text class="maohao">:</text>
+                    <text class="sj">{{diff_m}}</text>
+                    <text class="maohao">:</text>
+                    <text class="sj">{{diff_s}}</text>
+                </view>
+                <view class="pbox">
+                    <view class="pgrid">
+                        <image src="http://127.0.0.1:3000/images/{{g1.p1}}"></image>
+                        <view class="price">
+                            ￥{{g1.p1price}}
+                        </view>
+                    </view>
+                    <view class="pgrid">
+                        <image src="http://127.0.0.1:3000/images/{{g1.p2}}"></image>
+                        <view class="price">
+                            ￥{{g1.p2price}}
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="grid">
+                <view class="title">
+                    {{g2.title}}
+                </view>
+                <view class="info">
+                    {{g2.info}}
+                </view>
+                <view class="pbox">
+                    <view class="pgrid">
+                        <image src="http://127.0.0.1:3000/images/{{g2.p1}}"></image>
+                        <view class="price">
+                            ￥{{g2.p1price}}
+                        </view>
+                    </view>
+                    <view class="pgrid">
+                        <image src="http://127.0.0.1:3000/images/{{g2.p2}}"></image>
+                        <view class="price">
+                            ￥{{g2.p2price}}
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>

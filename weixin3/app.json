@@ -1,14 +1,15 @@
 {
-  "pages": [
-    "pages/search_result/search_result",
-    "pages/index/index"
-  ],
-  "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle": "black"
-  },
-
-  "sitemapLocation": "sitemap.json"
+    "pages": [
+        "pages/search_result/search_result",
+        "pages/index/index",
+        "pages/category/category"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "Weixin",
+        "navigationBarTextStyle": "black"
+    },
+    "style": "v2",
+    "sitemapLocation": "sitemap.json"
 }

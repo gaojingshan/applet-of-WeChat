@@ -1,27 +1,6 @@
-.topbox{
-    height: 40px;
-    border-bottom: 1px solid #ccc;
+.car .car_left{
+    width: 100px;
 }
-.sx_btn{
-    float: right;
-    margin: 4px;
-}
-.car_grid{
-    width: 96%;
-    padding: 10px;
-    display: flex;
-}
-.car_grid .picbox{
-    width: 160px;
-    height: 100px;
-}
-.car_grid .picbox .carpic{
-    width: 160px;
-    height: 100px;
-}
-.car_grid .wordbox{
-    flex: 1;
-    padding-left: 10px;
-    font-size: 14px;
-    color: #333;
+.car .car_left image{
+    width: 100px;
 }

@@ -1,0 +1,22 @@
+<view>
+  <view class="topstatusbar">
+    <view class="backbox" bindtap="goback">
+      返回
+      <image class="arrowlift" src="/images/arrow-lift.png"></image>
+    </view>
+  </view>
+  <view>
+    <view>
+      <input class="kuang1" autofocus placeholder="请填写手机号码" bindinput="inputHan1" />
+    </view>
+    <view class="row">
+      <input class="kuang2" autofocus placeholder="请填写验证码" bindinput="inputHan2" />
+      <button class="btn" bindtap="sendsms" disabled="{{countdown != 60}}">
+        {{countdown == 60 ? '发送验证码' : '重新发送（'+ countdown +'秒）'}}
+        </button>
+    </view>
+  </view>
+  <view>
+    <button class="btn_qd">确定</button>
+  </view>
+</view>

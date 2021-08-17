@@ -1,0 +1,28 @@
+<template name="xlm">
+    <view class="loadingtext" wx:if="{{isShowLoading}}">
+        正在加载，请稍后
+    </view>
+    <view wx:else class="xlm">
+        <view class="tuijian">
+            <view class="row">
+                <view wx:for="{{tjarr1}}" wx:key="index" class="grid">
+                    <view class="pic">
+                        <image src="{{item.pic}}"></image>
+                    </view>
+                    <view class="word">{{item.c}}</view>
+                </view>
+            </view>
+            <view class="row">
+                <view wx:for="{{tjarr2}}" wx:key="index" class="grid">
+                    <view class="pic">
+                        <image src="{{item.pic}}"></image>
+                    </view>
+                    <view class="word">{{item.c}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <!-- 小栏目的瀑布流，与首页共用一个template -->
+    <import src="./pbl.wxml"></import>
+    <template is="pbl" data="{{left_arr: left_arr,right_arr: right_arr,windowWidth: windowWidth}}"></template>
+</template>

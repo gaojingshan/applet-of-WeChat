@@ -1,0 +1,18 @@
+<view>
+    <view class="topstatusbar">
+        <button wx:if="{{!hasUserInfo && canIUse}}" class="avatar"
+            style="background-image:url('/images/defaultavatar.jpg')" open-type="getUserInfo"
+            bindgetuserinfo="getUserInfo"></button>
+        <image wx:else bindtap="bindViewTap" class="avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+        <view class="nickname">
+            {{userInfo.nickName}}
+        </view>
+        <view class="mobiletip">
+            <view class="yellow" wx:if="{{mobile == ''}}">您没有绑定手机号，请点击绑定</view>
+            <view class="green" wx:else>您绑定的手机号是：{{mobile}}</view>
+        </view>
+    </view>
+    <view>
+        <view class="pingjia" bindtap="pingjia">待评价</view>
+    </view>
+</view>

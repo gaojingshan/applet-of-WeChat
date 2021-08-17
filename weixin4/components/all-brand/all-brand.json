@@ -1,7 +1,0 @@
-{
-    "component": true,
-    "usingComponents": {
-        "i-index": "../../iviewui-dist/index/index",
-        "i-index-item": "../../iviewui-dist/index-item/index"
-    }
-}

@@ -1,0 +1,36 @@
+<template name="pbl">
+    <view class="pbl">
+        <view class="left">
+            <view class="grid" wx:for="{{left_arr}}" wx:key="index">
+                <image class="pic" src="{{item.pic}}"
+                    style="width: {{windowWidth / 2 - 10}}px;height: {{(windowWidth / 2 - 10) / (item.width / item.height)}}px;">
+                </image>
+                <view class="content" wx:if="{{item.type == 1}}">
+                    <view class="title">
+                        <image src="/images/hot.png" wx:if="{{item.hot}}" style="width:30px;height:15px"></image>
+                        {{item.title}}
+                    </view>
+                    <view class="price">
+                        ￥{{item.price}}
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="right">
+            <view class="grid" wx:for="{{right_arr}}" wx:key="index">
+                <image class="pic" src="{{item.pic}}"
+                    style="width: {{windowWidth / 2 - 20}}px;height: {{(windowWidth / 2 - 20) / (item.width / item.height)}}px;">
+                </image>
+                <view class="content" wx:if="{{item.type == 1}}">
+                    <view class="title">
+                        <image src="/images/hot.png" wx:if="{{item.hot}}" style="width:30px;height:15px"></image>
+                        {{item.title}}
+                    </view>
+                    <view class="price">
+                        ￥{{item.price}}
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>

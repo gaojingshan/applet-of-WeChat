@@ -1,7 +1,0 @@
-{
-  "component": true,
-  "usingComponents": {
-    "i-checkbox-group": "../../iviewui-dist/checkbox-group/index",
-    "i-checkbox": "../../iviewui-dist/checkbox/index"
-  }
-}

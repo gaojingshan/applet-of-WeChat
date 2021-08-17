@@ -1,0 +1,23 @@
+.topstatusbar {
+    height: 80px;
+    width: 100%;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    background-image: -webkit-linear-gradient(top, rgb(226, 24, 24), rgb(238, 62, 62));
+}
+
+.topstatusbar .backbox {
+    position: absolute;
+    bottom: 10px;
+    left: 40px;
+    line-height: 30px;
+    color: white;
+}
+
+.topstatusbar .arrowlift {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 0;
+    left: -30px;
+}

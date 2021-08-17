@@ -1,0 +1,63 @@
+.topstatusbar{
+    background-image: -webkit-linear-gradient(top, rgb(226, 24, 24), rgb(238, 62, 62));
+}
+.page {
+    display: flex;
+}
+
+.page .slider_bar {
+    width: 80px;
+    background-color: #ccc;
+
+}
+
+.lm_left {
+    font-size: 16px;
+    line-height: 30px;
+    text-align: center;
+    border-left: 3px solid transparent;
+}
+
+.lm_left.cur {
+    background-color: white;
+    border-left: 3px solid orange;
+}
+
+.page .content {
+    flex: 1;
+    padding: 0 10px;
+}
+
+.the_temp .title {
+    font-size: 20px;
+    line-height: 40px;
+    text-align: center;
+    font-weight: bold;
+    height: 40px;
+}
+
+.lm {
+    height: 110px;
+    display: flex;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+.lm .pic {
+    width: 90px;
+    height: 90px;
+}
+
+.lm .pic image {
+    width: 90px;
+    height: 90px;
+}
+
+.lm .wz {
+    flex: 1;
+    font-size: 14px;
+    padding-left: 10px;
+}

@@ -9,10 +9,11 @@ Page({
     page: 1,
     now: {
       brand: '',
-      color: ['红'],
+      color: [],
       fuel: [],
       exhaust: [],
       engine: [],
+      series: []
     },
     filters: [{
         'c': '颜色',
@@ -36,7 +37,11 @@ Page({
       }
     ],
     // 当前正在展开谁的菜单
-    nowmenu: 'color'
+    nowmenu: '',
+    date1_timestamp: 0,
+    date2_timestamp: 0,
+    date1: '',
+    date2: ''
   },
   onShow() {
     // 得到屏幕高度
@@ -64,11 +69,15 @@ Page({
         '&color=' + this.data.now.color.join('v') +
         '&fuel=' + this.data.now.fuel.join('v') +
         '&exhaust=' + this.data.now.exhaust.join('v') +
-        '&engine=' + this.data.now.engine.join('v'),
+        '&engine=' + this.data.now.engine.join('v') +
+        '&series=' + this.data.now.series.join('v') +
+        '&' + (this.data.date1_timestamp != 0 && this.data.date2_timestamp != 0 ? 'buydate=' + this.data.date1_timestamp + 'to' + this.data.date2_timestamp : ''),
       success: (data) => {
         this.setData({
           results: [...this.data.results, ...data.data.results]
         })
+        console.log(this.data.results);
+
         // 隐藏loading
         wx.hideLoading();
       }
@@ -87,7 +96,9 @@ Page({
   // 点击筛选按钮
   showDrawer() {
     this.setData({
-      isShowDrawer: true
+      isShowDrawer: true,
+      // 关闭菜单
+      nowmenu: ''
     });
   },
 
@@ -98,6 +109,18 @@ Page({
   },
   // 当抽屉里面的确定按钮被点击
   drawer_inner_okHan(e) {
+    console.log(e);
+
+    // 将儿子发来的字符串日期改为时间戳 东八区的
+    if (e.detail.date1 != '' && e.detail.date2 != '') {
+      var date1_timestamp = Date.parse(new Date(e.detail.date1));
+      var date2_timestamp = Date.parse(new Date(e.detail.date2));
+    } else {
+      var date1_timestamp = 0;
+      var date2_timestamp = 0;
+    }
+
+
     this.setData({
       page: 1,
       // 结果清空在筛选
@@ -110,7 +133,13 @@ Page({
         fuel: e.detail.fuel,
         exhaust: e.detail.exhaust,
         engine: e.detail.engine,
-      }
+        series: e.detail.series,
+      },
+      date1_timestamp: date1_timestamp,
+      date2_timestamp: date2_timestamp,
+      date1: e.detail.date1,
+      date2: e.detail.date2,
+
     }, function () {
       // 改变完之后做的事情
       this.loadData()
@@ -133,6 +162,38 @@ Page({
   close_menu() {
     this.setData({
       nowmenu: ''
+    })
+  },
+  // 抽屉的取消按钮
+  cancelHan() {
+    this.setData({
+      nowmenu: ''
+    })
+  },
+  // 抽屉的确定按钮
+  okHan(e) {
+    this.setData({
+      now: {
+        ...this.data.now,
+        [this.data.nowmenu]: e.detail.current
+      },
+      nowmenu: '',
+      page: 1,
+      results: [],
+    }, () => {
+      this.loadData();
+    })
+  },
+  // 返回上一层
+  goback() {
+    wx.navigateBack({
+      delta: 1,
+    })
+  },
+  // 去细节页面
+  gotodetail(e) {
+    wx.navigateTo({
+      url: '/pages/cardetail/cardetail?id=' + e.currentTarget.dataset.id
     })
   }
 })

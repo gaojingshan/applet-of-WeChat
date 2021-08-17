@@ -1,6 +1,11 @@
 <view>
     <i-checkbox-group current="{{current}}" bindchange="handleFruitChange">
-        <i-checkbox wx:for="{{nowo.options}}" position="left" wx:key="index" value="{{item}}">
+        <i-checkbox wx:for="{{nowo.options}}" position="left" wx:key="index" value="{{item}}"
+            style="float:left;width:50%;height:60px;">
         </i-checkbox>
     </i-checkbox-group>
+    <view class="bottombox">
+        <view class="btn1" bindtap="cancelHan">取消</view>
+        <view class="btn2" bindtap="okHan">确定</view>
+    </view>
 </view>

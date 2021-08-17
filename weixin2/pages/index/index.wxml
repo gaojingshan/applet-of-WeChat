@@ -1,33 +1,51 @@
-<view class="page">
-	<view class="slider_bar" style="height:{{windowHeight}}px">
-		<view wx:for="{{products_keys}}" wx:key="index" class="lm_left {{nowtype==item?'cur':''}}" bindtap="changetype" data-index="{{index}}" data-name="{{item}}">
-			{{item}}
-		</view>
-	</view>
-	<view class="content" style="height:{{windowHeight}}px">
-		<scroll-view scroll-y="true" style="height:{{windowHeight}}px" scroll-into-view="t{{nowid}}" scroll-with-animation="true" bindscroll="scrollHan">
-			<!-- 定义模板 -->
-			<template name="the_temp">
-				<view class="the_temp" id="t{{index}}">
-					<view class="title">
-						{{title}}
-					</view>
-					<view class="lm" wx:for="{{the_products_keys}}" wx:key="index">
-						<view class="pic">
-							<image src="http://www.aiqianduan.com:56506/images/productpics/{{item.pic}}"></image>
-						</view>
-						<view class="wz">
-							{{item.name}}
-						</view>
-
-					</view>
-				</view>
-			</template>
-			<view wx:for="{{products_keys}}" wx:key="index">
-				<template is="the_temp" data="{{title:item,the_products_keys:products[item],index:index}}"></template>
-			</view>
-		</scroll-view>
-
-
-	</view>
+<view class="topstatusbar">
+  <image class="logo" src="http://aiqianduan.com/assets/images/erji_landingPage/logo.png"></image>
+  <view class="kuang_box">
+    <view class="kuang" bindtap="gotososo">
+      <image class="fdj" src="/images/fdj.png"></image>
+      <text>华为P40手机</text>
+    </view>
+  </view>
+  <view class="xscrollviewbox">
+    <scroll-view class="scrollview" scroll-x="true" scroll-into-view="{{scrollintoview}}" scroll-with-animation="true">
+      <view class="xunit">
+        <view wx:for="{{xbararr}}" wx:key="index" class="xxk {{nowcur == item ? 'cur' : ''}}" data-title="{{item}}"
+          data-index="{{index}}" bindtap="xxktap" id="i{{index}}">{{item}}</view>
+      </view>
+    </scroll-view>
+    <view class="sjx"></view>
+  </view>
+  <!-- <view>
+    <view>我是首页</view>
+  </view> -->
+  <!-- <view>{{m}}</view> -->
+  <!-- <view>
+    <button bindtap="changeGlobal">全局数据</button>
+  </view> -->
 </view>
+
+<import src="./xlm.wxml"></import>
+<import src="./myswiper.wxml"></import>
+<import src="./icons.wxml"></import>
+<import src="./hotpro.wxml"></import>
+
+<scroll-view scroll-y="true" style="height:{{windowHeight - 170}}px" bindscrolltolower="lowerHandler"
+  lower-threshold="140">
+  <view wx:if="{{nowcur != '首页'}}">
+    <template is="xlm"
+      data="{{tjarr1: tjarr1,tjarr2: tjarr2,isShowLoading: isShowLoading,left_arr: left_arr,right_arr: right_arr,windowWidth: windowWidth}}"></template>
+  </view>
+  <view wx:else>
+    <!-- 首页 -->
+    <!-- 遍历indexArr,动态决定用哪个template -->
+    <view class="circle_bg">
+
+    </view>
+    <template wx:for="{{indexArr}}" wx:key="index" is="{{item.type}}"
+      data="{{...item.data,windowWidth: windowWidth,diff_h: diff_h,diff_m: diff_m,diff_s: diff_s}}"></template>
+
+    <!-- 首页瀑布流，与小栏目共用一个template -->
+    <import src="./pbl.wxml"></import>
+    <template is="pbl" data="{{left_arr: left_arr,right_arr: right_arr,windowWidth: windowWidth}}"></template>
+  </view>
+</scroll-view>

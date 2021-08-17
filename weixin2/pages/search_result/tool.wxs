@@ -7,6 +7,19 @@ function getTheOneItemInArray(arr, e) {
     // 默认返回一个空对象，防止报错
     return {};
 }
+
+// 将时间戳变为字符串
+function changeTime(timestamp) {
+    // 可以直接把时间戳放到new Date中，这样就可以产生一个日期对象
+    var dateobj = getDate(timestamp);
+
+    // 调用API，得到年月日
+    return dateobj.getFullYear() + '-' + (dateobj.getMonth() + 1) + '-' + dateobj.getDate();
+
+    console.log(dateobj.getFullYear());
+}
+
 module.exports = {
-    getTheOneItemInArray: getTheOneItemInArray
+    getTheOneItemInArray: getTheOneItemInArray,
+    changeTime: changeTime
 }

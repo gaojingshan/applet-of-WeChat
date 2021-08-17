@@ -1,0 +1,29 @@
+<view class="box" style="height: {{windowHeight}}px">
+  <view class="lm" style="height: {{windowHeight}}px">
+    <view class="lm_lm {{nowtype == item ? 'cur' : ''}}" wx:for="{{products_keys}}" wx:key="index" bindtap="lmtap" data-item="{{item}}" data-index="{{index}}">
+      {{item}}
+    </view>
+  </view>
+  <view class="products" style="height: {{windowHeight}}px">
+    <scroll-view scroll-y="true" style="height: {{windowHeight}}px" scroll-into-view="t{{index}}" scroll-with-animation="true" bindscroll="bindscrollHan" enable-back-to-top="true">
+      <!-- 模板使用 -->
+      <template name="the_temp">
+        <view class="the_temp" id="t{{index}}">
+          <view class="title">{{title}}</view>
+          <view class="pro_grid" wx:for="{{products_lm}}" wx:key="index">
+            <view class="pic">
+              <image src="http://www.aiqianduan.com:56506/images/productpics/{{item.pic}}"></image>
+            </view>
+            <view class="word">
+              {{item.name}}
+            </view>
+          </view>
+        </view>
+      </template>
+
+      <!-- 模板定义 -->
+      <template is="the_temp" wx:for="{{products_keys}}" wx:key="index"
+        data="{{title: item,index: index,products_lm: products[item]}}"></template>
+    </scroll-view>
+  </view>
+</view>

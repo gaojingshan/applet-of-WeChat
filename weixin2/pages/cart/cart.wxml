@@ -1,0 +1,4 @@
+<view>
+    <view class="topstatusbar"></view>
+    <button bindtap="gototest2">去看test2</button>
+</view>

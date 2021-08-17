@@ -1,0 +1,33 @@
+<view class="topstatusbar">
+	<view class="backbox" bindtap="goback">
+		返回
+		<image class="arrowlift" src="/images/arrow-lift.png"></image>
+	</view>
+</view>
+<!-- 搜索承接页 -->
+<view class="top">
+  <view class="topbox">
+    <view class="kuang" bindtap="gotososo">
+      <image class="fdj" src="/images/fdj.png"></image>
+      <input type="text" auto-focus placeholder="{{inputvalue}}" bindconfirm="confirmhan" />
+    </view>
+  </view>
+  <view class="cancelbtn">
+    取消
+  </view>
+</view>
+<view class="lsss_box">
+  <!-- 历史搜索一般存放在本地 -->
+  <view class="hd">
+    <view class="lsss">历史搜索</view>
+    <view class="ljt" bindtap="clearstorage">
+      <image src="/images/ljt.png"></image>
+    </view>
+  </view>
+  <view class="bd">
+    <view class="lishiword" wx:for="{{lishiwords}}" wx:key="index">
+      {{item}}
+    </view>
+  </view>
+
+</view>

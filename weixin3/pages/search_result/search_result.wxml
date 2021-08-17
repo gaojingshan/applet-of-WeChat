@@ -1,33 +1,10 @@
 <view>
-    <view class="topbox">
-        <i-button class="sx_btn" size="small" bind:click="showDrawer">筛选</i-button>
-        <i-drawer mode="right" visible="{{ isShowDrawer }}" bind:close="onClose">
-            <view style="width:280px;background:white;height: {{windowHeight}}px" >
-                <drawer-inner wx:if="{{isShowDrawer}}"  bind:close="drawer_inner_closeHan" bind:ok="drawer_inner_okHan" brand="{{brand}}" color="{{color}}" fuel="{{fuel}}" exhaust="{{exhaust}}" engine="{{engine}}" filters="{{filters}}"></drawer-inner>
+    <scroll-view scroll-y="true" style="height:{{windowHeight}}px" >
+        <view class="car" wx:for="{{results}}" wx:key="index">
+            <view class="car_left">
+                <image src="http://aiqianduan.com:56506/images/carimages_small/{{item.id}}/view/{{item.img}}"></image>
             </view>
-        </i-drawer>
-    </view>
-    <!-- 定义汽车小格的模板 -->
-    <template name="car_grid">
-        <view class="car_grid">
-            <view class="picbox">
-                <image class="carpic"
-                    src="http://aiqianduan.com:56506/images/carimages_small/{{item.id}}/view/{{item.img}}"></image>
-            </view>
-            <view class="wordbox">
-                <view>【id】{{item.id}}</view>
-                <view>【品牌】{{item.brand}}</view>
-                <view>【价格】{{item.price}}</view>
-                <view>【颜色】{{item.color}}</view>
-                <view>【排放】{{item.exhaust}}</view>
-                <view>【燃油】{{item.fuel}}</view>
-                <view>【动力】{{item.engine}}</view>
-            </view>
+            <view class="car_right"></view>
         </view>
-    </template>
-    <scroll-view scroll-y="true" style="height: {{windowHeight - 41}}px" bindscrolltolower="lowerHan" lower-threshold="140">
-        <template is="car_grid" wx:for="{{results}}" wx:key="id" data="{{item:item}}">
-        </template>
-        <view style="text-align:center">到底了，没有更多了</view>
     </scroll-view>
 </view>

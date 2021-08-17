@@ -13,6 +13,14 @@ Component({
         filters: {
             type: Array,
             value: []
+        },
+        date1: {
+            type: String,
+            value: ''
+        },
+        date2: {
+            type: String,
+            value: ''
         }
     },
 
@@ -24,17 +32,18 @@ Component({
         brandArr: ['宝马', '奔驰', '奥迪', '本田', '丰田', '标志', '日产', '五菱'],
         // 当前是什么界面,main 表示主界面， allbrand 表示全部品牌， showall 表示查看全部选项
         nowshow: 'main',
-
         now: {
             // 当前选择的品牌
             brand: '',
-            // 当前选择的颜色，由于颜色可以多选，所以数组存放
+            // 当前选择的车系，由于可以多选，所以数组存放
+            series: [],
+            // 当前选择的颜色，由于可以多选，所以数组存放
             color: [],
-            // 当前选择的燃料，由于颜色可以多选，所以数组存放
+            // 当前选择的燃料，由于可以多选，所以数组存放
             fuel: [],
-            // 当前选择的尾气标准，由于颜色可以多选，所以数组存放
+            // 当前选择的尾气标准，由于可以多选，所以数组存放
             exhaust: [],
-            // 当前选择的发动机排量，由于颜色可以多选，所以数组存放
+            // 当前选择的发动机排量，由于可以多选，所以数组存放
             engine: [],
         },
         // 父亲传入的筛选器
@@ -43,6 +52,11 @@ Component({
         nowc: '颜色',
         nowe: 'color',
         nowoptions: ['红', '黄', '蓝', '绿', '哈哈', '嘻嘻'],
+        // 形式转换后的车系
+        allbs: {},
+        // 时间
+        date1: '',
+        date2: ''
     },
 
     /**
@@ -117,7 +131,9 @@ Component({
                     fuel: [],
                     exhaust: [],
                     engine: [],
-                }
+                },
+                date1: '',
+                date2: '',
             })
         },
         // 确定按钮做的事情
@@ -127,7 +143,10 @@ Component({
                 color: this.data.now.color,
                 fuel: this.data.now.fuel,
                 exhaust: this.data.now.exhaust,
-                engine: this.data.now.engine
+                engine: this.data.now.engine,
+                series: this.data.now.series,
+                date1: this.data.date1,
+                date2: this.data.date2,
             })
         },
 
@@ -137,14 +156,18 @@ Component({
                 this.setData({
                     now: {
                         ...this.data.now,
-                        brand: ''
+                        brand: '',
+                        // 车系也要同时清空
+                        series: []
                     }
                 })
             } else {
                 this.setData({
                     now: {
                         ...this.data.now,
-                        brand: e.target.dataset.pinpai
+                        brand: e.target.dataset.pinpai,
+                        // 车系也要同时清空
+                        series: []
                     }
                 })
             }
@@ -176,6 +199,24 @@ Component({
                 })
             }
 
+        },
+        // 日期
+        bindDateChange1(e) {
+            this.setData({
+                date1: e.detail.value
+            })
+        },
+        bindDateChange2(e) {
+            this.setData({
+                date2: e.detail.value
+            })
+        },
+        // 清空购买日期
+        clear_gmrq_Han() {
+            this.setData({
+                date1: '',
+                date2: '',
+            })
         }
     },
     // 组件的生命周期
@@ -189,7 +230,31 @@ Component({
                         windowHeight: res.windowHeight
                     })
                 },
-            })
+            });
+            // 请求所有品牌
+            // Ajax 拉取所有品牌数据
+            wx.request({
+                url: 'http://www.aiqianduan.com:56506/allbs',
+                success: (data) => {
+                    // console.log(data.data);
+                    // 形式转换
+                    // 去掉所有的大写字母,用品牌当作键名,组合成为新的对象
+                    var o = {};
+                    for (let zimu in data.data) {
+                        for (let pp in data.data[zimu]) {
+                            o[pp] = data.data[zimu][pp]
+                        }
+                    }
+                    // console.log(o);
+                    this.setData({
+                        allbs: o
+                    })
+                }
+            });
+            // 设置date2 为当前时间
+            // this.setData({
+            //     date2: new Date()
+            // })
         }
     },
 })

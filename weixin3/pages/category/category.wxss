@@ -1,0 +1,51 @@
+.box {
+  display: flex;
+}
+
+.lm {
+  width: 80px;
+  background-color: #ccc;
+  text-align: center;
+  font-size: 14px;
+  line-height: 28px;
+}
+
+.lm .lm_lm.cur {
+  background-color: white;
+}
+
+.box .products {
+  flex: 1;
+}
+
+.the_temp .title {
+  font-size: 20px;
+  line-height: 40px;
+  font-weight: bold;
+  text-align: center;
+}
+.the_temp .pro_grid{
+  display: flex;
+  height: 120px;
+  border: 1px solid #ccc;
+  margin: 0 10px 10px;
+  border-radius: 20px;
+  box-sizing: border-box;
+  overflow: hidden;
+  padding: 10px;
+
+}
+.the_temp .pro_grid .pic{
+  width: 100px;
+  height: 100px;
+  box-sizing: border-box;
+}
+.the_temp .pro_grid .pic image{
+  width: 100px;
+  height: 100px;
+}
+.the_temp .pro_grid .word{
+  flex: 1;
+  font-size: 14px;
+  margin-left: 10px;
+}

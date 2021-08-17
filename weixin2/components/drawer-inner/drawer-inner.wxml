@@ -1,4 +1,5 @@
 <view>
+    <wxs src="../../utils/tool.wxs" module="tool"></wxs>
     <!-- wx:if 指令表示这个组件是否显示-->
     <view wx:if="{{nowshow == 'main'}}">
         <scroll-view scroll-y="true" style="height:{{windowHeight - 51}}px">
@@ -14,7 +15,49 @@
                     <view class="btn btn_all" bindtap="showallbrand">全部</view>
                 </view>
             </view>
-            <wxs src="./tool.wxs" module="tool"></wxs>
+
+            <!-- 车系筛选器 -->
+            <view class="sx_grid" wx:if="{{now.brand != ''}}">
+                <view class="title" style="overflow: hidden;font-size:13px">
+                    <view style="float:left">{{now.brand}}的车系</view>
+                    <view style="float:right">当前：{{now.series}}</view>
+                </view>
+                <view class="content">
+                    <view class="btn {{tool.checkInArr(now.series,item) ? 'cur' : ''}}"
+                        wx:for="{{allbs[now.brand].length > 5 ? tool.myslice(allbs[now.brand],0,5) : allbs[now.brand]}}"
+                        wx:key="index" bindtap="ppphan" data-k="series" data-v="{{item}}">{{item}}</view>
+                    <view class="btn btn_all" bindtap="showallbrand">全部</view>
+                </view>
+            </view>
+            <!-- 购买日期 -->
+            <view class="sx_grid">
+                <view class="title" style="overflow: hidden;font-size:13px">
+                    <view style="float:left">购买日期</view>
+                    <view style="float:right">当前：</view>
+                </view>
+                <view class="gmrq content">
+                    <view class="p1">
+                        <picker mode="date" value="{{date1}}" start="2000-01-01" end="2020-04-01"
+                            bindchange="bindDateChange1">
+                            <view class="picker">
+                                <view wx:if="{{date1 == ''}}">请选择开始日期</view>
+                                <view wx:if="{{date1 != ''}}">{{date1}}</view>
+                            </view>
+                        </picker>
+                    </view>
+                    <view class="p2">
+                        <picker mode="date" value="{{date2}}" start="2000-01-01" end="2020-04-01"
+                            bindchange="bindDateChange2">
+                            <view class="picker">
+                                <view wx:if="{{date2 == ''}}">请选择结束日期</view>
+                                <view wx:if="{{date2 != ''}}">{{date2}}</view>
+                            </view>
+                        </picker>
+                    </view>
+                </view>
+                <view class="clear_gmrq" bindtap="clear_gmrq_Han">清空购买日期</view>
+            </view>
+
             <!-- 其他筛选 -->
             <view class="sx_grid" wx:for="{{filters}}" wx:key="e" wx:for-item="lm">
                 <view class="title" style="overflow: hidden;font-size:13px">

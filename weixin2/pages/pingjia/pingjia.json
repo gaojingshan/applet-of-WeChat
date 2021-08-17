@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "i-action-sheet": "../../iviewui-dist/action-sheet/index"
+  }
+}

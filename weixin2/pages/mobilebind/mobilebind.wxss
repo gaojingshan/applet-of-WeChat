@@ -1,0 +1,35 @@
+.kuang1 {
+  border: 1px solid #eee;
+  width: 600rpx;
+  height: 30px;
+  margin: 10px auto;
+}
+
+.row {
+  width: 600rpx;
+  height: 30px;
+  margin: 10px auto;
+}
+
+.kuang2 {
+  float: left;
+  border: 1px solid #eee;
+  width: 300rpx;
+  height: 30px;
+  box-sizing: border-box;
+}
+
+.btn {
+  float: right;
+  width: 260rpx;
+  height: 30px;
+  font-size: 12px;
+}
+
+.btn_qd {
+  width: 260px;
+  height: 40px;
+  line-height: 40px;
+  display: block;
+  margin: 40px auto;
+}

@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "i-input": "../../iviewui-dist/input/index"
+  }
+}

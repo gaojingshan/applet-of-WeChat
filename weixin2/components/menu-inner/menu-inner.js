@@ -47,6 +47,16 @@ Component({
                 current: this.data.current
             });
         },
+        // 取消按钮
+        cancelHan() {
+            this.triggerEvent('cancel')
+        },
+        // 确定按钮
+        okHan() {
+            this.triggerEvent('ok', {
+                current: this.data.current
+            })
+        }
     },
 
 })

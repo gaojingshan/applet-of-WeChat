@@ -1,0 +1,16 @@
+<template name="myswiper">
+    <view class="myswiper">
+        <swiper indicator-dots="true" autoplay="true" interval="2000" duration="300" circular="true"
+            style="width:{{windowWidth - 20}}px;height:{{(windowWidth - 20) / (1125 / 352)}}px;margin: 0 auto">
+            <block wx:for="{{images}}" wx:key="*this">
+                <swiper-item>
+                    <view class="swiper-item">
+                        <image src="{{item}}"
+                            style="width:{{windowWidth - 20}}px;height:{{(windowWidth - 20) / (1125 / 352)}}px;">
+                        </image>
+                    </view>
+                </swiper-item>
+            </block>
+        </swiper>
+    </view>
+</template>
